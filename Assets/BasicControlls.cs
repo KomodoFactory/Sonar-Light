@@ -1,20 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+[RequireComponent (typeof (Rigidbody))]
+[RequireComponent (typeof (CapsuleCollider))]
 public class BasicControlls : MonoBehaviour {
 
-    float walkspeed = 500;
-    float rotationspeed = 100;
-    float maxVelocity = 10;
-    float maxJumpVelocity = 15;
-    float jumpspeed = 500;
-    float epsilonY = 0f;
+    public float walkspeed = 500;
+    public float rotationspeed = 100;
+    public float maxVelocity = 10;
+    public float maxJumpVelocity = 15;
+    public float jumpspeed = 500;
+    private float epsilonY = 0f;
 
 
     // Use this for initialization
     void Start () {
         CapsuleCollider col = GetComponent<CapsuleCollider>();
-        epsilonY = col.height / 2;
+        epsilonY = (col.height / 2);
 	}
 	
 	// Update is called once per frame

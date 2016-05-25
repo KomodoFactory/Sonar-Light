@@ -4,6 +4,8 @@ using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets.Utility
 {
+    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(CapsuleCollider))]
     public class SimpleMouseRotator : MonoBehaviour
     {
         // A mouselook behaviour with constraints which operate relative to
