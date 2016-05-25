@@ -22,7 +22,6 @@ public class BasicControlls : MonoBehaviour {
         Rigidbody rb = GetComponent<Rigidbody>();
         float distance = 0;
         Vector3 relVel = transform.InverseTransformDirection(rb.velocity);
-        Debug.Log(rb.velocity.ToString());
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
