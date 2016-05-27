@@ -383,9 +383,9 @@ GameObject:
   - 136: {fileID: 1246512494}
   - 23: {fileID: 1246512493}
   - 54: {fileID: 1246512492}
-  - 114: {fileID: 1246512490}
   - 20: {fileID: 1246512491}
   - 114: {fileID: 1246512497}
+  - 114: {fileID: 1246512490}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -407,7 +407,7 @@ MonoBehaviour:
   walkspeed: 500
   rotationspeed: 100
   maxVelocity: 10
-  jumpspeed: 300
+  jumpspeed: 500
 --- !u!20 &1246512491
 Camera:
   m_ObjectHideFlags: 0

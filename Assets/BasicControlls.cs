@@ -29,18 +29,32 @@ public class BasicControlls : MonoBehaviour {
             rigidbody.AddForce(0, jumpspeed, 0);
         }
         if (Input.GetKey(KeyCode.W) && relativeVelocity.z < maxVelocity) {
-            rigidbody.AddRelativeForce(0, 0, distance);
+            Vector3 wc = transform.TransformDirection(new Vector3(0, 0, distance));
+
+            rigidbody.AddForce(ProjectWithStableMagnitude(wc));
         }
         if (Input.GetKey(KeyCode.A) && relativeVelocity.x > -1 * maxVelocity) {
-            rigidbody.AddForce(distance * -1, 0, 0);
+            Vector3 wc = transform.TransformDirection(new Vector3(-distance, 0, distance));
+
+            rigidbody.AddForce(ProjectWithStableMagnitude(wc));
         }
         if (Input.GetKey(KeyCode.D) && relativeVelocity.x < maxVelocity) {
-            rigidbody.AddForce(distance, 0, 0);
+            Vector3 wc = transform.TransformDirection(new Vector3(distance, 0, 0));
+
+            rigidbody.AddForce(ProjectWithStableMagnitude(wc));
         }
         if (Input.GetKey(KeyCode.S) && relativeVelocity.z > -1 * maxVelocity) {
-            rigidbody.AddForce(0, 0, distance * -1);
+            Vector3 wc = transform.TransformDirection(new Vector3(0, 0, -distance));
+
+            rigidbody.AddForce(ProjectWithStableMagnitude(wc));
         }
 
+    }
+
+    private static Vector3 ProjectWithStableMagnitude(Vector3 wc) {
+        Vector3 wcProj = new Vector3(wc.x, 0, wc.z).normalized;
+        wcProj.Scale(new Vector3(wc.magnitude, wc.magnitude, wc.magnitude));
+        return wcProj;
     }
 
     bool groundContact() {
