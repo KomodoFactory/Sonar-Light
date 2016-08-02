@@ -2,40 +2,48 @@
 {
 	Properties
 	{
-		_MainTex("Texture", 2D) = "white" {}
-		_MainColor("Color", Color) = (0,0,0,1)
+		_MainTex("Base (RGB) Trans (A)", 2D) = "white" {}
 	}
 		SubShader
+	{
+		// No culling or depth
+		Cull off ZWrite On ZTest Always
+
+		Pass
 		{
-			// No culling or depth
-			Cull off ZWrite Off ZTest Always
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+			#include "UnityCG.cginc"
 
-			Pass
+			struct appdata
 			{
-				CGPROGRAM
-
-	#pragma vertex vert
-	#pragma fragment frag
-	#include "UnityCG.cginc"
-
-				struct v2f {
-				float4 pos : SV_POSITION;
-				fixed3 color : COLOR0;
+			float4 vertex : POSITION;
+			float2 uv : TEXCOORD0;
+			float3 normal : NORMAL;
 			};
 
-			v2f vert(appdata_base v)
-			{
-				v2f o;
-				o.pos = v.vertex;//mul(UNITY_MATRIX_MVP, v.vertex);
-				o.color = v.normal * 0.5 +0.5;
-				return o;
-			}
+			struct v3f {
+			float4 pos : SV_POSITION;
+			fixed4 color : COLOR;
+			float2 uv : TEXCOORD0;
+		};
 
-			fixed4 frag(v2f i) : SV_Target
-			{
-				return fixed4(i.color, 1);
-			}
-				ENDCG
-			}
+		v3f vert(appdata v)
+		{
+			v3f o;
+			o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+			o.uv = v.uv;
+			o.color = fixed4(v.normal * 0.5 +0.5,1);
+			return o;
 		}
+
+		fixed4 frag(v3f i) : SV_Target
+		{
+			fixed4 color = i.color;
+			return color;
+		}
+			ENDCG
+		}
+	}
 }

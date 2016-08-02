@@ -10,13 +10,14 @@ public class BasicControlls : MonoBehaviour {
     public float rotationspeed = 100;
     public float maxVelocity = 10;
     public float jumpspeed = 100;
+    public float heightThreshhold=0.5f;
     private float epsilonY;
 
 
     // Use this for initialization
     void Start() {
         CapsuleCollider col = GetComponent<CapsuleCollider>();
-        epsilonY = col.bounds.extents.y;
+        epsilonY = col.bounds.extents.y + heightThreshhold;
     }
 
     // Update is called once per frame
