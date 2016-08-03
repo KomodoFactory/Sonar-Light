@@ -31,8 +31,7 @@ namespace UnityStandardAssets.ImageEffects
 		public Shader edgeDetectShader;
 		public Material edgeDetectMaterial = null;
 		private EdgeDetectMode oldMode = EdgeDetectMode.RobertsCrossDepthNormals;
-		
-		
+
 		public override bool CheckResources ()
 		{
 			CheckSupport (true);
@@ -75,26 +74,24 @@ namespace UnityStandardAssets.ImageEffects
 		[ImageEffectOpaque]
 		void OnRenderImage (RenderTexture source, RenderTexture destination)
 		{
-			if (CheckResources () == false)
-			{
-				Graphics.Blit (source, destination);
-				return;
-			}
-		    if (edgeDetectMaterial == null)
-		    {
-                edgeDetectShader = Shader.Find("Hidden/EdgeDetectColors");
-		        edgeDetectMaterial = CheckShaderAndCreateMaterial(edgeDetectShader, edgeDetectMaterial);
-		    }
-			Vector2 sensitivity = new Vector2 (sensitivityDepth, sensitivityNormals);
-			edgeDetectMaterial.SetVector ("_Sensitivity", new Vector4 (sensitivity.x, sensitivity.y, 1.0f, sensitivity.y));
-			edgeDetectMaterial.SetFloat ("_BgFade", edgesOnly);
-			edgeDetectMaterial.SetFloat ("_SampleDistance", sampleDist);
-			edgeDetectMaterial.SetVector ("_BgColor", edgesOnlyBgColor);
-			edgeDetectMaterial.SetFloat ("_Exponent", edgeExp);
-			edgeDetectMaterial.SetFloat ("_Threshold", lumThreshold);
-			edgeDetectMaterial.SetVector("_Color", edgesColor);
-			
-			Graphics.Blit (source, destination, edgeDetectMaterial, (int) mode);
-		}
+            if (CheckResources() == false) {
+                Graphics.Blit(source, destination);
+            }
+                if (edgeDetectMaterial == null) {
+                    edgeDetectShader = Shader.Find("Hidden/EdgeDetectColors");
+                    edgeDetectMaterial = CheckShaderAndCreateMaterial(edgeDetectShader, edgeDetectMaterial);
+                }
+                Vector2 sensitivity = new Vector2(sensitivityDepth, sensitivityNormals);
+                edgeDetectMaterial.SetVector("_Sensitivity", new Vector4(sensitivity.x, sensitivity.y, 1.0f, sensitivity.y));
+                edgeDetectMaterial.SetFloat("_BgFade", edgesOnly);
+                edgeDetectMaterial.SetFloat("_SampleDistance", sampleDist);
+                edgeDetectMaterial.SetVector("_BgColor", edgesOnlyBgColor);
+                edgeDetectMaterial.SetFloat("_Exponent", edgeExp);
+                edgeDetectMaterial.SetFloat("_Threshold", lumThreshold);
+                edgeDetectMaterial.SetVector("_Color", edgesColor);
+
+                Graphics.Blit(source, destination, edgeDetectMaterial, (int)mode);
+            }
+
 	}
 }
