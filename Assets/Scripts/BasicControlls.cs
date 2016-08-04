@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityStandardAssets.ImageEffects;
 
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
+[RequireComponent(typeof(Camera))]
 public class BasicControlls : MonoBehaviour {
 
     public float walkspeed = 500;
@@ -12,12 +13,18 @@ public class BasicControlls : MonoBehaviour {
     public float jumpspeed = 100;
     public float heightThreshhold=0.5f;
     private float epsilonY;
+    private EdgeDetectionColor edgeScript;
+    private new Camera camera;
+    public int nearModeCliping = 30;
+    public int farModeClipping = 1000;
 
 
     // Use this for initialization
     void Start() {
-        CapsuleCollider col = GetComponent<CapsuleCollider>();
-        epsilonY = col.bounds.extents.y + heightThreshhold;
+        CapsuleCollider collider = this.GetComponent<CapsuleCollider>();
+        epsilonY = collider.bounds.extents.y + heightThreshhold;
+        edgeScript = this.GetComponent<EdgeDetectionColor>();
+        camera = this.GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -25,6 +32,17 @@ public class BasicControlls : MonoBehaviour {
         float distance = Time.deltaTime * walkspeed;
         Rigidbody rigidbody = GetComponent<Rigidbody>();
         Vector3 relativeVelocity = transform.InverseTransformDirection(rigidbody.velocity);
+
+        if (Input.GetKeyDown(KeyCode.F11)) {
+            edgeScript.enabled = !edgeScript.enabled;
+        }
+        if (Input.GetKeyDown(KeyCode.F5)) {
+            if(camera.farClipPlane == nearModeCliping) {
+                camera.farClipPlane = farModeClipping;
+            }else {
+                camera.farClipPlane = nearModeCliping;
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) && groundContact() && relativeVelocity.y < maxVelocity) {
             rigidbody.AddForce(0, jumpspeed, 0);
