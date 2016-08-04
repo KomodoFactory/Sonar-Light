@@ -151,6 +151,8 @@ MonoBehaviour:
   maxVelocity: 10
   jumpspeed: 500
   heightThreshhold: 2
+  nearModeCliping: 30
+  farModeClipping: 1000
 --- !u!114 &11486292
 MonoBehaviour:
   m_ObjectHideFlags: 1
