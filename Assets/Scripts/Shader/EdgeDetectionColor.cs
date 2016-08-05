@@ -19,12 +19,12 @@ namespace UnityStandardAssets.ImageEffects
 		
 		
 		public EdgeDetectMode mode = EdgeDetectMode.RobertsCrossDepthNormals;
-		public float sensitivityDepth = 1.0f;
-		public float sensitivityNormals = 1.0f;
+		public float sensitivityDepth = 0.5f;
+		public float sensitivityNormals = 7f;
 		public float lumThreshold = 0.2f;
 		public float edgeExp = 1.0f;
-		public float sampleDist = 1.0f;
-		public float edgesOnly = 0.0f;
+		public float sampleDist = 0.5f;
+		public float edgesOnly = 1.0f;
 		public Color edgesOnlyBgColor = Color.black;
 		public Color edgesColor = Color.red;
 		

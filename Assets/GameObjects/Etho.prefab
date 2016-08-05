@@ -1507,8 +1507,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161508}
-  m_LocalRotation: {x: 1.110223e-16, y: 0.018142223, z: -8.881784e-16, w: -0.99983543}
-  m_LocalPosition: {x: -3.250002, y: 19.02, z: 73.50598}
+  m_LocalRotation: {x: 7.1499623e-16, y: -0.7052644, z: -5.3848606e-16, w: -0.7089444}
+  m_LocalPosition: {x: 1.8175796, y: 2.6, z: 0.5027427}
   m_LocalScale: {x: 1.5833005, y: 2, z: 0.7601659}
   m_Children:
   - {fileID: 462116}
@@ -2494,11 +2494,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 1
-  sensitivityDepth: 1
-  sensitivityNormals: 1
+  sensitivityDepth: 0.5
+  sensitivityNormals: 7
   lumThreshold: 0.2
   edgeExp: 1
-  sampleDist: 1
+  sampleDist: 0.5
   edgesOnly: 1
   edgesOnlyBgColor: {r: 0, g: 0, b: 0, a: 1}
   edgesColor: {r: 0, g: 0.10116625, b: 0.77205884, a: 1}
