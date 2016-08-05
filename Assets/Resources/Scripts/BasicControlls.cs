@@ -26,13 +26,18 @@ public class BasicControlls : MonoBehaviour {
         Rigidbody rigidbody = GetComponent<Rigidbody>();
         Vector3 relativeVelocity = transform.InverseTransformDirection(rigidbody.velocity);
         HandleKeystrokes(distance, rigidbody, relativeVelocity);
-        
-        if(!(Input.GetKey(KeyCode.W) ||Input.GetKey(KeyCode.A) ||Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Space) || !groundContact())) {
+
+        HandleDrag(rigidbody);
+
+    }
+
+    private void HandleDrag(Rigidbody rigidbody) {
+        if (!(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Space) || !groundContact())) {
             rigidbody.drag = breakConstant;
-        }else {
+        }
+        else {
             rigidbody.drag = 0;
         }
-
     }
 
     private void HandleKeystrokes(float distance, Rigidbody rigidbody, Vector3 relativeVelocity) {
