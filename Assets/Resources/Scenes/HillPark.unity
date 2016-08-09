@@ -425,6 +425,25 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 484710, guid: a9180ddcd15c1874fa2dee25085cc1a6, type: 2}
   m_PrefabInternal: {fileID: 206828194}
+--- !u!1 &170965367 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 161508, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
+  m_PrefabInternal: {fileID: 1822201522}
+--- !u!114 &170965369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 170965367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02c30de9b0ffb649b19b1342734f3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkspeed: 1000
+  rotationspeed: 100
+  maxVelocity: 10
+  jumpspeed: 100
 --- !u!1001 &192102683
 Prefab:
   m_ObjectHideFlags: 0
@@ -3194,7 +3213,16 @@ Prefab:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11446192, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
+      propertyPath: mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446192, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
+      propertyPath: edgesOnly
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11467798, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1867055054 stripped

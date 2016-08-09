@@ -17,20 +17,20 @@ public class BasicControlls : MonoBehaviour {
     // Use this for initialization
     void Start() {
         CapsuleCollider col = GetComponent<CapsuleCollider>();
+        Rigidbody rigidbody = GetComponent<Rigidbody>();
         epsilonY = col.bounds.extents.y;
     }
 
     // Update is called once per frame
     void Update() {
         float distance = Time.deltaTime * walkspeed;
-        Rigidbody rigidbody = GetComponent<Rigidbody>();
-        Vector3 relativeVelocity = transform.InverseTransformDirection(rigidbody.velocity);
-        HandleKeystrokes(distance, rigidbody, relativeVelocity);
+        Vector3 relativeVelocity = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
+        HandleKeystrokes(distance, GetComponent<Rigidbody>(), relativeVelocity);
         
         if(!(Input.GetKey(KeyCode.W) ||Input.GetKey(KeyCode.A) ||Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Space) || !groundContact())) {
-            rigidbody.drag = breakConstant;
+            GetComponent<Rigidbody>().drag = breakConstant;
         }else {
-            rigidbody.drag = 0;
+            GetComponent<Rigidbody>().drag = 0;
         }
 
     }
