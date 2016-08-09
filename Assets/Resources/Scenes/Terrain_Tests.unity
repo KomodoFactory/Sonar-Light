@@ -196,34 +196,21 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 467738, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.5326752
+      value: 0.53267515
       objectReference: {fileID: 0}
     - target: {fileID: 467738, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.070340455
+      value: 0.07034045
       objectReference: {fileID: 0}
     - target: {fileID: 467738, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.83613276
+      value: 0.83613265
       objectReference: {fileID: 0}
     - target: {fileID: 467738, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.110415146
+      value: -0.11041513
       objectReference: {fileID: 0}
-    - target: {fileID: 5484730, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 11467798, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
-      propertyPath: walkspeed
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484730, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11467798, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &313889375
@@ -268,25 +255,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 357a66039fecd22469b4e4ea64729751, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1650798210 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 161508, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
-  m_PrefabInternal: {fileID: 211022659}
---- !u!114 &1650798212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1650798210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b02c30de9b0ffb649b19b1342734f3ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkspeed: 1000
-  rotationspeed: 100
-  maxVelocity: 10
-  jumpspeed: 400
 --- !u!1 &1978220470
 GameObject:
   m_ObjectHideFlags: 0
