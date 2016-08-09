@@ -3194,6 +3194,14 @@ Prefab:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 11439254, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
+      propertyPath: jumpspeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439254, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
+      propertyPath: walkspeed
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
   m_IsPrefabParent: 0

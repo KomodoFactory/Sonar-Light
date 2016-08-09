@@ -93,6 +93,12 @@ namespace UnityStandardAssets.ImageEffects
 			edgeDetectMaterial.SetFloat ("_Exponent", edgeExp);
 			edgeDetectMaterial.SetFloat ("_Threshold", lumThreshold);
 			edgeDetectMaterial.SetVector("_Color", edgesColor);
+
+
+            edgeDetectMaterial.SetFloat("_Distance",10.0f);
+            edgeDetectMaterial.SetVector("_Position", GetComponent<Camera>().transform.position);
+
+            Debug.Log(edgeDetectMaterial.GetVector("_Position"));
 			
 			Graphics.Blit (source, destination, edgeDetectMaterial, (int) mode);
 		}
