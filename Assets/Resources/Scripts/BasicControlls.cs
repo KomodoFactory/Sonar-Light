@@ -3,28 +3,25 @@ using System.Collections;
 
 
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(CapsuleCollider))]
 public class BasicControlls : MonoBehaviour {
 
     public float walkspeed = 1000;
     public float rotationspeed = 100;
     public float maxVelocity = 10;
     public float jumpspeed = 100;
-    public readonly float breakConstant=10;
-    private float epsilonY;
+    public readonly float breakConstant = 10;
+    public float epsilonY = 5;
+    private new Rigidbody rigidbody;
 
 
     // Use this for initialization
     void Start() {
-        CapsuleCollider col = GetComponent<CapsuleCollider>();
-        Rigidbody rigidbody = GetComponent<Rigidbody>();
-        epsilonY = col.bounds.extents.y;
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update() {
         float distance = Time.deltaTime * walkspeed;
-        Rigidbody rigidbody = GetComponent<Rigidbody>();
         Vector3 relativeVelocity = transform.InverseTransformDirection(rigidbody.velocity);
         HandleKeystrokes(distance, rigidbody, relativeVelocity);
 

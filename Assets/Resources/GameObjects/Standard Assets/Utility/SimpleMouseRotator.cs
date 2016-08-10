@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
+
 namespace UnityStandardAssets.Utility
 {
     public class SimpleMouseRotator : MonoBehaviour
@@ -28,12 +29,15 @@ namespace UnityStandardAssets.Utility
         private Vector3 m_FollowVelocity;
         private Quaternion m_OriginalRotation;
 
+        private GameObject etho;
+
 
         private void Start()
         {
             m_OriginalRotation = transform.localRotation;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            etho = GameObject.Find("Etho");
         }
 
 
@@ -114,7 +118,8 @@ namespace UnityStandardAssets.Utility
             m_FollowAngles = Vector3.SmoothDamp(m_FollowAngles, m_TargetAngles, ref m_FollowVelocity, dampingTime);
 
             // update the actual gameobject's rotation
-            transform.localRotation = m_OriginalRotation*Quaternion.Euler(-m_FollowAngles.x, m_FollowAngles.y, 0);
+            transform.localRotation = m_OriginalRotation*Quaternion.Euler(-m_FollowAngles.x, 0, 0);
+            etho.transform.localRotation = m_OriginalRotation * Quaternion.Euler(0, m_FollowAngles.y, 0);
         }
     }
 }
