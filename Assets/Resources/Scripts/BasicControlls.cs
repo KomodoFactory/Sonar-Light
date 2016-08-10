@@ -24,15 +24,6 @@ public class BasicControlls : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         float distance = Time.deltaTime * walkspeed;
-<<<<<<< HEAD
-        Vector3 relativeVelocity = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
-        HandleKeystrokes(distance, GetComponent<Rigidbody>(), relativeVelocity);
-        
-        if(!(Input.GetKey(KeyCode.W) ||Input.GetKey(KeyCode.A) ||Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Space) || !groundContact())) {
-            GetComponent<Rigidbody>().drag = breakConstant;
-        }else {
-            GetComponent<Rigidbody>().drag = 0;
-=======
         Rigidbody rigidbody = GetComponent<Rigidbody>();
         Vector3 relativeVelocity = transform.InverseTransformDirection(rigidbody.velocity);
         HandleKeystrokes(distance, rigidbody, relativeVelocity);
@@ -47,7 +38,6 @@ public class BasicControlls : MonoBehaviour {
         }
         else {
             rigidbody.drag = 0;
->>>>>>> f35d678f01efbc66c061c364c1a5fc051260fcb6
         }
     }
 
