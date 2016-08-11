@@ -39,15 +39,19 @@ public class PickupObjects : MonoBehaviour {
 
     private void centerObject() {
 
-        float distance = Vector3.Distance(targetObject.position, cameraTransform.position);
-
-        targetObject.transform.position = Vector3.Lerp(targetObject.transform.position, cameraTransform.position + cameraTransform.forward * pickupDistance, Time.deltaTime * distance);
+        Vector3 currentPosition = targetObject.position;
+        Vector3 destination = cameraTransform.position + cameraTransform.forward * pickupDistance;
+        float distance = Vector3.Distance(currentPosition, destination);
+        targetObject.velocity = characterRigidbody.velocity;
+        targetObject.transform.position = Vector3.MoveTowards(currentPosition, destination, Time.deltaTime * distance * 5);
 
     }
 
     private void pickupObject() {
         targetObject.useGravity = false;
         Physics.IgnoreCollision((Collider)this.GetComponent<Collider>(), (Collider)targetObject.GetComponent<Collider>(), true);
+        targetObject.angularDrag = 1;
+        targetObject.drag = 3;
         hasObjectInHand = true;
     }
 
@@ -63,6 +67,8 @@ public class PickupObjects : MonoBehaviour {
     private void releaseObject() {
         hasObjectInHand = false;
         targetObject.useGravity = true;
+        targetObject.angularDrag = 0;
+        targetObject.drag = 0.05f;
         Physics.IgnoreCollision((Collider)this.GetComponent<Collider>(), (Collider)targetObject.GetComponent<Collider>(), false);
         targetObject.velocity = characterRigidbody.velocity;
     }

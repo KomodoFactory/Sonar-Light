@@ -10,7 +10,7 @@ public class BasicControlls : MonoBehaviour {
     public float maxVelocity = 10;
     public float jumpspeed = 100;
     public readonly float breakConstant = 10;
-    public float epsilonY = 5;
+    public float epsilonY = 2.2f;
     private new Rigidbody rigidbody;
 
 
