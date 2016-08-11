@@ -4,14 +4,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PickupObjects : MonoBehaviour {
 
-    //TODO: Raycasting & Portal like behaivour (Ruecke immer wieder in das Zentrum des Sichtfeldes)
-
     public float throwForce = 1000;
     public float pickupDistance = 5;
-    Rigidbody targetObject;
-    bool hasObjectInHand = false;
-    Transform cameraTransform;
-    Rigidbody characterRigidbody;
+    private Rigidbody targetObject;
+    private bool hasObjectInHand = false;
+    private Transform cameraTransform;
+    private Rigidbody characterRigidbody;
 
     void Start() {
         cameraTransform = Camera.main.transform;
@@ -21,6 +19,7 @@ public class PickupObjects : MonoBehaviour {
     void Update() {
 
         if (hasObjectInHand) {
+            centerObject();
             if (Input.GetMouseButtonDown(0)) {
                 dropObject();
             }
@@ -38,9 +37,17 @@ public class PickupObjects : MonoBehaviour {
         }
     }
 
+    private void centerObject() {
+
+        float distance = Vector3.Distance(targetObject.position, cameraTransform.position);
+
+        targetObject.transform.position = Vector3.Lerp(targetObject.transform.position, cameraTransform.position + cameraTransform.forward * pickupDistance, Time.deltaTime * distance);
+
+    }
+
     private void pickupObject() {
-        targetObject.transform.parent = cameraTransform;
-        targetObject.isKinematic = true;
+        targetObject.useGravity = false;
+        Physics.IgnoreCollision((Collider)this.GetComponent<Collider>(), (Collider)targetObject.GetComponent<Collider>(), true);
         hasObjectInHand = true;
     }
 
@@ -55,8 +62,8 @@ public class PickupObjects : MonoBehaviour {
 
     private void releaseObject() {
         hasObjectInHand = false;
-        targetObject.transform.parent = null;
-        targetObject.isKinematic = false;
+        targetObject.useGravity = true;
+        Physics.IgnoreCollision((Collider)this.GetComponent<Collider>(), (Collider)targetObject.GetComponent<Collider>(), false);
         targetObject.velocity = characterRigidbody.velocity;
     }
 
