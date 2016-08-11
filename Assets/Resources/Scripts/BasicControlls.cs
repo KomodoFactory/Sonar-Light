@@ -72,7 +72,7 @@ public class BasicControlls : MonoBehaviour {
 
     bool groundContact() {
         RaycastHit hit = new RaycastHit();
-        if (Physics.Raycast(transform.position, -Vector3.up, out hit)) {
+        if (Physics.Raycast(transform.position, Vector3.down, out hit)) {
             float distanceToGround = hit.distance;
             if (distanceToGround <= epsilonY) {
                 return true;
