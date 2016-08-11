@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 7ee42833a7d655e49bbc01dfa49d17d3
-timeCreated: 1470748692
+guid: 31580a796277bf24ba47c9ab6aabf750
+timeCreated: 1470895751
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Speaker
+    4300000: Cylinder002
   materials:
     importMaterials: 1
     materialName: 0
