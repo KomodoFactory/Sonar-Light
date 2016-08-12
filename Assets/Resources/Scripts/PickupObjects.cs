@@ -42,7 +42,7 @@ public class PickupObjects : MonoBehaviour {
         Vector3 currentPosition = targetObject.position;
         Vector3 destination = cameraTransform.position + cameraTransform.forward * pickupDistance;
         float distance = Vector3.Distance(currentPosition, destination);
-        targetObject.velocity = characterRigidbody.velocity;
+        targetObject.velocity = characterRigidbody.velocity;    
         targetObject.transform.position = Vector3.MoveTowards(currentPosition, destination, Time.deltaTime * distance * 5);
 
     }
