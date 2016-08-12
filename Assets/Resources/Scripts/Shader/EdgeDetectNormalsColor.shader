@@ -100,8 +100,6 @@ v2f vertRobert(appdata_img v)
 			edge *= CheckSame(sample3.xy, DecodeFloatRG(sample3.zw), sample4);
 
 
-			
-
 			//if (i.distance > _Distance) {
 			//	return 0;
 			//}
