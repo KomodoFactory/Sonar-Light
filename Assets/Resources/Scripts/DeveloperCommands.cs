@@ -9,6 +9,8 @@ public class DeveloperCommands : MonoBehaviour
     private new Camera camera;
     public int nearModeCliping = 30;
     public int farModeClipping = 1000;
+    private int[] POVs= {60,70,90,100,120};
+    private int POVpointer = 0;
 
     // Use this for initialization
     void Start()
@@ -35,6 +37,13 @@ public class DeveloperCommands : MonoBehaviour
             {
                 camera.farClipPlane = nearModeCliping;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            camera.fieldOfView = POVs[POVpointer];
+            POVpointer++;
+            POVpointer = POVpointer % POVs.Length;
         }
     }
 }
