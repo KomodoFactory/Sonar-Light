@@ -37,7 +37,7 @@ namespace UnityStandardAssets.Utility
             m_OriginalRotation = transform.localRotation;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            etho = GameObject.Find("Etho");
+            etho = GameObject.FindGameObjectsWithTag("Player")[0];
         }
 
 
