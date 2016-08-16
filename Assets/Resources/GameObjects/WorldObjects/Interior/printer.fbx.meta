@@ -1,27 +1,17 @@
 fileFormatVersion: 2
-guid: af584c7e3154ce84499dc6111b05b61b
-timeCreated: 1470908620
+guid: 92651a49ea1071b4982246dcea36cc3b
+timeCreated: 1471339670
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: ceiling-fan.001
-    100004: ceiling-fan.002
     400000: //RootNode
-    400002: ceiling-fan.001
-    400004: ceiling-fan.002
     2300000: //RootNode
-    2300002: ceiling-fan.001
-    2300004: ceiling-fan.002
     3300000: //RootNode
-    3300002: ceiling-fan.001
-    3300004: ceiling-fan.002
-    4300000: ceiling-fan
-    4300002: ceiling-fan.002
-    4300004: ceiling-fan.001
+    4300000: low_printer
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -41,17 +31,17 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importBlendShapes: 1
+    importBlendShapes: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
+    optimizeMeshForGPU: 0
     keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
@@ -60,8 +50,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
-    normalImportMode: 0
+    normalSmoothAngle: 1
+    normalImportMode: 1
     tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
