@@ -49,7 +49,7 @@
 
 			float distance = length(delta);
 
-			o.Alpha = 0;
+			o.Albedo = 0;
 
 			/*fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
 

@@ -90,12 +90,12 @@ v2f vertRobert(appdata_full v)
 			edge *= CheckSame(sample3.xy, DecodeFloatRG(sample3.zw), sample4);
 
 
-			if (edge > 0 || _Color[3] <1) {
+			if (edge > 0) {
 				
 				return  lerp(tex2D(_MainTex, i.uv[0].xy), _BgColor, 0.1);
 			}
 			else {
-				_Color[3] = 0.1;
+				//_Color[3] = 0.1;
 				return _Color;
 			}
 
