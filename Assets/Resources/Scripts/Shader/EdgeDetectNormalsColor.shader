@@ -92,7 +92,7 @@ v2f vertRobert(appdata_full v)
 
 			if (edge > 0 || _Color[3] <1) {
 				
-				return  0;//lerp(tex2D(_MainTex, i.uv[0].xy), _BgColor, _BgFade);
+				return  lerp(tex2D(_MainTex, i.uv[0].xy), _BgColor, 0.1);
 			}
 			else {
 				_Color[3] = 0.1;

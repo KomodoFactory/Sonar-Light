@@ -1,8 +1,8 @@
 ﻿Shader "Custom/DistanceShader" {
 	Properties {
 
-		_MainTex("Texture", 2D) = "white" {}
-	_BumpMap("Bumpmap", 2D) = "bump" {}
+		_MainTex("Color (RGB) Alpha (A)", 2D) = "white"
+		_BumpMap("Bumpmap", 2D) = "bump" {}
 
 	/*
 		_Color ("Color", Color) = (1,1,1,1)
@@ -12,15 +12,16 @@
 		*/
 	}
 	SubShader {
-		Tags{ "RenderType" = "Opaque" }
+		Tags{"RenderType" = "Opaque" }
 		//Tags { "Queue" = "Transparent" }
 		//Blend SrcAlpha OneMinusSrcAlpha
-		ZWrite Off
+		//ZTest Always Cull Off ZWrite Off
+		
 		LOD 200
 		
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf Standard fullforwardshadows
+		#pragma surface surf Standard fullforwardshadows alpha
 
 		// Use shader model 3.0 target, to get nicer looking lighting
 		#pragma target 3.0
@@ -40,9 +41,15 @@
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 
-			clip(frac((IN.worldPos.y + IN.worldPos.z*0.1) * 5) - 0.5);
 			o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb;
 			o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
+			o.Normal = float3(0,0,1);
+
+			float3 delta = float3(_WorldSpaceCameraPos.x - IN.worldPos.x, _WorldSpaceCameraPos.y - IN.worldPos.y, _WorldSpaceCameraPos.z - IN.worldPos.z);
+
+			float distance = length(delta);
+
+			o.Alpha = 0;
 
 			/*fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
 
