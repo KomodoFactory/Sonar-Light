@@ -63,7 +63,6 @@ namespace UnityStandardAssets.ImageEffects {
             edgeDetectMaterial.SetFloat("_Threshold", lumThreshold);
             edgeDetectMaterial.SetVector("_Color", edgesColor);
 
-
             Vector3 pos = Camera.main.transform.position;
             edgeDetectMaterial.SetFloat("_Distance", 10.0f);
             edgeDetectMaterial.SetVector("_Position", new Vector4(pos.x, pos.y, pos.z, 1.0f));

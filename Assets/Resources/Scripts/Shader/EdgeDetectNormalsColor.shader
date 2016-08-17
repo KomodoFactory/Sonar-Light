@@ -2,7 +2,6 @@
 Shader "Hidden/EdgeDetectColors" {
 	Properties{
 		_MainTex("Base (RGB)", 2D) = "" {}
-	//_Color ("Color", color) = (1,1,1,1)
 	}
 
 		CGINCLUDE
@@ -12,8 +11,6 @@ Shader "Hidden/EdgeDetectColors" {
 		struct v2f {
 		float4 pos : SV_POSITION;
 		float2 uv[5] : TEXCOORD0;
-		float distance : BLENDWEIGHT;
-		half4 temp : COLOR;
 	};
 
 	sampler2D _MainTex;
@@ -34,6 +31,7 @@ Shader "Hidden/EdgeDetectColors" {
 
 	uniform float3 _Position;
 	uniform float _Distance;
+	uniform float4x4 _Camera2World;
 
 	inline half CheckSame(half2 centerNormal, float centerDepth, half4 theSample)
 	{
@@ -55,8 +53,9 @@ Shader "Hidden/EdgeDetectColors" {
 	}
 
 
-v2f vertRobert(appdata_img v)
+v2f vertRobert(appdata_full v)
 	{
+
 		v2f o;
 		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
 
@@ -75,15 +74,6 @@ v2f vertRobert(appdata_img v)
 		o.uv[3] = uv + _MainTex_TexelSize.xy * half2(-1, 1) * _SampleDistance;
 		o.uv[4] = uv + _MainTex_TexelSize.xy * half2(1, -1) * _SampleDistance;
 
-		float3 tempPos = mul(_Object2World, v.vertex).xyz;
-
-		float3 delta = tempPos - _Position;
-
-		o.distance = length(delta);
-
-		o.temp = mul(_Object2World,v.vertex);
-
-
 		return o;
 	}
 
@@ -100,23 +90,16 @@ v2f vertRobert(appdata_img v)
 			edge *= CheckSame(sample3.xy, DecodeFloatRG(sample3.zw), sample4);
 
 
-			//if (i.distance > _Distance) {
-			//	return 0;
-			//}
-
-			if (edge > 0) {
+			if (edge > 0 || _Color[3] <1) {
 				
-				return  lerp(tex2D(_MainTex, i.uv[0].xy), _BgColor, _BgFade); //return 0 to have edge only mode
+				return  0;//lerp(tex2D(_MainTex, i.uv[0].xy), _BgColor, _BgFade);
 			}
 			else {
-				return i.temp;
+				_Color[3] = 0.1;
 				return _Color;
 			}
 
 	}
-
-
-
 
 	ENDCG
 

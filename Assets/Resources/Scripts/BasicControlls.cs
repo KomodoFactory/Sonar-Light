@@ -13,7 +13,6 @@ public class BasicControlls : MonoBehaviour {
     public float epsilonY = 2.2f;
     private new Rigidbody rigidbody;
 
-
     // Use this for initialization
     void Start() {
         rigidbody = GetComponent<Rigidbody>();
