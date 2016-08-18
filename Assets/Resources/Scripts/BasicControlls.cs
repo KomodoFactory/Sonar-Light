@@ -29,11 +29,11 @@ public class BasicControlls : MonoBehaviour {
     }
 
     private void HandleDrag(Rigidbody rigidbody) {
-        if (!(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Space) || !groundContact())) {
-            rigidbody.drag = breakConstant;
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Space) || !groundContact()) {
+            rigidbody.drag = 0;
         }
         else {
-            rigidbody.drag = 0;
+            rigidbody.drag = breakConstant;
         }
     }
 
@@ -41,6 +41,14 @@ public class BasicControlls : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && groundContact() && relativeVelocity.y < maxVelocity) {
             rigidbody.AddForce(0, jumpspeed, 0);
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            maxVelocity = maxVelocity / 4;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift)) {
+            maxVelocity = maxVelocity * 4;
+}
+
         if (Input.GetKey(KeyCode.W) && relativeVelocity.z < maxVelocity) {
             Vector3 wc = transform.TransformDirection(new Vector3(0, 0, distance));
 
