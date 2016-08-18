@@ -5,10 +5,10 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody))]
 public class BasicControlls : MonoBehaviour {
 
-    public float walkspeed = 1000;
+    public float walkspeed = 100;
     public float rotationspeed = 100;
     public float maxVelocity = 10;
-    public float jumpspeed = 100;
+    public float jumpspeed = 10;
     public readonly float breakConstant = 10;
     public float epsilonY = 2.2f;
     private new Rigidbody rigidbody;
@@ -39,7 +39,7 @@ public class BasicControlls : MonoBehaviour {
 
     private void HandleKeystrokes(float distance, Rigidbody rigidbody, Vector3 relativeVelocity) {
         if (Input.GetKeyDown(KeyCode.Space) && groundContact() && relativeVelocity.y < maxVelocity) {
-            rigidbody.AddForce(0, jumpspeed, 0);
+            rigidbody.AddForce(0, jumpspeed, 0, ForceMode.VelocityChange);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift)) {
@@ -49,25 +49,25 @@ public class BasicControlls : MonoBehaviour {
             maxVelocity = maxVelocity * 4;
 }
 
-        if (Input.GetKey(KeyCode.W) && relativeVelocity.z < maxVelocity) {
+        if ((Input.GetKey(KeyCode.W) || Input.GetAxis("Vertical") > 0) && relativeVelocity.z < maxVelocity) {
             Vector3 wc = transform.TransformDirection(new Vector3(0, 0, distance));
 
-            rigidbody.AddForce(ProjectWithStableMagnitude(wc));
+            rigidbody.AddForce(ProjectWithStableMagnitude(wc), ForceMode.VelocityChange);
         }
-        if (Input.GetKey(KeyCode.A) && relativeVelocity.x > -1 * maxVelocity) {
+        if ((Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0) && relativeVelocity.x > -1 * maxVelocity) {
             Vector3 wc = transform.TransformDirection(new Vector3(-distance, 0, 0));
 
-            rigidbody.AddForce(ProjectWithStableMagnitude(wc));
+            rigidbody.AddForce(ProjectWithStableMagnitude(wc), ForceMode.VelocityChange);
         }
-        if (Input.GetKey(KeyCode.D) && relativeVelocity.x < maxVelocity) {
+        if ((Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0) && relativeVelocity.x < maxVelocity) {
             Vector3 wc = transform.TransformDirection(new Vector3(distance, 0, 0));
 
-            rigidbody.AddForce(ProjectWithStableMagnitude(wc));
+            rigidbody.AddForce(ProjectWithStableMagnitude(wc), ForceMode.VelocityChange);
         }
-        if (Input.GetKey(KeyCode.S) && relativeVelocity.z > -1 * maxVelocity) {
+        if ((Input.GetKey(KeyCode.S) || Input.GetAxis("Vertical") < 0) && relativeVelocity.z > -1 * maxVelocity ) {
             Vector3 wc = transform.TransformDirection(new Vector3(0, 0, -distance));
 
-            rigidbody.AddForce(ProjectWithStableMagnitude(wc));
+            rigidbody.AddForce(ProjectWithStableMagnitude(wc), ForceMode.VelocityChange);
         }
     }
 
