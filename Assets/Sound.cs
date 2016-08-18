@@ -22,8 +22,9 @@ public class Sound {
     }
 
     /// <summary>
-    /// updates the Sound by changing its radius.
-    /// returns wether or not the sound has surpassed its lifetime
+    /// <para>updates the Sound by changing its radius.</para>
+    /// <para>returns wether or not the sound has surpassed its lifetime</para>
+    /// <para>if this method returns true the Sound should be discarted</para>
     /// </summary>
     public bool update() {
         radius += propagationSpeed;

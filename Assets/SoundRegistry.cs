@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
-public class SoundRegistry {
+public class SoundRegistry: MonoBehaviour {
 
     public static readonly int queueSize = 25;
     private static SoundRegistry instance;
-    private Queue<Sound> sounds;
+    private List<Sound> sounds;
 
     private SoundRegistry() {
-        sounds = new Queue<Sound>();
+        sounds = new List<Sound>();
     }
 
     public static SoundRegistry getInstance() {
@@ -19,7 +20,15 @@ public class SoundRegistry {
     }
 
     public void addSound(Sound sound) {
-        sounds.Enqueue(sound);
+        sounds.Add(sound);
+    }
+
+    void Update() {
+        foreach (Sound sound in sounds.ToList()) {
+            if (sound.update()) {
+                sounds.Remove(sound);
+            }
+        }
     }
 
 }
