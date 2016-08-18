@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+//[RequireComponent(typeof(Rigidbody))]
 public class PickupObjects : MonoBehaviour {
 
     public float throwForce = 1000;
@@ -9,11 +9,11 @@ public class PickupObjects : MonoBehaviour {
     private Rigidbody targetObject;
     private bool hasObjectInHand = false;
     private Transform cameraTransform;
-    private Rigidbody characterRigidbody;
+  //  private Rigidbody characterRigidbody;
 
     void Start() {
         cameraTransform = Camera.main.transform;
-        characterRigidbody = (Rigidbody)GetComponent<Rigidbody>();
+       // characterRigidbody = (Rigidbody)GetComponent<Rigidbody>();
     }
 
     void Update() {
@@ -42,7 +42,7 @@ public class PickupObjects : MonoBehaviour {
         Vector3 currentPosition = targetObject.position;
         Vector3 destination = cameraTransform.position + cameraTransform.forward * pickupDistance;
         float distance = Vector3.Distance(currentPosition, destination);
-        targetObject.velocity = characterRigidbody.velocity;    
+      //  targetObject.velocity = characterRigidbody.velocity;    
         targetObject.transform.position = Vector3.MoveTowards(currentPosition, destination, Time.deltaTime * distance * 5);
 
     }
@@ -70,7 +70,7 @@ public class PickupObjects : MonoBehaviour {
         targetObject.angularDrag = 0;
         targetObject.drag = 0.05f;
         Physics.IgnoreCollision((Collider)this.GetComponent<Collider>(), (Collider)targetObject.GetComponent<Collider>(), false);
-        targetObject.velocity = characterRigidbody.velocity;
+        //targetObject.velocity = characterRigidbody.velocity;
     }
 
     Rigidbody getObjectInRange() {

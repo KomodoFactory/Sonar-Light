@@ -9,9 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 418996}
   - 136: {fileID: 13679314}
-  - 54: {fileID: 5484730}
-  - 114: {fileID: 11439254}
   - 114: {fileID: 11408786}
+  - 143: {fileID: 14367802}
+  - 114: {fileID: 11456890}
+  - 114: {fileID: 11462822}
   m_Layer: 0
   m_Name: Etho
   m_TagString: Player
@@ -44,8 +45,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161508}
-  m_LocalRotation: {x: 0, y: 0.7071066, z: 0, w: -0.70710695}
-  m_LocalPosition: {x: 8.19, y: 1.22, z: -0.87}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 7.6, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 462116}
@@ -97,21 +98,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!54 &5484730
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161508}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!114 &11404474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 1000
   pickupDistance: 5
---- !u!114 &11439254
+--- !u!114 &11456890
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -150,14 +136,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 161508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b02c30de9b0ffb649b19b1342734f3ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 979de7d9e12aadf4e816576890f86b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkspeed: 1000
-  rotationspeed: 100
-  maxVelocity: 10
-  jumpspeed: 400
-  epsilonY: 2.2
 --- !u!114 &11457892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,13 +152,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nearModeCliping: 30
   farModeClipping: 1000
+--- !u!114 &11462822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8294119683b8d4b40a611da729141089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement:
+    maxForwardSpeed: 7
+    maxSidewaysSpeed: 7
+    maxBackwardsSpeed: 7
+    slopeSpeedMultiplier:
+      serializedVersion: 2
+      m_Curve:
+      - time: -100.25
+        value: 2.109375
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: -29.762259
+        value: 1.7212694
+        inSlope: -0.018647
+        outSlope: -0.018647
+        tangentMode: 0
+      - time: 23.852547
+        value: 0.4761567
+        inSlope: -0.022832282
+        outSlope: -0.022832282
+        tangentMode: 0
+      - time: 96.06458
+        value: 0.024414182
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    maxGroundAcceleration: 20
+    maxAirAcceleration: 10
+    gravity: 9.81
+    maxFallSpeed: 30
+  jumping:
+    enabled: 1
+    baseHeight: 1.5
+    extraHeight: 1.5
+    perpAmount: 0
+    steepPerpAmount: 0.5
+  movingPlatform:
+    enabled: 1
+    movementTransfer: 2
+  sliding:
+    enabled: 1
+    slidingSpeed: 15
+    sidewaysControl: 1
+    speedControl: 0.4
 --- !u!114 &11480550
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161804}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e14c28958a708f4fb585d6da0de40f7, type: 3}
   m_Name: 
@@ -204,6 +244,23 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!143 &14367802
+CharacterController:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161508}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
