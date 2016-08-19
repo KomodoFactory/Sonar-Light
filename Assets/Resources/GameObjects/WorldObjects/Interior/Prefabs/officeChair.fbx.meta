@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 92651a49ea1071b4982246dcea36cc3b
-timeCreated: 1471339670
+guid: d0570a1c242726045b104853fcd6ded6
+timeCreated: 1470906345
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: low_printer
+    4300000: swivel-chair.001
   materials:
     importMaterials: 0
     materialName: 0
@@ -31,17 +31,17 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.4
     meshCompression: 0
     addColliders: 0
-    importBlendShapes: 0
+    importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 0
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
@@ -50,7 +50,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 1
+    normalSmoothAngle: 3
     normalImportMode: 1
     tangentImportMode: 3
   importAnimation: 1
