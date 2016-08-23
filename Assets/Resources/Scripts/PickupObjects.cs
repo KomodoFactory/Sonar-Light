@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 
-//[RequireComponent(typeof(Rigidbody))]
 public class PickupObjects : MonoBehaviour {
 
     public float throwForce = 1000;
@@ -9,26 +8,32 @@ public class PickupObjects : MonoBehaviour {
     private Rigidbody targetObject;
     private bool hasObjectInHand = false;
     private Transform cameraTransform;
-  //  private Rigidbody characterRigidbody;
+    private AxisHandler axisPickup;
+    private AxisHandler axisThrow;
 
     void Start() {
         cameraTransform = Camera.main.transform;
-       // characterRigidbody = (Rigidbody)GetComponent<Rigidbody>();
+
+        axisPickup = new AxisHandler("Fire1");
+        axisThrow = new AxisHandler("Fire2");
     }
 
     void Update() {
 
+        axisPickup.Update();
+        axisThrow.Update();
+
         if (hasObjectInHand) {
             centerObject();
-            if (Input.GetMouseButtonDown(0)) {
+            if (axisPickup.pressedDown()) {
                 dropObject();
             }
-            else if (Input.GetMouseButtonDown(1)) {
+            else if (axisThrow.pressedDown()) {
                 throwObject();
             }
         }
         else {
-            if (Input.GetMouseButtonDown(0)) {
+            if (axisPickup.pressedDown()) {
                 targetObject = getObjectInRange();
                 if (targetObject != null) {
                     pickupObject();
@@ -70,7 +75,6 @@ public class PickupObjects : MonoBehaviour {
         targetObject.angularDrag = 0;
         targetObject.drag = 0.05f;
         Physics.IgnoreCollision((Collider)this.GetComponent<Collider>(), (Collider)targetObject.GetComponent<Collider>(), false);
-        //targetObject.velocity = characterRigidbody.velocity;
     }
 
     Rigidbody getObjectInRange() {

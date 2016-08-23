@@ -44,6 +44,7 @@ GameObject:
   - 4: {fileID: 493380}
   - 65: {fileID: 6594630}
   - 65: {fileID: 6549128}
+  - 65: {fileID: 6514324}
   m_Layer: 0
   m_Name: wallDoorway
   m_TagString: Untagged
@@ -82,8 +83,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9799533, y: 2.4, z: 21.96}
-  m_LocalScale: {x: 3, y: 4, z: 2}
+  m_LocalPosition: {x: 5.4056625, y: 10.51, z: 20.3}
+  m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children:
   - {fileID: 422630}
   - {fileID: 427630}
@@ -155,6 +156,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115032}
   m_Mesh: {fileID: 4300000, guid: fbb4a5c0ae3647f46a800c9bd150a9cf, type: 3}
+--- !u!65 &6514324
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150850}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9597502, y: 1.0841894, z: 0.2023964}
+  m_Center: {x: 0.05404663, y: 2.8124943, z: -5.490294}
 --- !u!65 &6549128
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -165,8 +178,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: -4.415117, y: 3.7919874, z: 0.5}
-  m_Center: {x: -3.5054698, y: 1.3959937, z: -5.5}
+  m_Size: {x: -4.3290977, y: 5.925378, z: 0.2023964}
+  m_Center: {x: -3.5247693, y: 0.42001343, z: -5.490294}
 --- !u!65 &6594630
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -177,8 +190,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.244127, y: 3.777244, z: 0.5}
-  m_Center: {x: 3.5022602, y: 1.388622, z: -5.5}
+  m_Size: {x: 4.2441273, y: 5.8494473, z: 0.2023964}
+  m_Center: {x: 3.5022602, y: 0.42947102, z: -5.4902945}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
