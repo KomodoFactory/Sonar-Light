@@ -10,28 +10,25 @@ Shader "Hidden/EdgeDetectColors" {
 
 		struct v2f {
 		float4 pos : SV_POSITION;
-		float2 uv[5] : TEXCOORD0;
+		float2 uv[7] : TEXCOORD0;
+	
 	};
 
 	sampler2D _MainTex;
-	uniform half4 _Color;
+	uniform half4 _EdgeColor;
 	uniform float4 _MainTex_TexelSize;
 
 	sampler2D _CameraDepthNormalsTexture;
 	sampler2D_float _CameraDepthTexture;
 
 	uniform half4 _Sensitivity;
-	uniform half4 _BgColor;
-	uniform half _BgFade;
 	uniform half _SampleDistance;
-	uniform float _Exponent;
 
-	uniform float _Threshold;
+	uniform half _BgFade;
 
-
-	uniform float3 _Position;
-	uniform float _Distance;
-	uniform float4x4 _Camera2World;
+	uniform float3 _CameraForward;
+	uniform float _ClipingDistance;
+	uniform float _TempOnlyDistance;
 
 	inline half CheckSame(half2 centerNormal, float centerDepth, half4 theSample)
 	{
@@ -73,6 +70,11 @@ v2f vertRobert(appdata_full v)
 		o.uv[2] = uv + _MainTex_TexelSize.xy * half2(-1, -1) * _SampleDistance;
 		o.uv[3] = uv + _MainTex_TexelSize.xy * half2(-1, 1) * _SampleDistance;
 		o.uv[4] = uv + _MainTex_TexelSize.xy * half2(1, -1) * _SampleDistance;
+		
+		
+		o.uv[5] = float2(v.vertex.x,v.vertex.y);
+		o.uv[6] = float2(o.pos.x,o.pos.y); //Cliping Coordinates
+
 
 		return o;
 	}
@@ -84,19 +86,30 @@ v2f vertRobert(appdata_full v)
 			half4 sample3 = tex2D(_CameraDepthNormalsTexture, i.uv[3].xy);
 			half4 sample4 = tex2D(_CameraDepthNormalsTexture, i.uv[4].xy);
 
+			float depth = tex2D(_CameraDepthTexture, i.uv[5]).r;
+
+
+			float3 worldPosD = _WorldSpaceCameraPos + float3(i.uv[6].x, i.uv[6].y, 0);
+			float3 worldPos = worldPosD +_CameraForward*depth;
+
 			half edge = 1.0;
 
 			edge *= CheckSame(sample1.xy, DecodeFloatRG(sample1.zw), sample2);
 			edge *= CheckSame(sample3.xy, DecodeFloatRG(sample3.zw), sample4);
 
 
-			if (edge > 0) {
-				
-				return  lerp(tex2D(_MainTex, i.uv[0].xy), _BgColor, 0.1);
+			float3 dif = worldPos - _WorldSpaceCameraPos;
+			float difLength = length(dif);
+
+			 
+			if(edge >0){
+				return  lerp(tex2D(_MainTex, i.uv[0].xy), 0, _BgFade);
 			}
-			else {
-				//_Color[3] = 0.1;
-				return _Color;
+			else if (difLength- _ClipingDistance <- _TempOnlyDistance) {
+				return _EdgeColor;
+				
+			}else {
+				return 0;
 			}
 
 	}

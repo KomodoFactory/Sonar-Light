@@ -9,6 +9,9 @@ namespace UnityStandardAssets.ImageEffects {
 
 
 
+        float distance = 1;
+
+
         public int mode = 0;
         public float sensitivityDepth = 0.5f;
         public float sensitivityNormals = 7.0f;
@@ -38,6 +41,7 @@ namespace UnityStandardAssets.ImageEffects {
 
         void SetCameraFlag() {
             GetComponent<Camera>().depthTextureMode |= DepthTextureMode.DepthNormals;
+            GetComponent<Camera>().depthTextureMode |= DepthTextureMode.Depth;
         }
 
         void OnEnable() {
@@ -61,11 +65,22 @@ namespace UnityStandardAssets.ImageEffects {
             edgeDetectMaterial.SetVector("_BgColor", edgesOnlyBgColor);
             edgeDetectMaterial.SetFloat("_Exponent", edgeExp);
             edgeDetectMaterial.SetFloat("_Threshold", lumThreshold);
-            edgeDetectMaterial.SetVector("_Color", edgesColor);
+            edgeDetectMaterial.SetVector("_EdgeColor", edgesColor);
 
-            Vector3 pos = Camera.main.transform.position;
+           //Vector3 pos = Camera.main.transform.position;
             edgeDetectMaterial.SetFloat("_Distance", 10.0f);
-            edgeDetectMaterial.SetVector("_Position", new Vector4(pos.x, pos.y, pos.z, 1.0f));
+            //edgeDetectMaterial.SetVector("_Position", new Vector4(pos.x, pos.y, pos.z, 1.0f));
+            edgeDetectMaterial.SetVector("_CameraForward",Camera.main.transform.forward * Camera.main.farClipPlane);
+            edgeDetectMaterial.SetFloat("_ClipingDistance", Camera.main.farClipPlane);
+
+
+            edgeDetectMaterial.SetFloat("_TempOnlyDistance",distance);
+            distance += 0.1f;
+            if (distance >= 20){
+                distance = 0;
+            }
+
+
             Graphics.Blit(source, destination, edgeDetectMaterial, mode);
         }
     }
