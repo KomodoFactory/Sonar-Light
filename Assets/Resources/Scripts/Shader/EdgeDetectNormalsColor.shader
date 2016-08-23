@@ -93,7 +93,7 @@ Shader "Hidden/EdgeDetectColors" {
 
 			float depth = tex2D(_CameraDepthTexture, i.uv[5]).r;
 			depth = depth;
-			float3 worldPos = _WorldSpaceCameraPos + float3(i.uv[6].x, i.uv[6].y, 0) + _CameraForward*UNITY_OUTPUT_DEPTH(depth);
+			float3 worldPos = _WorldSpaceCameraPos + float3(i.uv[6].x, i.uv[6].y, 0) + _CameraForward*_ClipingDistance*depth;
 			float3 vectorFromCameraToFragment = worldPos - _WorldSpaceCameraPos;
 			float vectorFromCameraToFragmentLength = length(vectorFromCameraToFragment);
 
@@ -101,7 +101,7 @@ Shader "Hidden/EdgeDetectColors" {
 			if(edgeCheckResult >0){
 				return  lerp(tex2D(_MainTex, i.uv[0].xy), 0, _BgFade);
 			}
-			else if (vectorFromCameraToFragmentLength  < _TempOnlyDistance*2000) {
+			else if (vectorFromCameraToFragmentLength  < _TempOnlyDistance+950) {
 				return _EdgeColor;
 				
 			}else {

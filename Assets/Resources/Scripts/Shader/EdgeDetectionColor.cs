@@ -66,10 +66,10 @@ namespace UnityStandardAssets.ImageEffects {
             edgeDetectMaterial.SetVector("_Sensitivity", new Vector4(sensitivity.x, sensitivity.y, 1.0f, sensitivity.y));
             edgeDetectMaterial.SetFloat("_SampleDistance", sampleDist);
             //Colorparameter
-            edgeDetectMaterial.SetFloat("_BgFade", 1);
+            edgeDetectMaterial.SetFloat("_BgFade", 0.5f);
             edgeDetectMaterial.SetVector("_EdgeColor", edgesColor);
            
-            edgeDetectMaterial.SetFloat("_TempOnlyDistance",10);
+            edgeDetectMaterial.SetFloat("_TempOnlyDistance",distance);
             distance += 0.1f;
             if (distance >= 20) {
                 distance = 0;
