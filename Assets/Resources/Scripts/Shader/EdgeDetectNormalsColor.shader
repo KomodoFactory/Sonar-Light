@@ -14,20 +14,24 @@ Shader "Hidden/EdgeDetectColors" {
 	
 	};
 
+	//Texturparameter
 	sampler2D _MainTex;
-	uniform half4 _EdgeColor;
 	uniform float4 _MainTex_TexelSize;
 
+	//Camerarparameter
 	sampler2D _CameraDepthNormalsTexture;
 	sampler2D_float _CameraDepthTexture;
+	uniform float3 _CameraForward;
+	uniform float _ClipingDistance;
 
+	//Edgedetectionparameers
 	uniform half4 _Sensitivity;
 	uniform half _SampleDistance;
 
+	//Colorparameter
 	uniform half _BgFade;
+	uniform half4 _EdgeColor;
 
-	uniform float3 _CameraForward;
-	uniform float _ClipingDistance;
 	uniform float _TempOnlyDistance;
 
 	inline half CheckSame(half2 centerNormal, float centerDepth, half4 theSample)
@@ -45,25 +49,22 @@ Shader "Hidden/EdgeDetectColors" {
 		// return:
 		// 1 - if normals and depth are similar enough
 		// 0 - otherwise
-
 		return isSameNormal * isSameDepth;
 	}
 
 
-v2f vertRobert(appdata_full v)
+	v2f vertRobert(appdata_full v)
 	{
-
 		v2f o;
 		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
 
 		float2 uv = v.texcoord.xy;
 		o.uv[0] = uv;
 
-
-
 #if UNITY_UV_STARTS_AT_TOP
-		if (_MainTex_TexelSize.y < 0)
-			uv.y = 1 - uv.y;
+		if (_MainTex_TexelSize.y < 0) {
+		uv.y = 1 - uv.y;
+	}
 #endif
 
 		o.uv[1] = uv + _MainTex_TexelSize.xy * half2(1, 1) * _SampleDistance;
@@ -71,10 +72,9 @@ v2f vertRobert(appdata_full v)
 		o.uv[3] = uv + _MainTex_TexelSize.xy * half2(-1, 1) * _SampleDistance;
 		o.uv[4] = uv + _MainTex_TexelSize.xy * half2(1, -1) * _SampleDistance;
 		
-		
-		o.uv[5] = float2(v.vertex.x,v.vertex.y);
+	
+		o.uv[5] = float2(v.vertex.x,v.vertex.y);	//Object Coordinates for matching with depthtexture
 		o.uv[6] = float2(o.pos.x,o.pos.y); //Cliping Coordinates
-
 
 		return o;
 	}
@@ -86,26 +86,22 @@ v2f vertRobert(appdata_full v)
 			half4 sample3 = tex2D(_CameraDepthNormalsTexture, i.uv[3].xy);
 			half4 sample4 = tex2D(_CameraDepthNormalsTexture, i.uv[4].xy);
 
+			half edgeCheckResult = 1.0;
+			edgeCheckResult *= CheckSame(sample1.xy, DecodeFloatRG(sample1.zw), sample2);
+			edgeCheckResult *= CheckSame(sample3.xy, DecodeFloatRG(sample3.zw), sample4);
+
+
 			float depth = tex2D(_CameraDepthTexture, i.uv[5]).r;
-
-
-			float3 worldPosD = _WorldSpaceCameraPos + float3(i.uv[6].x, i.uv[6].y, 0);
-			float3 worldPos = worldPosD +_CameraForward*depth;
-
-			half edge = 1.0;
-
-			edge *= CheckSame(sample1.xy, DecodeFloatRG(sample1.zw), sample2);
-			edge *= CheckSame(sample3.xy, DecodeFloatRG(sample3.zw), sample4);
-
-
-			float3 dif = worldPos - _WorldSpaceCameraPos;
-			float difLength = length(dif);
+			depth = depth;
+			float3 worldPos = _WorldSpaceCameraPos + float3(i.uv[6].x, i.uv[6].y, 0) + _CameraForward*UNITY_OUTPUT_DEPTH(depth);
+			float3 vectorFromCameraToFragment = worldPos - _WorldSpaceCameraPos;
+			float vectorFromCameraToFragmentLength = length(vectorFromCameraToFragment);
 
 			 
-			if(edge >0){
+			if(edgeCheckResult >0){
 				return  lerp(tex2D(_MainTex, i.uv[0].xy), 0, _BgFade);
 			}
-			else if (difLength- _ClipingDistance <- _TempOnlyDistance) {
+			else if (vectorFromCameraToFragmentLength  < _TempOnlyDistance*2000) {
 				return _EdgeColor;
 				
 			}else {
