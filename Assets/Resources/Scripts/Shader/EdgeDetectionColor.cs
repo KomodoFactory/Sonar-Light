@@ -25,13 +25,15 @@ namespace UnityStandardAssets.ImageEffects {
         public Material edgeDetectMaterial = null;
 
 
+        public GameObject firstHeldObject;
+
+
         public override bool CheckResources() {
             CheckSupport(true);
 
             if (edgeDetectShader == null) {
                 edgeDetectShader = (Shader)Resources.Load("Scripts/Shader/EdgeDetectNormalsColor");
             }
-
             edgeDetectMaterial = CheckShaderAndCreateMaterial(edgeDetectShader, edgeDetectMaterial);
             if (!isSupported)
                 ReportAutoDisable();
@@ -66,15 +68,25 @@ namespace UnityStandardAssets.ImageEffects {
             edgeDetectMaterial.SetVector("_Sensitivity", new Vector4(sensitivity.x, sensitivity.y, 1.0f, sensitivity.y));
             edgeDetectMaterial.SetFloat("_SampleDistance", sampleDist);
             //Colorparameter
-            edgeDetectMaterial.SetFloat("_BgFade", 0.5f);
+            edgeDetectMaterial.SetFloat("_BgFade", 1);
             edgeDetectMaterial.SetVector("_EdgeColor", edgesColor);
-           
-            edgeDetectMaterial.SetFloat("_TempOnlyDistance",distance);
+
+            edgeDetectMaterial.SetFloat("_TempOnlyDistance", 20);
+            edgeDetectMaterial.SetMatrix("_InverseProjection", Camera.main.projectionMatrix.inverse);
+
+            PickupObjects pickupScript = (PickupObjects)GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PickupObjects>();
+            if (pickupScript.getHeldObject() != null) {
+                firstHeldObject = pickupScript.getHeldObject();
+            }
+
+            if (firstHeldObject != null) {
+                edgeDetectMaterial.SetVector("_ReferencePoint", firstHeldObject.transform.position);
+            }
+
             distance += 0.1f;
             if (distance >= 20) {
                 distance = 0;
             }
-            Debug.Log(distance);
 
 
             Graphics.Blit(source, destination, edgeDetectMaterial, mode);

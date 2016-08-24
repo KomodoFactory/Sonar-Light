@@ -11,7 +11,7 @@ Shader "Hidden/EdgeDetectColors" {
 		struct v2f {
 		float4 pos : SV_POSITION;
 		float2 uv[7] : TEXCOORD0;
-	
+
 	};
 
 	//Texturparameter
@@ -32,7 +32,11 @@ Shader "Hidden/EdgeDetectColors" {
 	uniform half _BgFade;
 	uniform half4 _EdgeColor;
 
+
+	//Test Parameter
 	uniform float _TempOnlyDistance;
+	uniform float3 _ReferencePoint;
+	uniform float4x4 _InverseProjection;
 
 	inline half CheckSame(half2 centerNormal, float centerDepth, half4 theSample)
 	{
@@ -63,65 +67,63 @@ Shader "Hidden/EdgeDetectColors" {
 
 #if UNITY_UV_STARTS_AT_TOP
 		if (_MainTex_TexelSize.y < 0) {
-		uv.y = 1 - uv.y;
-	}
+			uv.y = 1 - uv.y;
+		}
 #endif
 
 		o.uv[1] = uv + _MainTex_TexelSize.xy * half2(1, 1) * _SampleDistance;
 		o.uv[2] = uv + _MainTex_TexelSize.xy * half2(-1, -1) * _SampleDistance;
 		o.uv[3] = uv + _MainTex_TexelSize.xy * half2(-1, 1) * _SampleDistance;
 		o.uv[4] = uv + _MainTex_TexelSize.xy * half2(1, -1) * _SampleDistance;
-		
-	
-		o.uv[5] = float2(v.vertex.x,v.vertex.y);	//Object Coordinates for matching with depthtexture
-		o.uv[6] = float2(o.pos.x,o.pos.y); //Cliping Coordinates
+
+
+		o.uv[5] = float2(v.vertex.x, v.vertex.y);	//Object Coordinates for matching with depthtexture
+		o.uv[6] = float2(o.pos.x, o.pos.y); //Cliping Coordinates
 
 		return o;
 	}
 
 
-		half4 fragRobert(v2f i) : SV_Target{
-			half4 sample1 = tex2D(_CameraDepthNormalsTexture, i.uv[1].xy);
-			half4 sample2 = tex2D(_CameraDepthNormalsTexture, i.uv[2].xy);
-			half4 sample3 = tex2D(_CameraDepthNormalsTexture, i.uv[3].xy);
-			half4 sample4 = tex2D(_CameraDepthNormalsTexture, i.uv[4].xy);
+	half4 fragRobert(v2f i) : SV_Target{
+		half4 sample1 = tex2D(_CameraDepthNormalsTexture, i.uv[1].xy);
+		half4 sample2 = tex2D(_CameraDepthNormalsTexture, i.uv[2].xy);
+		half4 sample3 = tex2D(_CameraDepthNormalsTexture, i.uv[3].xy);
+		half4 sample4 = tex2D(_CameraDepthNormalsTexture, i.uv[4].xy);
 
-			half edgeCheckResult = 1.0;
-			edgeCheckResult *= CheckSame(sample1.xy, DecodeFloatRG(sample1.zw), sample2);
-			edgeCheckResult *= CheckSame(sample3.xy, DecodeFloatRG(sample3.zw), sample4);
+		half edgeCheckResult = 1.0;
+		edgeCheckResult *= CheckSame(sample1.xy, DecodeFloatRG(sample1.zw), sample2);
+		edgeCheckResult *= CheckSame(sample3.xy, DecodeFloatRG(sample3.zw), sample4);
 
+		float3 FragColor = tex2D(_MainTex, i.uv[0].xy);
 
-			float depth = tex2D(_CameraDepthTexture, i.uv[5]).r;
-			depth = depth;
-			float3 worldPos = _WorldSpaceCameraPos + float3(i.uv[6].x, i.uv[6].y, 0) + _CameraForward*_ClipingDistance*depth;
-			float3 vectorFromCameraToFragment = worldPos - _WorldSpaceCameraPos;
-			float vectorFromCameraToFragmentLength = length(vectorFromCameraToFragment);
+		if (FragColor.x+FragColor.y+FragColor.z <= 0.1) {
+			return 0;
+		}
+		if (FragColor.x <= 0.01 &&FragColor.y <= 0.01 && FragColor.z >= 0.99) {
+			return half4(0,0,1,1);
+		}
 
-			 
-			if(edgeCheckResult >0){
-				return  lerp(tex2D(_MainTex, i.uv[0].xy), 0, _BgFade);
-			}
-			else if (vectorFromCameraToFragmentLength  < _TempOnlyDistance+950) {
-				return _EdgeColor;
-				
-			}else {
-				return 0;
-			}
+		if (edgeCheckResult > 0) {
+			return  lerp(tex2D(_MainTex, i.uv[0].xy), 0, _BgFade);
+		}
+		else {
+			return _EdgeColor;
+		}
 
 	}
 
-	ENDCG
+		ENDCG
 
-		Subshader{
-			Pass{
-				 ZTest Always Cull Off ZWrite Off
-				 CGPROGRAM
-				 #pragma vertex vertRobert
-				 #pragma fragment fragRobert
-				 ENDCG
+		Subshader {
+		Pass{
+			 ZTest Always Cull Off ZWrite Off
+			 CGPROGRAM
+			 #pragma vertex vertRobert
+			 #pragma fragment fragRobert
+			 ENDCG
 		}
 	}
 
-		Fallback off
+	Fallback off
 
 }

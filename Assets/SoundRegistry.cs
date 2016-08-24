@@ -14,7 +14,7 @@ public class SoundRegistry: MonoBehaviour {
 
     public static SoundRegistry getInstance() {
         if(instance == null) {
-            instance = new SoundRegistry();
+            instance = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<SoundRegistry>();
         }
         return instance;
     }
@@ -25,6 +25,7 @@ public class SoundRegistry: MonoBehaviour {
 
     void Update() {
         foreach (Sound sound in sounds.ToList()) {
+            Debug.Log(sound.getSourcePosition());
             if (sound.update()) {
                 sounds.Remove(sound);
             }
