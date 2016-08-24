@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 81711177d4702f9488429882e8c43d00
-timeCreated: 1472029647
+guid: 9e06956640525c44f81bae1a151f1ccc
+timeCreated: 1472032407
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,9 +9,9 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Box033
+    4300000: Wall002
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -34,7 +34,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.06
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
