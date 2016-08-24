@@ -24,7 +24,7 @@ public class FPSInputController : MonoBehaviour
 
         if (directionVector != Vector3.zero)
         {
-
+            Debug.Log(gameObject);
             SoundRegistry.getInstance().addSound(new Sound(gameObject,20));
 
             // Get the length of the directon vector and then normalize it

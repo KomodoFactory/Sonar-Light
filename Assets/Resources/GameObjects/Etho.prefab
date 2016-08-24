@@ -13,6 +13,7 @@ GameObject:
   - 143: {fileID: 14367802}
   - 114: {fileID: 11456890}
   - 114: {fileID: 11462822}
+  - 114: {fileID: 11482944}
   m_Layer: 0
   m_Name: Etho
   m_TagString: Player
@@ -46,7 +47,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 7.6, z: 0}
+  m_LocalPosition: {x: 12.284462, y: 10.44, z: 15.692381}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 462116}
@@ -72,8 +73,8 @@ Camera:
   m_GameObject: {fileID: 161804}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -217,7 +218,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161804}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e14c28958a708f4fb585d6da0de40f7, type: 3}
   m_Name: 
@@ -232,6 +233,18 @@ MonoBehaviour:
   edgesColor: {r: 0, g: 0, b: 1, a: 1}
   edgeDetectShader: {fileID: 4800000, guid: 0cb64d7dbc54e224591886a1ad93c183, type: 3}
   edgeDetectMaterial: {fileID: 0}
+  firstHeldObject: {fileID: 0}
+--- !u!114 &11482944
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8872855c229ebc845a718bbd33f6b657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &13679314
 CapsuleCollider:
   m_ObjectHideFlags: 1
