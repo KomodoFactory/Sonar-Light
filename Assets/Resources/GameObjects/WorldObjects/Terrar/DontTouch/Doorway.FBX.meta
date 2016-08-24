@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 0dc0c4a8482fd574ba155a5e8db46813
-timeCreated: 1439227157
-licenseType: Store
+guid: f2a2a1c403f6beb41bfbf9b98ddca776
+timeCreated: 1472032972
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Doorway
+    4300000: Doorway.001
   materials:
     importMaterials: 1
     materialName: 0
@@ -52,7 +52,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 4
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

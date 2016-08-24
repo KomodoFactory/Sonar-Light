@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 499680}
   - 33: {fileID: 3327724}
   - 23: {fileID: 2357004}
-  - 54: {fileID: 5408668}
   - 64: {fileID: 6498180}
+  - 54: {fileID: 5408668}
   m_Layer: 0
   m_Name: cabinet
   m_TagString: Untagged
@@ -25,8 +25,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191720}
-  m_LocalRotation: {x: 0.49723557, y: 0.5027493, z: 0.5027493, w: -0.49723545}
-  m_LocalPosition: {x: 16.64, y: 10.19, z: 28.24}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 19.148808, y: 7.9953685, z: 24.478497}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,7 +63,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191720}
-  m_Mesh: {fileID: 4300000, guid: dceb27e830f11f547a3d58ede248413e, type: 3}
+  m_Mesh: {fileID: 4300000, guid: cdb7ae0f36b5d0f44a511897bcdd3774, type: 3}
 --- !u!54 &5408668
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -90,7 +90,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
-  m_Mesh: {fileID: 4300000, guid: dceb27e830f11f547a3d58ede248413e, type: 3}
+  m_Mesh: {fileID: 4300000, guid: cdb7ae0f36b5d0f44a511897bcdd3774, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
