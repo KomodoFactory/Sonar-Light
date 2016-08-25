@@ -21,7 +21,9 @@ public class SoundRegistry : MonoBehaviour {
     }
 
     public void addSound(Sound sound) {
-        sounds.Add(sound);
+        if (sounds.Count < queueSize) {
+            sounds.Add(sound);
+        }
     }
 
     void Update() {
@@ -30,7 +32,6 @@ public class SoundRegistry : MonoBehaviour {
             if (sound.getCurrentRadius() > oldestSound.getCurrentRadius()) {
                 oldestSound = sound;
             }
-            Debug.Log(sounds.Count);
             if (sound.update()) {
                 sounds.Remove(sound);
             }
