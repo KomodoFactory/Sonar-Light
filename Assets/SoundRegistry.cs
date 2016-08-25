@@ -27,22 +27,12 @@ public class SoundRegistry : MonoBehaviour {
     }
 
     void Update() {
-        Sound oldestSound = new Sound(gameObject, 0);
         foreach (Sound sound in sounds.ToList()) {
-            if (sound.getCurrentRadius() > oldestSound.getCurrentRadius()) {
-                oldestSound = sound;
-            }
             if (sound.update()) {
                 sounds.Remove(sound);
             }
         }
-        if (oldestSound != null) {
-            shaderMaterial.SetFloat("_Distance", oldestSound.getCurrentRadius());
-            shaderMaterial.SetVector("_Position",Camera.main.transform.position);
-        }
-        if (sounds.Count < 1) {
-            shaderMaterial.SetFloat("_Distance", 0);
-        }
+        MaterialHandler.getInstance().setShaderData(sounds.ToArray());
     }
 
 }

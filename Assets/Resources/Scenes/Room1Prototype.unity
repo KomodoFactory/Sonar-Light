@@ -448,6 +448,10 @@ Prefab:
       propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11443554, guid: 8408a9bc4eacb314fba191c75d9e3aac, type: 2}
+      propertyPath: shaderMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 18bdcbf207dc43142a7873c804affaaa, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8408a9bc4eacb314fba191c75d9e3aac, type: 2}
   m_IsPrefabParent: 0
