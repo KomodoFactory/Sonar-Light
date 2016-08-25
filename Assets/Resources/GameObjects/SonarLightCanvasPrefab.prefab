@@ -100,9 +100,10 @@ GameObject:
   - 114: {fileID: 11434024}
   - 114: {fileID: 11415954}
   - 114: {fileID: 11483936}
+  - 114: {fileID: 11443554}
   m_Layer: 5
   m_Name: Console
-  m_TagString: Untagged
+  m_TagString: Console
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -526,6 +527,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!114 &11443554
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f69121d700e140468f4cc8156141925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonShaderMaterial: {fileID: 2100000, guid: 8c9bba24ef9a49647b72eb4cf49c9dfc, type: 2}
+  ShaderMaterial: {fileID: 2100000, guid: 18bdcbf207dc43142a7873c804affaaa, type: 2}
 --- !u!114 &11454902
 MonoBehaviour:
   m_ObjectHideFlags: 1
