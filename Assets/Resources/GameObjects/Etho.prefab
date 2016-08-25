@@ -12,8 +12,8 @@ GameObject:
   - 114: {fileID: 11408786}
   - 143: {fileID: 14367802}
   - 114: {fileID: 11456890}
-  - 114: {fileID: 11462822}
   - 114: {fileID: 11482944}
+  - 114: {fileID: 11456362}
   m_Layer: 0
   m_Name: Etho
   m_TagString: Player
@@ -47,7 +47,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161508}
   m_LocalRotation: {x: 0, y: 0.7071066, z: 0, w: -0.70710695}
-  m_LocalPosition: {x: 8.19, y: 2.19, z: -0.87}
+  m_LocalPosition: {x: 8.599235, y: 2.6, z: -4.0603595}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 462116}
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 1000
   pickupDistance: 5
---- !u!114 &11456890
+--- !u!114 &11456362
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -137,31 +137,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 161508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 979de7d9e12aadf4e816576890f86b77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11457892
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e10fe7ad5e9d0f849b70094fa1adf023, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nearModeCliping: 30
-  farModeClipping: 1000
---- !u!114 &11462822
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8294119683b8d4b40a611da729141089, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e58d16e796611c4b867b3f19fb689d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movement:
@@ -189,24 +165,42 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    maxGroundAcceleration: 2.5
-    maxAirAcceleration: 1.5
+    maxGroundAcceleration: 50
+    maxAirAcceleration: 20
     gravity: 9.81
     maxFallSpeed: 20
-  jumping:
-    enabled: 1
-    baseHeight: 1
-    extraHeight: 4.1
-    perpAmount: 0
-    steepPerpAmount: 0.5
   movingPlatform:
     enabled: 1
-    movementTransfer: 1
+    movementTransfer: 2
   sliding:
     enabled: 1
     slidingSpeed: 15
     sidewaysControl: 1
     speedControl: 0.4
+--- !u!114 &11456890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979de7d9e12aadf4e816576890f86b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11457892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10fe7ad5e9d0f849b70094fa1adf023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nearModeCliping: 30
+  farModeClipping: 1000
 --- !u!114 &11480550
 MonoBehaviour:
   m_ObjectHideFlags: 1
