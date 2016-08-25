@@ -3,9 +3,7 @@ using UnityStandardAssets.ImageEffects;
 
 namespace Wenzil.Console.Commands
 {
-    /// <summary>
-    /// QUIT command. Quit the application.
-    /// </summary>
+
     public static class ShaderCommand
     {
         public static readonly string name = "NONBLIND";
@@ -18,8 +16,19 @@ namespace Wenzil.Console.Commands
 
         public static string Execute(params string[] args)
         {
-            edgeScript = camera.GetComponent<EdgeDetectionColor>();
-            edgeScript.enabled = !edgeScript.enabled;
+            GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+            foreach (GameObject go in allObjects)
+            {
+                if (go.GetComponent<Renderer>() != null)
+                {
+                    Debug.Log(go.GetComponent<Renderer>().material);
+                }
+            }
+
+
+
+            /*edgeScript = camera.GetComponent<EdgeDetectionColor>();
+            edgeScript.enabled = !edgeScript.enabled;*/
             return "You're not blind, I see.";
         }
     }

@@ -1,19 +1,28 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.ImageEffects;
 
 namespace Wenzil.Console.Commands
 {
-    /// <summary>
-    /// QUIT command. Quit the application.
-    /// </summary>
     public static class MetaCommand
     {
         public static readonly string name = "SIGHTBEYONDSIGHT";
-        public static readonly string description = "See what can not be seen with human eyes.";
+        public static readonly string description = "Show the Metadata that is swapped between the shaders as Textures.";
         public static readonly string usage = "SIGHTBEYONDSIGHT";
+        private static Camera camera = Camera.main;
+        private static EdgeDetectionColor edgeScript;
 
         public static string Execute(params string[] args)
         {
-            return "Thundercats much?";
+            edgeScript = camera.GetComponent<EdgeDetectionColor>();
+            edgeScript.enabled = !edgeScript.enabled;
+            if (edgeScript.enabled)
+            {
+                return "Honestly, does anyone even get that reference?";
+            }
+            else
+            {
+                return "The Sword of Omen hears you.";
+            }
         }
     }
 }
