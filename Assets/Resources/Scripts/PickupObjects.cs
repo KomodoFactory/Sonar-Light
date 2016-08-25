@@ -76,7 +76,6 @@ public class PickupObjects : MonoBehaviour {
         targetObjectRigidbody.angularDrag = 0;
         targetObjectRigidbody.drag = 0.05f;
         Physics.IgnoreCollision(player.GetComponent<CapsuleCollider>(), targetObjectRigidbody.GetComponentInParent<Collider>(), false);
-        Debug.Log("collider:" + targetObjectRigidbody.GetComponentInParent<Collider>() + player.GetComponent<CapsuleCollider>());
     }
 
     Rigidbody getObjectInRange() {
