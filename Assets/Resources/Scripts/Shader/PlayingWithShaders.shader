@@ -20,6 +20,9 @@
 		float4 worldPos:TEXCOORD1;
 	};
 
+
+	uniform float _Distance;
+
 	//Our Vertex Shader
 	v2f vert(appdata_base v) {
 		v2f o;
@@ -33,11 +36,13 @@
 
 	half4 frag(v2f i) : COLOR{
 
+		float delta = 0.1;
+
 		float dist = length(i.worldPos);
-	if (dist >= 19.9 && dist <= 20.1) {
+	if (dist >= _Distance -delta && dist <= _Distance +delta) {
 		return half4(0, 0, 1, 1);
 	}
-	if (dist < 20) {
+	if (dist < _Distance) {
 		return half4(dist, dist, dist, 1);
 	}
 	else {

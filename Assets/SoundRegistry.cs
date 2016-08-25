@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class SoundRegistry: MonoBehaviour {
+public class SoundRegistry : MonoBehaviour {
 
-    public static readonly int queueSize = 25;
+    public static readonly int queueSize = 5;
     private static SoundRegistry instance;
     private List<Sound> sounds;
+    public Material shaderMaterial;
 
     private SoundRegistry() {
-        sounds = new List<Sound>();
+        sounds = new List<Sound>(queueSize);
     }
 
     public static SoundRegistry getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<SoundRegistry>();
         }
         return instance;
@@ -24,11 +25,21 @@ public class SoundRegistry: MonoBehaviour {
     }
 
     void Update() {
+        Sound oldestSound = new Sound(gameObject, 0);
         foreach (Sound sound in sounds.ToList()) {
-            Debug.Log(sound.getSourcePosition());
+            if (sound.getCurrentRadius() > oldestSound.getCurrentRadius()) {
+                oldestSound = sound;
+            }
+            Debug.Log(sounds.Count);
             if (sound.update()) {
                 sounds.Remove(sound);
             }
+        }
+        if (oldestSound != null) {
+            shaderMaterial.SetFloat("_Distance", oldestSound.getCurrentRadius());
+        }
+        if (sounds.Count < 1) {
+            shaderMaterial.SetFloat("_Distance", 0);
         }
     }
 
