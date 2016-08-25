@@ -13,6 +13,7 @@ namespace Wenzil.Console.Commands
 
         public static string Execute(params string[] args)
         {
+            //TODO: No Clip!
             return "What a game.";
         }
     }

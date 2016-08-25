@@ -23,21 +23,6 @@ public class DeveloperCommands : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F11))
-        {
-            edgeScript.enabled = !edgeScript.enabled;
-        }
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
-            if (camera.farClipPlane == nearModeCliping)
-            {
-                camera.farClipPlane = farModeClipping;
-            }
-            else
-            {
-                camera.farClipPlane = nearModeCliping;
-            }
-        }
 
         if (Input.GetKeyDown(KeyCode.F10))
         {

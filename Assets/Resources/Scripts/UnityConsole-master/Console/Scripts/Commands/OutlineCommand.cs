@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.ImageEffects;
 
 namespace Wenzil.Console.Commands
 {
@@ -7,13 +8,15 @@ namespace Wenzil.Console.Commands
     /// </summary>
     public static class OutlineCommand
     {
-        public static readonly string name = "blib";
-        public static readonly string description = "Return a Blib.";
-        public static readonly string usage = "blibeling";
+        public static readonly string name = "STEREOBLIND";
+        public static readonly string description = "Render the outlines but show rest.";
+        public static readonly string usage = "STEREOBLIND";
+        private static Camera camera = Camera.main;
+        private static EdgeDetectionColor edgeScript;
 
         public static string Execute(params string[] args)
         {
-            return "blib...";
+            return "This shouldn't work anymore...";
         }
     }
 }

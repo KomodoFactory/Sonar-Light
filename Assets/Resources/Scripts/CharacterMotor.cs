@@ -10,35 +10,25 @@ using System.Collections.Generic;
 public class CharacterMotor : MonoBehaviour
 {
     // Does this script currently respond to input?
-    bool canControl = true;
-    bool useFixedUpdate = true;
+    bool playerCanBeControled = true;
 
-    // For the next variables, [System.NonSerialized] tells Unity to not serialize the variable or show it in the inspector view.
-    // Very handy for organization!
-
-    // The current global direction we want the character to move in.
     [System.NonSerialized]
     public Vector3 inputMoveDirection = Vector3.zero;
-
-    // Is the jump button held down? We use this interface instead of checking
-    // for the jump button directly so this script can also be used by AIs.
     [System.NonSerialized]
     public bool inputJump = false;
 
     [System.Serializable]
     public class CharacterMotorMovement
     {
-        // The maximum horizontal speed when moving
         public float maxForwardSpeed = 3.0f;
         public float maxSidewaysSpeed = 2.0f;
         public float maxBackwardsSpeed = 2.0f;
 
-        // Curve for multiplying speed based on slope(negative = downwards)
         public AnimationCurve slopeSpeedMultiplier = new AnimationCurve(new Keyframe(-90, 1), new Keyframe(0, 1), new Keyframe(90, 0));
 
         // How fast does the character change speeds?  Higher is faster.
-        public float maxGroundAcceleration = 30.0f;
-        public float maxAirAcceleration = 20.0f;
+        public float maxGroundAcceleration = 2.5f;
+        public float maxAirAcceleration = 1.5f;
 
         // The gravity for the character
         public float gravity = 9.81f;
@@ -194,6 +184,11 @@ public class CharacterMotor : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         tr = transform;
+    }
+
+    void Update()
+    {
+            UpdateFunction();
     }
 
     private void UpdateFunction()
@@ -361,20 +356,13 @@ public class CharacterMotor : MonoBehaviour
                 movingPlatform.platformVelocity = Vector3.zero;
             }
         }
-
-        if (useFixedUpdate)
-            UpdateFunction();
-    }
-
-    void Update()
-    {
-        if (!useFixedUpdate)
+        
             UpdateFunction();
     }
 
     private Vector3 ApplyInputVelocityChange(Vector3 velocity)
     {
-        if (!canControl)
+        if (!playerCanBeControled)
             inputMoveDirection = Vector3.zero;
 
         // Find desired velocity
@@ -413,7 +401,7 @@ public class CharacterMotor : MonoBehaviour
         }
         // ifwe're in the air and don't have control, don't apply any velocity change at all.
         // ifwe're on the ground and don't have control we do apply it - it will correspond to friction.
-        if (grounded || canControl)
+        if (grounded || playerCanBeControled)
             velocity += velocityChangeVector;
 
         if (grounded)
@@ -430,13 +418,13 @@ public class CharacterMotor : MonoBehaviour
     private Vector3 ApplyGravityAndJumping(Vector3 velocity)
     {
 
-        if (!inputJump || !canControl)
+        if (!inputJump || !playerCanBeControled)
         {
             jumping.holdingJumpButton = false;
             jumping.lastButtonDownTime = -100;
         }
 
-        if (inputJump && jumping.lastButtonDownTime < 0 && canControl)
+        if (inputJump && jumping.lastButtonDownTime < 0 && playerCanBeControled)
             jumping.lastButtonDownTime = Time.time;
 
         if (grounded)
@@ -469,7 +457,7 @@ public class CharacterMotor : MonoBehaviour
             // because players will often try to jump in the exact moment when hitting the ground after a jump
             // and ifthey hit the button a fraction of a second too soon and no new jump happens as a consequence,
             // it's confusing and it feels like the game is buggy.
-            if (jumping.enabled && canControl && (Time.time - jumping.lastButtonDownTime < 0.2))
+            if (jumping.enabled && playerCanBeControled && (Time.time - jumping.lastButtonDownTime < 0.2))
             {
                 grounded = false;
                 jumping.jumping = true;
@@ -624,10 +612,7 @@ public class CharacterMotor : MonoBehaviour
         return inputMoveDirection;
     }
 
-    void SetControllable(bool controllable)
-    {
-        canControl = controllable;
-    }
+
 
     // Project a direction onto elliptical quater segments based on forward, sideways, and backwards speed.
     // The function returns the length of the resulting vector.
@@ -650,5 +635,10 @@ public class CharacterMotor : MonoBehaviour
         movement.velocity = velocity;
         movement.frameVelocity = Vector3.zero;
         SendMessage("OnExternalVelocity");
+    }
+
+    void SetControllable(bool controllable)
+    {
+        playerCanBeControled = controllable;
     }
 }

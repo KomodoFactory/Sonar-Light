@@ -46,8 +46,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161508}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.284462, y: 10.44, z: 15.692381}
+  m_LocalRotation: {x: 0, y: 0.7071066, z: 0, w: -0.70710695}
+  m_LocalPosition: {x: 8.599235, y: 2.6, z: -4.0603595}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 462116}
@@ -165,48 +165,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement:
-    maxForwardSpeed: 7
-    maxSidewaysSpeed: 7
-    maxBackwardsSpeed: 7
+    maxForwardSpeed: 3
+    maxSidewaysSpeed: 2
+    maxBackwardsSpeed: 2
     slopeSpeedMultiplier:
       serializedVersion: 2
       m_Curve:
-      - time: -100.25
-        value: 2.109375
+      - time: -90
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: -29.762259
-        value: 1.7212694
-        inSlope: -0.018647
-        outSlope: -0.018647
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
-      - time: 23.852547
-        value: 0.4761567
-        inSlope: -0.022832282
-        outSlope: -0.022832282
-        tangentMode: 0
-      - time: 96.06458
-        value: 0.024414182
+      - time: 90
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-      m_RotationOrder: 0
-    maxGroundAcceleration: 20
-    maxAirAcceleration: 10
+      m_RotationOrder: 4
+    maxGroundAcceleration: 2.5
+    maxAirAcceleration: 1.5
     gravity: 9.81
-    maxFallSpeed: 30
+    maxFallSpeed: 20
   jumping:
     enabled: 1
-    baseHeight: 1.5
-    extraHeight: 1.5
+    baseHeight: 1
+    extraHeight: 4.1
     perpAmount: 0
     steepPerpAmount: 0.5
   movingPlatform:
     enabled: 1
-    movementTransfer: 2
+    movementTransfer: 1
   sliding:
     enabled: 1
     slidingSpeed: 15
