@@ -28,7 +28,7 @@ public class FPSInputController : MonoBehaviour
             modifyLengthForSensitivControlles();
             directionVector = directionVector * directionLength;
         }
-        
+
         motor.inputMoveDirection = transform.rotation * directionVector;
         motor.inputJump = Input.GetButton("Jump");
     }

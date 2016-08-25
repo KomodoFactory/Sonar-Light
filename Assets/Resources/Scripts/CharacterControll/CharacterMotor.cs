@@ -26,18 +26,13 @@ public class CharacterMotor : MonoBehaviour
 
         public AnimationCurve slopeSpeedMultiplier = new AnimationCurve(new Keyframe(-90, 1), new Keyframe(0, 1), new Keyframe(90, 0));
 
-        // How fast does the character change speeds?  Higher is faster.
-        public float maxGroundAcceleration = 2.5f;
-        public float maxAirAcceleration = 1.5f;
-
-        // The gravity for the character
+        // How fast does the character change speeds?  Higher is faster. Why these numbers? it seems to work though...
+        public float maxGroundAcceleration = 50.0f;
+        public float maxAirAcceleration = 20.0f;
+        
         public float gravity = 9.81f;
         public float maxFallSpeed = 20.0f;
-
-        // For the next variables, [System.NonSerialized] tells Unity to not serialize the variable or show it in the inspector view.
-        // Very handy for organization!
-
-        // The last collision flags returned from controller.Move
+        
         [System.NonSerialized]
         public CollisionFlags collisionFlags;
 
@@ -56,8 +51,6 @@ public class CharacterMotor : MonoBehaviour
         public Vector3 lastHitPoint = new Vector3(Mathf.Infinity, 0, 0);
     }
 
-    public CharacterMotorMovement movement = new CharacterMotorMovement();
-
     public enum MovementTransferOnJump
     {
         None, // The jump is not affected by velocity of floor at all.
@@ -66,8 +59,9 @@ public class CharacterMotor : MonoBehaviour
         PermaLocked // Jump is relative to the movement of the last touched floor and will move together with that floor.
     }
 
-    // We will contain all the jumping related variables in one helper class for clarity.
-    [System.Serializable]
+    public CharacterMotorMovement movement = new CharacterMotorMovement();
+
+
     public class CharacterMotorJumping
     {
         // Can the character jump?
@@ -111,6 +105,8 @@ public class CharacterMotor : MonoBehaviour
 
     public CharacterMotorJumping jumping = new CharacterMotorJumping();
 
+
+
     [System.Serializable]
     public class CharacterMotorMovingPlatform
     {
@@ -147,6 +143,7 @@ public class CharacterMotor : MonoBehaviour
     }
 
     public CharacterMotorMovingPlatform movingPlatform = new CharacterMotorMovingPlatform();
+
 
     [System.Serializable]
     public class CharacterMotorSliding
