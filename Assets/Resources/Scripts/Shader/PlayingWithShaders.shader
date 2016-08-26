@@ -38,20 +38,23 @@
 	half4 frag(v2f i) : COLOR{
 
 		float delta = 0.1;
-
 		half4 color = 0;
-
-		return half4( _Distances[0].x, _Distances[0].y, 0 , 1);
-
 		for (int j = 0; j < 10; j++) {
+
 			float3 sourceToFragment = i.worldPos - _SoundSources[j];
 
 			float dist = length(sourceToFragment);
 
+			if (dist >= _Distances[j].x-delta && dist <= _Distances[j].x+delta) {
+				color = color + half4(0,0,1,1);
+			}
+			if (dist < _Distances[j].x) {
+				color = color + half4(1,0,0,1);
+			}
 
 
 		}
-	return 0;
+		return color;
 
 	}
 		ENDCG

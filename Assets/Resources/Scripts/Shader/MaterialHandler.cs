@@ -17,9 +17,6 @@ public class MaterialHandler : MonoBehaviour {
     }
 
     public bool switchMaterial(Renderer renderer) {
-        Debug.Log("Shader: " + shaderMaterial);
-        Debug.Log("Nonshader: " + nonShaderMaterial);
-
         if (renderer.sharedMaterial == nonShaderMaterial) {
             renderer.sharedMaterial = shaderMaterial;
             return true;
@@ -33,10 +30,13 @@ public class MaterialHandler : MonoBehaviour {
     public void setShaderData(Sound[] sounds) {
 
         for (int i = 0; i < sounds.Length; i++) {
-            shaderMaterial.SetVector("_Distances" + i, new Vector2( sounds[i].getCurrentRadius(), sounds[i].getCurrentIntensity()));
+            shaderMaterial.SetVector("_Distances" + i, new Vector2(sounds[i].getCurrentRadius(), sounds[i].getCurrentIntensity()));
             shaderMaterial.SetVector("_SoundSources" + i, sounds[i].getSourcePosition());
         }
+        for (int i = SoundRegistry.queueSize-1; i >= sounds.Length; i--) {
+            shaderMaterial.SetVector("_Distances" + i, new Vector2(0, 0));
+            shaderMaterial.SetVector("_SoundSources" + i, new Vector3(0, 0, 0));
+        }
 
-        Debug.Log(shaderMaterial.GetVector("_Distances" + 0));
     }
 }
