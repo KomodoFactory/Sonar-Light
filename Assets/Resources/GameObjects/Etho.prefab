@@ -248,7 +248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8872855c229ebc845a718bbd33f6b657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shaderMaterial: {fileID: 2100000, guid: 18bdcbf207dc43142a7873c804affaaa, type: 2}
 --- !u!136 &13669028
 CapsuleCollider:
   m_ObjectHideFlags: 1

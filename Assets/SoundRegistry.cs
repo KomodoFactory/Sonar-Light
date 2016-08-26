@@ -7,7 +7,6 @@ public class SoundRegistry : MonoBehaviour {
     public static readonly int queueSize = 10;
     private static SoundRegistry instance;
     private List<Sound> sounds;
-    public Material shaderMaterial;
 
     private SoundRegistry() {
         sounds = new List<Sound>(queueSize);
