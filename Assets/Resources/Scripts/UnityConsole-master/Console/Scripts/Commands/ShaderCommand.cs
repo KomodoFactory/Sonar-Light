@@ -23,8 +23,6 @@ namespace Wenzil.Console.Commands
                 {
                     if (renderer.sharedMaterial != null)
                     {
-                        //Debug.Log(go + " " + go.GetComponent<Material>());
-                        //Debug.Log(go + " " + go.GetComponent<Shader>());
                         shaderOnOff = matHandler.switchMaterial(renderer);
                     }
                 }
@@ -34,10 +32,7 @@ namespace Wenzil.Console.Commands
             {
                 return "You're blind then.";
             }
-            else
-            {
-                return "You're not blind, I see.";
-            }
+            return "You're not blind, I see.";
         }
     }
 }

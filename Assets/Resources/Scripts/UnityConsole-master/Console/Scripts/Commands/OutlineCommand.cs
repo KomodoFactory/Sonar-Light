@@ -12,6 +12,7 @@ namespace Wenzil.Console.Commands
 
         public static string Execute(params string[] args)
         {
+            //TODO: Do this shit. aktuell aber noch nicht nutzbar.
             return "This shouldn't work anymore...";
         }
     }
