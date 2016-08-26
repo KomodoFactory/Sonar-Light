@@ -93,7 +93,8 @@ public class ScreenPromptHandler : MonoBehaviour {
         {
             foreach (ScreenPrompt prompt in list.ToList())
             {
-                sb.AppendLine(prompt.message + " " + list.Count + " " + prompt.duration);
+                //sb.AppendLine(prompt.message + " " + list.Count + " " + prompt.duration);
+                sb.AppendLine(prompt.message);
             }
         }
     }
