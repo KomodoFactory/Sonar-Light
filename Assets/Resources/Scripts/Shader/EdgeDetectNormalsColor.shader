@@ -100,14 +100,14 @@ Shader "Hidden/EdgeDetectColors" {
 			return 0;
 		}
 		if (FragColor.z >= 0.99) {
-			return _EdgeColor;
+			return _EdgeColor*FragColor.x;
 		}
 
 		if (edgeCheckResult > 0) {
 			return  lerp(tex2D(_MainTex, i.uv[0].xy), 0, _BgFade);
 		}
 		else {
-			return _EdgeColor;
+			return _EdgeColor*FragColor.x;
 		}
 
 	}

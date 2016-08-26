@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footstepFrequency: 0.6
-  footstepVolume: 15
+  footstepVolume: 40
 --- !u!114 &11457892
 MonoBehaviour:
   m_ObjectHideFlags: 1

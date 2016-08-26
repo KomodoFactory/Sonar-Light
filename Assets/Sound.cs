@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 public class Sound {
 
-    public static readonly float propagationSpeed = 0.3f;
+    public static readonly float propagationSpeed = 40;
     private readonly Vector3 sourcePosition;
     private readonly GameObject sourceObject;
     private float radius = 0;
@@ -27,7 +27,7 @@ public class Sound {
     /// <para>if this method returns true the Sound should be discarted</para>
     /// </summary>
     public bool update() {
-        radius += propagationSpeed;
+        radius += propagationSpeed*Time.deltaTime;
         return radius > volume;
     }
 
