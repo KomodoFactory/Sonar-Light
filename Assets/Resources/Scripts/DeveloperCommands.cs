@@ -30,5 +30,9 @@ public class DeveloperCommands : MonoBehaviour
             POVpointer++;
             POVpointer = POVpointer % POVs.Length;
         }
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            ScreenPromptHandler.Instance.DisplayPrompt("Hallo", 10);
+        }
     }
 }
