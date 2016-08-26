@@ -5,9 +5,9 @@ public class Sound {
     private readonly Vector3 sourcePosition;
     private readonly GameObject sourceObject;
     private float radius = 0;
-    private int volume;
+    private float volume;
 
-    public Sound(GameObject sourceObject, int volume) {
+    public Sound(GameObject sourceObject, float volume) {
         this.sourceObject = sourceObject;
         this.sourcePosition = sourceObject.transform.position;
         this.volume = volume;

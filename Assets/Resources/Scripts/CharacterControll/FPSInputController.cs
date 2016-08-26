@@ -10,6 +10,7 @@ public class FPSInputController : MonoBehaviour {
     private CharacterMotor motor;
     private float directionLength;
     public float footstepFrequency = 0.6f;
+    public float footstepVolume = 20;
     private float lastFootstepSound = 0f;
 
     void Awake() {
@@ -22,7 +23,7 @@ public class FPSInputController : MonoBehaviour {
 
         if (directionVector != Vector3.zero) {
             if (lastFootstepSound > footstepFrequency) {
-                SoundRegistry.getInstance().addSound(new Sound(gameObject, 20));
+                SoundRegistry.getInstance().addSound(new Sound(gameObject, footstepVolume));
                 lastFootstepSound = 0;
             }
 

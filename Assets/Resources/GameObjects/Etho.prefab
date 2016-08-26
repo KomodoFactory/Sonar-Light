@@ -155,9 +155,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement:
-    maxForwardSpeed: 3
+    maxForwardSpeed: 2
     maxSidewaysSpeed: 2
-    maxBackwardsSpeed: 2
+    maxBackwardsSpeed: 1
     slopeSpeedMultiplier:
       serializedVersion: 2
       m_Curve:
@@ -202,6 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979de7d9e12aadf4e816576890f86b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  footstepFrequency: 0.6
+  footstepVolume: 15
 --- !u!114 &11457892
 MonoBehaviour:
   m_ObjectHideFlags: 1
