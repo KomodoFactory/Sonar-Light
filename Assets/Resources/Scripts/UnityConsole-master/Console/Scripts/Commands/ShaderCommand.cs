@@ -9,27 +9,35 @@ namespace Wenzil.Console.Commands
         public static readonly string name = "NONBLIND";
         public static readonly string description = "Render the scene normaly";
         public static readonly string usage = "NONBLIND";
-        private static Camera camera = Camera.main;
-        private static EdgeDetectionColor edgeScript;
-
-
+        private static Renderer renderer;
+        private static MaterialHandler matHandler = MaterialHandler.getInstance();
+        private static bool shaderOnOff;
 
         public static string Execute(params string[] args)
         {
             GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
             foreach (GameObject go in allObjects)
             {
-                if (go.GetComponent<Renderer>() != null)
+                renderer = go.GetComponent<Renderer>();
+                if (renderer != null)
                 {
-                    Debug.Log(go.GetComponent<Renderer>().material);
+                    if (renderer.sharedMaterial != null)
+                    {
+                        //Debug.Log(go + " " + go.GetComponent<Material>());
+                        //Debug.Log(go + " " + go.GetComponent<Shader>());
+                        shaderOnOff = matHandler.switchMaterial(renderer);
+                    }
                 }
             }
 
-
-
-            /*edgeScript = camera.GetComponent<EdgeDetectionColor>();
-            edgeScript.enabled = !edgeScript.enabled;*/
-            return "You're not blind, I see.";
+            if (shaderOnOff)
+            {
+                return "You're blind then.";
+            }
+            else
+            {
+                return "You're not blind, I see.";
+            }
         }
     }
 }
