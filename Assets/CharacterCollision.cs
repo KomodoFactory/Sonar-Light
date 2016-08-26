@@ -23,7 +23,6 @@ public class CharacterCollision : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log("Maybe?");
         if (col.gameObject.GetComponent<Rigidbody>() != null)
         {
             Vector3 closestPointPlayer = etho.GetComponent<Collider>().ClosestPointOnBounds(col.transform.position);

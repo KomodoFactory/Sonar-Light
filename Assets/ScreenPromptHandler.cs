@@ -93,8 +93,7 @@ public class ScreenPromptHandler : MonoBehaviour {
         {
             foreach (ScreenPrompt prompt in list.ToList())
             {
-                //Debug.Log("in SB: " + prompt.message);
-                sb.AppendLine(prompt.message);
+                sb.AppendLine(prompt.message + " " + list.Count + " " + prompt.duration);
             }
         }
     }
@@ -104,7 +103,7 @@ public class ScreenPromptHandler : MonoBehaviour {
         //Debug.Log("Hi me?");
         if (msg != null && msg != "" && dur > 0)
         {
-            ScreenPrompt sp = new ScreenPrompt(msg, dur * 1000);
+            ScreenPrompt sp = new ScreenPrompt(msg, dur);
             //Debug.Log("Msg: " + sp.message + " Dur: " + sp.duration);
             list.Add(sp);
             //Debug.Log(list.Count);
