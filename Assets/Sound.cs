@@ -11,7 +11,7 @@ public class Sound {
         this.sourceObject = sourceObject;
         this.sourcePosition = sourceObject.transform.position;
         this.volume = volume;
-    }
+         }
     
     public Vector3 getSourcePosition() {
         return sourcePosition;
@@ -35,4 +35,7 @@ public class Sound {
         return radius;
     }
 
+    public float getCurrentIntensity() {
+        return volume-radius ;
+    }
 }

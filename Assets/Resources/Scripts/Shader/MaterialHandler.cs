@@ -32,11 +32,11 @@ public class MaterialHandler : MonoBehaviour {
 
     public void setShaderData(Sound[] sounds) {
 
-
         for (int i = 0; i < sounds.Length; i++) {
-            shaderMaterial.SetVector("_SoundSources"+i, sounds[i].getSourcePosition());
-            shaderMaterial.SetFloat("_Distances"+i,sounds[i].getCurrentRadius());
-
+            shaderMaterial.SetVector("_Distances" + i, new Vector2( sounds[i].getCurrentRadius(), sounds[i].getCurrentIntensity()));
+            shaderMaterial.SetVector("_SoundSources" + i, sounds[i].getSourcePosition());
         }
+
+        Debug.Log(shaderMaterial.GetVector("_Distances" + 0));
     }
 }

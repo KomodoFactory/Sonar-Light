@@ -21,7 +21,7 @@
 	};
 
 
-	uniform float _Distances[10];
+	uniform float2 _Distances[10];
 	uniform float3 _SoundSources[10];
 
 	//Our Vertex Shader
@@ -39,19 +39,19 @@
 
 		float delta = 0.1;
 
-	half4 color = 0;
+		half4 color = 0;
 
-	for (int j = 0; j < 10; j++) {
-		float3 sourceToFragment = i.worldPos -_SoundSources[j];
+		return half4( _Distances[0].x, _Distances[0].y, 0 , 1);
 
-		float dist = length(sourceToFragment);
+		for (int j = 0; j < 10; j++) {
+			float3 sourceToFragment = i.worldPos - _SoundSources[j];
 
-		if (dist <= _Distances[j]) {
-			color = half4(1,1,1,1);
+			float dist = length(sourceToFragment);
+
+
+
 		}
-
-	}
-	return color;
+	return 0;
 
 	}
 		ENDCG
