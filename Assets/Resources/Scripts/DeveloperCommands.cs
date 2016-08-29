@@ -17,7 +17,6 @@ public class DeveloperCommands : MonoBehaviour
     {
         camera = this.GetComponent<Camera>();
         edgeScript = this.GetComponent<EdgeDetectionColor>();
-        edgeScript.enabled = true;
     }
 
     // Update is called once per frame
