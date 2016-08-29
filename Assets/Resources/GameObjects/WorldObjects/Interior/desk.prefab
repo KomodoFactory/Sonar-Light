@@ -10,10 +10,9 @@ GameObject:
   - 4: {fileID: 432436}
   - 33: {fileID: 3351884}
   - 23: {fileID: 2393572}
-  - 54: {fileID: 5468430}
   - 65: {fileID: 6593336}
   m_Layer: 0
-  m_Name: desk
+  m_Name: Desk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,8 +24,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158286}
-  m_LocalRotation: {x: 0.50490814, y: 0.49504328, z: 0.49504328, w: -0.5049081}
-  m_LocalPosition: {x: 8.71, y: 8, z: 24.12}
+  m_LocalRotation: {x: -0.50000006, y: -0.5, z: -0.50000006, w: 0.4999999}
+  m_LocalPosition: {x: 0.0814, y: 0, z: -0.0084}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
@@ -41,7 +40,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 18bdcbf207dc43142a7873c804affaaa, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -64,21 +63,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158286}
   m_Mesh: {fileID: 4300000, guid: ab4b43997e2dda3438ef3e208aa7e9a6, type: 3}
---- !u!54 &5468430
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158286}
-  serializedVersion: 2
-  m_Mass: 1000
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &6593336
 BoxCollider:
   m_ObjectHideFlags: 1

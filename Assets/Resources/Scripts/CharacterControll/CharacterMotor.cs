@@ -61,7 +61,7 @@ public class CharacterMotor : MonoBehaviour
 
     public CharacterMotorMovement movement = new CharacterMotorMovement();
 
-
+    [System.Serializable]
     public class CharacterMotorJumping
     {
         // Can the character jump?
