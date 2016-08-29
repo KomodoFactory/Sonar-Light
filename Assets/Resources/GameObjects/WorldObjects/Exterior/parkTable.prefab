@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 429006}
   - 33: {fileID: 3372426}
   - 23: {fileID: 2335256}
+  - 65: {fileID: 6501302}
   m_Layer: 0
   m_Name: parkTable
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164822}
   m_LocalRotation: {x: 0.5000002, y: 0.49999988, z: 0.5000001, w: -0.49999997}
-  m_LocalPosition: {x: -0.86, y: 0.026542187, z: -8.3}
+  m_LocalPosition: {x: -5.07, y: 0.026542187, z: -7.89}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,6 +63,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164822}
   m_Mesh: {fileID: 4300000, guid: 53b220c508742044b8aa87d21bfb7b90, type: 3}
+--- !u!65 &6501302
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164822}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0522169, y: 0.11394586, z: 0.027563361}
+  m_Center: {x: -0.021159187, y: 0.052264575, z: 0.01378167}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
