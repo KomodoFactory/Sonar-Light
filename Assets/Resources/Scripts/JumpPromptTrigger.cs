@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class JumpPromptTriggur : MonoBehaviour {
+public class JumpPromptTrigger : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
