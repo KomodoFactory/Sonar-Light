@@ -2,11 +2,13 @@
 using System.Collections;
 
 public class SoundOnImpact : MonoBehaviour {
+
     public float velocityMultiplier;
     public float velocityThreshhold;
     GameObject thrown;
     Rigidbody thrownRB;
     float velMag;
+
 	// Use this for initialization
 	void Start () {
         thrown = this.gameObject;
