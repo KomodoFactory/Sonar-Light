@@ -29,7 +29,7 @@ public class CharacterCollision : MonoBehaviour {
             Vector3 closestPointOther = col.ClosestPointOnBounds(playerPos);
             colDir = closestPointOther - closestPointPlayer;
             Vector3 force = colDir.normalized * collisionForce;
-            Debug.Log(force);
+            //Debug.Log(force);
             col.gameObject.GetComponent<Rigidbody>().AddRelativeForce(force);
         }
     }

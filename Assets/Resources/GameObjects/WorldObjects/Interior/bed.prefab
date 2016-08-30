@@ -12,7 +12,7 @@ GameObject:
   - 23: {fileID: 2390284}
   - 65: {fileID: 6542824}
   m_Layer: 0
-  m_Name: Bed
+  m_Name: bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
