@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+[RequireComponent(typeof(Canvas))]
+[RequireComponent(typeof(Text))]
 public class ScreenPromptHandler : MonoBehaviour {
 
     private static ScreenPromptHandler instance;

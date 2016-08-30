@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(SoundRegistry))]
 public class AlarmObject : MonoBehaviour {
     public float alarmDelay;
     public float alarmIntesity;

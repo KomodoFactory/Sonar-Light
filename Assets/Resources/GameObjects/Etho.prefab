@@ -16,6 +16,7 @@ GameObject:
   - 114: {fileID: 11456362}
   - 136: {fileID: 13669028}
   - 114: {fileID: 11418040}
+  - 114: {fileID: 11477322}
   m_Layer: 0
   m_Name: Etho
   m_TagString: Player
@@ -183,6 +184,12 @@ MonoBehaviour:
     maxAirAcceleration: 20
     gravity: 9.81
     maxFallSpeed: 20
+  jumping:
+    enabled: 1
+    baseHeight: 1
+    extraHeight: 4.1
+    perpAmount: 0
+    steepPerpAmount: 0.5
   movingPlatform:
     enabled: 1
     movementTransfer: 2
@@ -217,6 +224,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nearModeCliping: 30
   farModeClipping: 1000
+--- !u!114 &11477322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f4105778314584dbb0b0ff996139fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11480550
 MonoBehaviour:
   m_ObjectHideFlags: 1

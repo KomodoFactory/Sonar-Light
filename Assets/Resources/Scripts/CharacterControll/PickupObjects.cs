@@ -85,6 +85,10 @@ public class PickupObjects : MonoBehaviour {
             if (distance <= pickupDistance && hit.collider.CompareTag("Throwable")) {
                 return hit.collider.GetComponentInParent<Rigidbody>();
             }
+            // added for Key interaction
+            else if(distance <= pickupDistance && hit.collider.GetComponent<KeyInfo>() != null){
+                pickUpKey(hit.collider.gameObject);
+            }
         }
         return null;
     }
@@ -95,5 +99,12 @@ public class PickupObjects : MonoBehaviour {
         }else {
             return null;
         }
+    }
+
+    // added for Key interaction
+    void pickUpKey(GameObject keyObject)
+    {
+        CharacterInventory.Instance.addKey(keyObject.GetComponent<KeyInfo>().getKeyObject());
+        Destroy(keyObject);
     }
 }
