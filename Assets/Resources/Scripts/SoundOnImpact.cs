@@ -6,8 +6,8 @@ using System.Collections;
 [RequireComponent(typeof(SoundRegistry))]
 public class SoundOnImpact : MonoBehaviour {
 
-    public float velocityMultiplier;
-    public float velocityThreshhold;
+    public float velocityMultiplier = 5;
+    public float velocityThreshhold = 1;
     GameObject thrown;
     Rigidbody thrownRB;
     float velMag;
@@ -29,7 +29,7 @@ public class SoundOnImpact : MonoBehaviour {
         //Debug.Log(velMag);
         if (!(col.gameObject.tag.Contains("Player")))
         {
-            if (velMag > velocityThreshhold)
+            if (velMag > velocityThreshhold && velMag > 0)
                 //Debug.Log("Sound!");
                 SoundRegistry.getInstance().addSound(new Sound(thrown, velMag * velocityMultiplier));
         }
