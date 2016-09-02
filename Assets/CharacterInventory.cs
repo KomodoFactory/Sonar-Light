@@ -63,4 +63,17 @@ public class CharacterInventory : MonoBehaviour {
             keyText.text = sb.ToString();
         }
     }
+
+    public bool checkIfDoorCanBeOpened(GameObject door)
+    {
+        foreach(Key key in keyList.ToList())
+        {
+            if (key.OpensDoor == door)
+            {
+                keyList.Remove(key);
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -2,8 +2,10 @@
 using System.Collections;
 
 public class KeyInfo : MonoBehaviour {
-    public string keyName, opensDoor;
+    public string keyName;
+    public GameObject opensDoor;
     Key keyObject;
+
 	// Use this for initialization
 	void Start () {
         keyObject = new Key(keyName, opensDoor);
