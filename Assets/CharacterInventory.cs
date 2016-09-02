@@ -13,7 +13,6 @@ public class CharacterInventory : MonoBehaviour {
         keyList = new List<object>();
     }
     List<object> keyList;
-    Canvas canvas;
     Text keyText;
     System.Text.StringBuilder sb;
 
@@ -30,7 +29,6 @@ public class CharacterInventory : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-        canvas = GameObject.FindObjectOfType<Canvas>();
         keyText = GameObject.Find("KeyText").GetComponent<Text>();
 	}
 	
