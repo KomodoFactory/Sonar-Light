@@ -32,8 +32,6 @@ public class Sound {
         if(factor < 0.5f) {
             factor = 0.5f;
         }
-        Debug.Log(factor);
-
         radius += factor;
         return radius > volume;
     }

@@ -175,19 +175,6 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 492034, guid: e7d10c2068b691844ab957c39e399405, type: 2}
   m_PrefabInternal: {fileID: 165281501}
---- !u!114 &396843129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 396843127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f1be6a207920f440bf2cd7a418779b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alarmDelay: 1
-  alarmIntesity: 50
 --- !u!65 &396843132
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -212,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityMultiplier: 0
-  velocityThreshhold: 0
+  velocityThreshhold: 5
 --- !u!54 &396843134
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -260,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityMultiplier: 0
-  velocityThreshhold: 0
+  velocityThreshhold: 5
 --- !u!54 &854501023
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -308,7 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityMultiplier: 0
-  velocityThreshhold: 0
+  velocityThreshhold: 5
 --- !u!1 &1024092611 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 139926, guid: 82c097fd5939fc646af0c06f8e9ca5fe, type: 2}
@@ -341,7 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityMultiplier: 0
-  velocityThreshhold: 0
+  velocityThreshhold: 5
 --- !u!1001 &1030220502
 Prefab:
   m_ObjectHideFlags: 0
@@ -564,7 +551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityMultiplier: 0
-  velocityThreshhold: 0
+  velocityThreshhold: 5
 --- !u!54 &1298723081
 Rigidbody:
   m_ObjectHideFlags: 0
