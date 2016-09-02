@@ -3,7 +3,9 @@ using System.Collections;
 using System;
 
 public class OpeningDoors : MonoBehaviour {
-    
+
+    GameObject player;
+    CharacterInventory inventory;
     public bool opensOutward = true;
     public float rotationSpeed = 90;
     private float rotationDirection = 1;
@@ -13,6 +15,8 @@ public class OpeningDoors : MonoBehaviour {
     private bool opened = true;
     
     void Start () {
+        player = GameObject.FindGameObjectWithTag("Player");
+        inventory = CharacterInventory.Instance;
         if (opensOutward)
         {
             rotationDirection = 1;
@@ -44,5 +48,15 @@ public class OpeningDoors : MonoBehaviour {
                 transform.Rotate(transform.up, frameRotation * -1);
             }
         }
+    }
+
+    //Added for Key interaction
+    bool CheckKey()
+    {
+        if (inventory.checkIfDoorCanBeOpened(this.gameObject)){
+            ScreenPromptHandler.Instance.DisplayPrompt("Door has been opened!", 5);
+            return true;
+        }
+        return false;
     }
 }
