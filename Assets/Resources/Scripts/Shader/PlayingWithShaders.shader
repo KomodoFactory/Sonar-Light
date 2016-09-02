@@ -49,7 +49,7 @@
 				color = color + half4(0,0,1,1);
 			}
 			if (dist < _Distances[j].x) {
-				color = color + half4(pow(_Distances[j].y/35,2),0,0,1);
+				color = color + half4(_Distances[j].y,0,0,1);
 			}
 
 
