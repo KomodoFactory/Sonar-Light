@@ -27,7 +27,14 @@ public class Sound {
     /// <para>if this method returns true the Sound should be discarted</para>
     /// </summary>
     public bool update() {
-        radius += propagationSpeed*Time.deltaTime*getCurrentIntensity();
+
+        float factor = propagationSpeed * Time.deltaTime * getCurrentIntensity();
+        if(factor < 0.5f) {
+            factor = 0.5f;
+        }
+        Debug.Log(factor);
+
+        radius += factor;
         return radius > volume;
     }
 
