@@ -5,7 +5,6 @@ using UnityStandardAssets.ImageEffects;
 public class DeveloperCommands : MonoBehaviour
 {
 
-    private EdgeDetectionColor edgeScript;
     private new Camera camera;
     public int nearModeCliping = 30;
     public int farModeClipping = 1000;
@@ -16,7 +15,6 @@ public class DeveloperCommands : MonoBehaviour
     void Start()
     {
         camera = this.GetComponent<Camera>();
-        edgeScript = this.GetComponent<EdgeDetectionColor>();
     }
 
     // Update is called once per frame

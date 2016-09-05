@@ -436,6 +436,14 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 22401744, guid: 8408a9bc4eacb314fba191c75d9e3aac, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22443926, guid: 8408a9bc4eacb314fba191c75d9e3aac, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8408a9bc4eacb314fba191c75d9e3aac, type: 2}
   m_IsPrefabParent: 0
@@ -500,6 +508,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fab974cca01e3e04c983d4f3853ff316, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &534236021
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 579638074}
+    m_Modifications:
+    - target: {fileID: 499048, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -11.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 499048, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -4.8477206
+      objectReference: {fileID: 0}
+    - target: {fileID: 499048, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 14.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 499048, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 499048, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 499048, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 499048, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 499048, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &545560229
 GameObject:
@@ -589,6 +639,7 @@ Transform:
   m_Children:
   - {fileID: 1866507021}
   - {fileID: 2137627987}
+  - {fileID: 1679102649}
   m_Father: {fileID: 0}
   m_RootOrder: 10
 --- !u!4 &734829913 stripped
@@ -956,7 +1007,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11477760, guid: 3a7c1f192b5c0c644800a26860a20aaa, type: 2}
       propertyPath: velocityThreshhold
-      value: 0.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477760, guid: 3a7c1f192b5c0c644800a26860a20aaa, type: 2}
+      propertyPath: velocityMultiplier
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a7c1f192b5c0c644800a26860a20aaa, type: 2}
@@ -1317,6 +1372,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fab974cca01e3e04c983d4f3853ff316, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1679102649 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 499048, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
+  m_PrefabInternal: {fileID: 534236021}
 --- !u!4 &1695885097 stripped
 Transform:
   m_PrefabParentObject: {fileID: 432436, guid: fe85e44a735217e4a9086a2c26612f0d, type: 2}
@@ -1370,6 +1429,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11477760, guid: 3a7c1f192b5c0c644800a26860a20aaa, type: 2}
       propertyPath: velocityThreshhold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477760, guid: 3a7c1f192b5c0c644800a26860a20aaa, type: 2}
+      propertyPath: velocityMultiplier
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1633,11 +1696,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11435278, guid: 688e52d058be88b4295aba7af82b162e, type: 2}
       propertyPath: alarmDelay
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11435278, guid: 688e52d058be88b4295aba7af82b162e, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435278, guid: 688e52d058be88b4295aba7af82b162e, type: 2}
+      propertyPath: alarmIntesity
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 688e52d058be88b4295aba7af82b162e, type: 2}

@@ -4,9 +4,9 @@ using System.Collections;
 public class Key {
 
     string keyName;
-    string opensDoor;
+    GameObject opensDoor;
     
-    public Key(string name, string opens)
+    public Key(string name, GameObject opens)
     {
         KeyName = name;
         OpensDoor = opens;
@@ -25,7 +25,7 @@ public class Key {
         }
     }
 
-    public string OpensDoor
+    public GameObject OpensDoor
     {
         get
         {

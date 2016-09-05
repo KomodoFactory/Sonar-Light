@@ -27,7 +27,12 @@ public class Sound {
     /// <para>if this method returns true the Sound should be discarted</para>
     /// </summary>
     public bool update() {
-        radius += propagationSpeed*Time.deltaTime;
+
+        float factor = propagationSpeed * Time.deltaTime * getCurrentIntensity();
+        if(factor < 0.5f) {
+            factor = 0.5f;
+        }
+        radius += factor;
         return radius > volume;
     }
 
@@ -36,6 +41,6 @@ public class Sound {
     }
 
     public float getCurrentIntensity() {
-        return volume-radius ;
+        return 1-(radius/volume) ;
     }
 }

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityStandardAssets.ImageEffects;
 
 namespace Wenzil.Console.Commands
 {
