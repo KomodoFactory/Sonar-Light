@@ -1,28 +1,19 @@
 ﻿using System;
 using UnityEngine;
 
-public class PickupObjects : MonoBehaviour {
+public class PickupObjects {
 
     public float throwForce = 1000;
     public float pickupDistance = 5;
     private Rigidbody targetObjectRigidbody;
     private bool hasObjectInHand = false;
-    private Transform cameraTransform;
-    private AxisHandler axisPickup;
-    private AxisHandler axisThrow;
     private GameObject player;
-    void Start() {
-        cameraTransform = Camera.main.transform;
+    void Start() 
         player = GameObject.FindGameObjectsWithTag("Player")[0];
-
-        axisPickup = new AxisHandler("Fire1");
-        axisThrow = new AxisHandler("Fire2");
     }
 
     void Update() {
 
-        axisPickup.Update();
-        axisThrow.Update();
 
         if (hasObjectInHand) {
             centerObject();
@@ -85,10 +76,6 @@ public class PickupObjects : MonoBehaviour {
             if (distance <= pickupDistance && hit.collider.CompareTag("Throwable")) {
                 return hit.collider.GetComponentInParent<Rigidbody>();
             }
-            // added for Key interaction
-            else if(distance <= pickupDistance && hit.collider.GetComponent<KeyInfo>() != null){
-                pickUpKey(hit.collider.gameObject);
-            }
         }
         return null;
     }
@@ -99,12 +86,5 @@ public class PickupObjects : MonoBehaviour {
         }else {
             return null;
         }
-    }
-
-    // added for Key interaction
-    void pickUpKey(GameObject keyObject)
-    {
-        CharacterInventory.Instance.addKey(keyObject.GetComponent<KeyInfo>().getKeyObject());
-        Destroy(keyObject);
     }
 }
