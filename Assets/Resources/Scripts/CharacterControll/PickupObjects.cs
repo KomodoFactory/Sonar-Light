@@ -1,67 +1,108 @@
 ﻿using System;
 using UnityEngine;
 
-public class PickupObjects {
+public class PickupObjects : CourserListener
+{
+
+    private static readonly string axisPickup = "Fire1";
+    private static readonly string axisThrow = "Fire2";
+    private static readonly string[] interestedAxis = {axisPickup, axisThrow};
 
     public float throwForce = 1000;
-    public float pickupDistance = 5;
-    private Rigidbody targetObjectRigidbody;
+    private float distanceToObject = 0;
+    private float maximumHoveringDistance = 3;
     private bool hasObjectInHand = false;
+    private Rigidbody targetObjectRigidbody;
     private GameObject player;
-    void Start() 
-        player = GameObject.FindGameObjectsWithTag("Player")[0];
+    private Transform cameraTransform;
+
+    public PickupObjects()
+    {
+
     }
 
-    void Update() {
+    public void initialize()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        cameraTransform = Camera.main.transform;
+    }
 
-
-        if (hasObjectInHand) {
+    public void update()
+    {
+        if (hasObjectInHand)
+        {
             centerObject();
-            if (axisPickup.pressedDown()) {
+        }
+    }
+
+    public bool axisFiered(string axis)
+    {
+
+        if (hasObjectInHand)
+        {
+            if (axis.Equals(axisPickup))
+            {
                 dropObject();
             }
-            else if (axisThrow.pressedDown()) {
+            else if (axis.Equals(axisThrow))
+            {
                 throwObject();
             }
+            return false;
         }
-        else {
-            if (axisPickup.pressedDown()) {
-                targetObjectRigidbody = getObjectInRange();
-                if (targetObjectRigidbody != null) {
-                    pickupObject();
-                }
-            }
+        if (axis.Equals(axisPickup))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void interactWithFocusedObject(GameObject focusedObject, float distanceToObject)
+    {
+        if (focusedObject != null && focusedObject.CompareTag("Throwable"))
+        {
+            targetObjectRigidbody = focusedObject.GetComponent<Rigidbody>();
+            this.distanceToObject = Math.Min(distanceToObject, maximumHoveringDistance);
+            pickupObject();
         }
     }
 
-    private void centerObject() {
+    public string[] getInterestedAxes()
+    {
+        return interestedAxis;
+    }
 
+    private void centerObject()
+    {
         Vector3 currentPosition = targetObjectRigidbody.position;
-        Vector3 destination = cameraTransform.position + cameraTransform.forward * pickupDistance;
+        Vector3 destination = cameraTransform.position + cameraTransform.forward * distanceToObject;
         float distance = Vector3.Distance(currentPosition, destination);
-      //  targetObjectRigidbody.velocity = characterRigidbody.velocity;    
+        //TODO:  targetObjectRigidbody.velocity = characterRigidbody.velocity;    
         targetObjectRigidbody.transform.position = Vector3.MoveTowards(currentPosition, destination, Time.deltaTime * distance * 5);
-
     }
 
-    private void pickupObject() {
+    private void pickupObject()
+    {
         targetObjectRigidbody.useGravity = false;
-        Physics.IgnoreCollision(player.GetComponent<CapsuleCollider>(),targetObjectRigidbody.GetComponentInParent<Collider>(), true);
+        Physics.IgnoreCollision(player.GetComponent<CapsuleCollider>(), targetObjectRigidbody.GetComponentInParent<Collider>(), true);
         targetObjectRigidbody.angularDrag = 1;
         targetObjectRigidbody.drag = 3;
         hasObjectInHand = true;
     }
 
-    private void throwObject() {
+    private void throwObject()
+    {
         releaseObject();
         targetObjectRigidbody.AddForce(cameraTransform.forward * throwForce);
     }
 
-    private void dropObject() {
+    private void dropObject()
+    {
         releaseObject();
     }
 
-    private void releaseObject() {
+    private void releaseObject()
+    {
         hasObjectInHand = false;
         targetObjectRigidbody.useGravity = true;
         targetObjectRigidbody.angularDrag = 0;
@@ -69,22 +110,8 @@ public class PickupObjects {
         Physics.IgnoreCollision(player.GetComponent<CapsuleCollider>(), targetObjectRigidbody.GetComponentInParent<Collider>(), false);
     }
 
-    Rigidbody getObjectInRange() {
-        RaycastHit hit = new RaycastHit();
-        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit)) {
-            float distance = hit.distance;
-            if (distance <= pickupDistance && hit.collider.CompareTag("Throwable")) {
-                return hit.collider.GetComponentInParent<Rigidbody>();
-            }
-        }
-        return null;
-    }
-
-    public GameObject getHeldObject() {
-        if(targetObjectRigidbody != null) {
-            return targetObjectRigidbody.gameObject;
-        }else {
-            return null;
-        }
+    public GameObject getHeldObject()
+    {
+        return targetObjectRigidbody.gameObject;
     }
 }

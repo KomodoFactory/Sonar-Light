@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 418996}
   - 136: {fileID: 13679314}
-  - 114: {fileID: 11408786}
   - 143: {fileID: 14367802}
   - 114: {fileID: 11456890}
   - 114: {fileID: 11482944}
@@ -119,19 +118,6 @@ MonoBehaviour:
   autoZeroVerticalOnMobile: 1
   autoZeroHorizontalOnMobile: 0
   relative: 1
---- !u!114 &11408786
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6000602b932ac94ca0e244927e8d41c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwForce: 1000
-  pickupDistance: 5
 --- !u!114 &11418040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -188,8 +174,6 @@ MonoBehaviour:
     enabled: 1
     baseHeight: 1
     extraHeight: 4.1
-    baseHeight: 0.5
-    extraHeight: 0.5
     perpAmount: 0
     steepPerpAmount: 0.5
   movingPlatform:

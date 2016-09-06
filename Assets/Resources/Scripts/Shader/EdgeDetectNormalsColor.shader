@@ -32,12 +32,6 @@ Shader "Hidden/EdgeDetectColors" {
 	uniform half _BgFade;
 	uniform half4 _EdgeColor;
 
-
-	//Test Parameter
-	uniform float _TempOnlyDistance;
-	uniform float3 _ReferencePoint;
-	uniform float4x4 _InverseProjection;
-
 	inline half CheckSame(half2 centerNormal, float centerDepth, half4 theSample)
 	{
 		// difference in normals

@@ -7,11 +7,6 @@ namespace UnityStandardAssets.ImageEffects {
     [AddComponentMenu("Image Effects/Edge Detection/Edge Detection Color")]
     public class EdgeDetectionColor : PostEffectsBase {
 
-
-
-        float distance = 0;
-
-
         public int mode = 0;
         public float sensitivityDepth = 0.5f;
         public float sensitivityNormals = 7.0f;
@@ -70,24 +65,6 @@ namespace UnityStandardAssets.ImageEffects {
             //Colorparameter
             edgeDetectMaterial.SetFloat("_BgFade", 1);
             edgeDetectMaterial.SetVector("_EdgeColor", edgesColor);
-
-            edgeDetectMaterial.SetFloat("_TempOnlyDistance", 20);
-            edgeDetectMaterial.SetMatrix("_InverseProjection", Camera.main.projectionMatrix.inverse);
-
-            PickupObjects pickupScript = (PickupObjects)GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PickupObjects>();
-            if (pickupScript.getHeldObject() != null) {
-                firstHeldObject = pickupScript.getHeldObject();
-            }
-
-            if (firstHeldObject != null) {
-                edgeDetectMaterial.SetVector("_ReferencePoint", firstHeldObject.transform.position);
-            }
-
-            distance += 0.1f;
-            if (distance >= 20) {
-                distance = 0;
-            }
-
 
             Graphics.Blit(source, destination, edgeDetectMaterial, mode);
         }
