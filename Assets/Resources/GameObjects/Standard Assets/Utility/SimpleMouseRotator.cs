@@ -16,6 +16,12 @@ namespace UnityStandardAssets.Utility
         // (Think: looking out the side window of a car, or a gun turret
         // on a moving spaceship with a limited angular range)
         // to have no constraints on an axis, set the rotationRange to 360 or greater.
+        private static readonly string mouseX = AxisComponent.MouseX;
+        private static readonly string mouseY = AxisComponent.MouseY;
+        private static readonly string controllerRightX = AxisComponent.controllerRightX;
+        private static readonly string controllerRightY = AxisComponent.controllerRightY;
+
+
         public Vector2 rotationRange = new Vector3(180, 361);
         public float rotationSpeed = 10;
         public float dampingTime = 0.2f;
@@ -58,13 +64,13 @@ namespace UnityStandardAssets.Utility
             float inputV;
             if (relative)
             {
-                inputHController = CrossPlatformInputManager.GetAxis("Xbox360ControllerRightX");
+                inputHController = CrossPlatformInputManager.GetAxis(controllerRightX);
                 inputHController = Mathf.Pow(inputHController, 2)*Mathf.Sign(inputHController);
-                inputVController = CrossPlatformInputManager.GetAxis("Xbox360ControllerRightY");
+                inputVController = CrossPlatformInputManager.GetAxis(controllerRightY);
                 inputVController = Mathf.Pow(inputVController, 2) * Mathf.Sign(inputVController);
 
-                inputH = CrossPlatformInputManager.GetAxis("Mouse X") + inputHController;
-                inputV = CrossPlatformInputManager.GetAxis("Mouse Y") + inputVController;
+                inputH = CrossPlatformInputManager.GetAxis(mouseX) + inputHController;
+                inputV = CrossPlatformInputManager.GetAxis(mouseY) + inputVController;
 
                 // wrap values to avoid springing quickly the wrong way from positive to negative
                 if (m_TargetAngles.y > 180)

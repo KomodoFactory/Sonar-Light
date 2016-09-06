@@ -4,8 +4,8 @@ using UnityEngine;
 public class PickupObjects : CourserListener
 {
 
-    private static readonly string axisPickup = "Fire1";
-    private static readonly string axisThrow = "Fire2";
+    private static readonly string axisPickup = AxisComponent.Pickup;
+    private static readonly string axisThrow = AxisComponent.Throw;
     private static readonly string[] interestedAxis = {axisPickup, axisThrow};
 
     public float throwForce = 1000;

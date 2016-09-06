@@ -11,7 +11,6 @@ public class OpeningDoors : MonoBehaviour
     private float currentRotation = 0;
     private float frameRotation = 0;
     private bool opened = false;
-    private bool what = true;
       
     void Start()
     {

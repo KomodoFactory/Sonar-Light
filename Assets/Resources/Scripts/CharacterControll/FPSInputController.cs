@@ -7,6 +7,10 @@ using System.Collections.Generic;
 [AddComponentMenu("Character/FPS Input Controller")]
 
 public class FPSInputController : MonoBehaviour {
+    private string horizontalAxis = AxisComponent.Horizontal;
+    private string verticalAxis = AxisComponent.Vertical;
+    private string jumpAxis = AxisComponent.Jump;
+
     private CharacterMotor motor;
     private float directionLength;
     public float footstepFrequency = 0.6f;
@@ -18,7 +22,7 @@ public class FPSInputController : MonoBehaviour {
     }
 
     void Update() {
-        Vector3 directionVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 directionVector = new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
         lastFootstepSound += Time.deltaTime;
 
         if (directionVector != Vector3.zero) {
@@ -33,7 +37,7 @@ public class FPSInputController : MonoBehaviour {
         }
 
         motor.inputMoveDirection = transform.rotation * directionVector;
-        motor.inputJump = Input.GetButton("Jump");
+        motor.inputJump = Input.GetButton(jumpAxis);
     }
 
     private Vector3 normalizeVector(Vector3 directionVector) {
