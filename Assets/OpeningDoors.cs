@@ -4,8 +4,6 @@ using System;
 
 public class OpeningDoors : MonoBehaviour
 {
-
-    GameObject player;
     CharacterInventory inventory;
     public bool opensOutward = true;
     public float rotationSpeed = 90;
@@ -13,10 +11,10 @@ public class OpeningDoors : MonoBehaviour
     private float currentRotation = 0;
     private float frameRotation = 0;
     private bool opened = false;
-
+    private bool what = true;
+      
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
         inventory = CharacterInventory.Instance;
         if (opensOutward)
         {
@@ -66,5 +64,6 @@ public class OpeningDoors : MonoBehaviour
         }
         ScreenPromptHandler.Instance.DisplayPrompt("It seems, you need a key!", 5);
         return false;
+
     }
 }

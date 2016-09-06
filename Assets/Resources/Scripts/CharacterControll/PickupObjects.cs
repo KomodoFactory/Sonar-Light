@@ -11,6 +11,7 @@ public class PickupObjects : CourserListener
     public float throwForce = 1000;
     private float distanceToObject = 0;
     private float maximumHoveringDistance = 3;
+    private float minimumHoveringDistance = 2f;
     private bool hasObjectInHand = false;
     private Rigidbody targetObjectRigidbody;
     private GameObject player;
@@ -63,6 +64,7 @@ public class PickupObjects : CourserListener
         {
             targetObjectRigidbody = focusedObject.GetComponent<Rigidbody>();
             this.distanceToObject = Math.Min(distanceToObject, maximumHoveringDistance);
+            this.distanceToObject = Math.Max(this.distanceToObject, minimumHoveringDistance);
             pickupObject();
         }
     }
