@@ -74,11 +74,12 @@ public class PickupObjects : CourserListener
 
     private void centerObject()
     {
-        Vector3 currentPosition = targetObjectRigidbody.position;
-        Vector3 destination = cameraTransform.position + cameraTransform.forward * distanceToObject;
+        Vector3 currentPosition = targetObjectRigidbody.worldCenterOfMass;
+        Vector3 currentCenter = targetObjectRigidbody.worldCenterOfMass - targetObjectRigidbody.position;
+        Vector3 destination = cameraTransform.position + cameraTransform.forward * distanceToObject -currentCenter;
         float distance = Vector3.Distance(currentPosition, destination);
-        //TODO:  targetObjectRigidbody.velocity = characterRigidbody.velocity;    
-        targetObjectRigidbody.transform.position = Vector3.MoveTowards(currentPosition, destination, Time.deltaTime * distance * 5);
+        //TODO:  targetObjectRigidbody.velocity = characterRigidbody.velocity; 
+        targetObjectRigidbody.position = Vector3.MoveTowards(currentPosition - currentCenter, destination, Time.deltaTime * distance * 5);
     }
 
     private void pickupObject()

@@ -2,8 +2,10 @@
 using System.Collections;
 using System;
 
-public class OpeningDoors : MonoBehaviour {
+public class OpeningDoors : MonoBehaviour
+{
 
+    GameObject player;
     CharacterInventory inventory;
     public bool opensOutward = true;
     public float rotationSpeed = 90;
@@ -12,22 +14,25 @@ public class OpeningDoors : MonoBehaviour {
     private float frameRotation = 0;
     private bool opened = false;
 
-    void Start() { 
-        // this.enabled = false;
-        // bool rotating = true;
-        opened = true;
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
         inventory = CharacterInventory.Instance;
-        if (opensOutward){
+        if (opensOutward)
+        {
             rotationDirection = 1;
         }
-        else{
+        else
+        {
             rotationDirection = -1;
         }
     }
 
-    void Update(){
+    void Update()
+    {
         frameRotation = rotationDirection * Time.deltaTime * rotationSpeed;
-        if (Math.Abs(currentRotation) > 90) {
+        if (Math.Abs(currentRotation) > 90)
+        {
             frameRotation = 90 * rotationDirection - currentRotation;
             currentRotation = 90;
             this.enabled = false;
@@ -36,24 +41,30 @@ public class OpeningDoors : MonoBehaviour {
         }
         currentRotation += frameRotation;
 
-        if (!opened) {
+        if (!opened)
+        {
             transform.Rotate(transform.up, frameRotation);
         }
-        else{
+        else
+        {
             transform.Rotate(transform.up, frameRotation * -1);
         }
     }
 
-public void activate(){
-    this.enabled = true;
-    //Added for Key interaction
-}
+    public void activate()
+    {
+        this.enabled = true;
+    }
 
-    bool CheckKey(){
-        if (inventory.checkIfDoorCanBeOpened(this.gameObject)){
+    //Added for Key interaction
+    bool CheckKey()
+    {
+        if (inventory.checkIfDoorCanBeOpened(this.gameObject))
+        {
             ScreenPromptHandler.Instance.DisplayPrompt("Door has been opened!", 5);
             return true;
         }
+        ScreenPromptHandler.Instance.DisplayPrompt("It seems, you need a key!", 5);
         return false;
     }
 }
