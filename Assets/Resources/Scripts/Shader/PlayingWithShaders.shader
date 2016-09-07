@@ -23,8 +23,9 @@ Shader "Custom/PlayingWithShaders"
 	};
 
 
-	uniform float2 _Distances[10];
-	uniform float3 _SoundSources[10];
+	uniform float _Distances[10];
+	uniform float _Intensities[10];
+	uniform float4 _SoundSources[10];
 
 	//Our Vertex Shader
 	v2f vert(appdata_base v) {
@@ -39,7 +40,6 @@ Shader "Custom/PlayingWithShaders"
 
 	half4 frag(v2f i) : COLOR{
 
-		return 1;
 
 		float delta = 0.1;
 		half4 color = 0;
@@ -49,11 +49,11 @@ Shader "Custom/PlayingWithShaders"
 
 			float dist = length(sourceToFragment);
 
-			if (dist >= _Distances[j].x-delta && dist <= _Distances[j].x+delta) {
+			if (dist >= _Distances[j]-delta && dist <= _Distances[j]+delta) {
 				color = color + half4(0,0,1,1);
 			}
-			if (dist < _Distances[j].x) {
-				color = color + half4(_Distances[j].y,0,0,1);
+			if (dist < _Distances[j]) {
+				color = color + half4(_Intensities[j],0,0,1);
 			}
 
 

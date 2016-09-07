@@ -29,14 +29,23 @@ public class MaterialHandler : MonoBehaviour {
 
     public void setShaderData(Sound[] sounds) {
 
+        float[] distances = new float[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        float[] intensities = new float[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        Vector4[] soundSources = new Vector4[10];
+
+        for(int i = 0;i< soundSources.Length; i++)
+        {
+            soundSources[i] = new Vector4(0,0,0,0);
+        }
+
         for (int i = 0; i < sounds.Length; i++) {
-            shaderMaterial.SetVector("_Distances" + i, new Vector2(sounds[i].getCurrentRadius(), sounds[i].getCurrentIntensity()));
-            shaderMaterial.SetVector("_SoundSources" + i, sounds[i].getSourcePosition());
+            distances[i] = sounds[i].getCurrentRadius();
+            intensities[i] = sounds[i].getCurrentIntensity();
+            soundSources[i] = sounds[i].getSourcePosition();
         }
-        for (int i = SoundRegistry.queueSize-1; i >= sounds.Length; i--) {
-            shaderMaterial.SetVector("_Distances" + i, new Vector2(0, 0));
-            shaderMaterial.SetVector("_SoundSources" + i, new Vector3(0, 0, 0));
-        }
+        shaderMaterial.SetFloatArray("_Distances", distances);
+        shaderMaterial.SetFloatArray("_Intensities",intensities);
+        shaderMaterial.SetVectorArray("_SoundSources", soundSources);
 
     }
 }
