@@ -3,7 +3,6 @@ using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(SoundRegistry))]
 public class SoundOnImpact : MonoBehaviour {
 
     public float velocityMultiplier = 5;
