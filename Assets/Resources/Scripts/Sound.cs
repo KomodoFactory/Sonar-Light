@@ -17,9 +17,9 @@ public class Sound {
         {
             volume = minimumVolume;
         }
-        if(volume < minimumVolume * 3)
+        if(volume < minimumVolume * 20)
         {
-            intensityMultiplyer = volume / (minimumVolume * 3);
+            intensityMultiplyer = volume / (minimumVolume * 20);
         }
         this.volume = volume;
          }
@@ -51,6 +51,6 @@ public class Sound {
     }
 
     public float getCurrentIntensity() {
-        return 1-(radius/(volume+fade));
+        return (1-(radius/(volume+fade)) )* intensityMultiplyer;
     }
 }
