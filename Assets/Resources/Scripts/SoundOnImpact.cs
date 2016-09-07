@@ -7,9 +7,11 @@ public class SoundOnImpact : MonoBehaviour {
 
     public float velocityMultiplier = 5;
     public float velocityThreshhold = 1;
-    GameObject thrown;
-    Rigidbody thrownRB;
-    float velMag;
+    private GameObject thrown;
+    private Rigidbody thrownRB;
+    private float velMag;
+    private static readonly float soundCooldown = 0.2f;
+    private float soundCooldownValue = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +21,7 @@ public class SoundOnImpact : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        soundCooldownValue -= Time.deltaTime;
 	}
 
     void OnTriggerEnter(Collider col)
@@ -29,8 +31,13 @@ public class SoundOnImpact : MonoBehaviour {
         if (!(col.gameObject.tag.Contains("Player")))
         {
             if (velMag > velocityThreshhold && velMag > 0)
-                //Debug.Log("Sound!");
-                SoundRegistry.getInstance().addSound(new Sound(thrown, velMag * velocityMultiplier));
+            {
+                if (soundCooldownValue < 0)
+                {
+                    SoundRegistry.getInstance().addSound(new Sound(thrown, velMag * velocityMultiplier));
+                    soundCooldownValue = soundCooldown;
+                }
+            }
         }
     }
 

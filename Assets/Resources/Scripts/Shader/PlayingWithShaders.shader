@@ -41,7 +41,7 @@ Shader "Custom/PlayingWithShaders"
 	half4 frag(v2f i) : COLOR{
 
 
-		float delta = 0.1;
+		float delta = 0.02;
 		half4 color = 0;
 		for (int j = 0; j < 10; j++) {
 
@@ -50,10 +50,10 @@ Shader "Custom/PlayingWithShaders"
 			float dist = length(sourceToFragment);
 
 			if (dist >= _Distances[j]-delta && dist <= _Distances[j]+delta) {
-				color = color + half4(0,0,1/sqrt(dist),1);
+				color = color + half4(0,0,1/dist,1);
 			}
 			if (dist < _Distances[j]) {
-				color = color + half4(_Intensities[j]/sqrt(dist),0,0,1);
+				color = color + half4(_Intensities[j]/dist,0,0,1);
 			}
 
 
