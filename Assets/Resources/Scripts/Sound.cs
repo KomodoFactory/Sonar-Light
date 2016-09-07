@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 public class Sound {
 
-    public static readonly float propagationSpeed = 40;
+    public static readonly float propagationSpeed = 20;
     private readonly Vector3 sourcePosition;
     private readonly GameObject sourceObject;
     private float radius = 0;
     private float volume;
+    private static readonly float fade = 60;
 
     public Sound(GameObject sourceObject, float volume) {
         this.sourceObject = sourceObject;
@@ -27,20 +28,19 @@ public class Sound {
     /// <para>if this method returns true the Sound should be discarted</para>
     /// </summary>
     public bool update() {
-
         float factor = propagationSpeed * Time.deltaTime * getCurrentIntensity();
         if(factor < 0.5f) {
             factor = 0.5f;
         }
         radius += factor;
-        return radius > volume;
+        return radius > (volume+fade);
     }
 
     public float getCurrentRadius() {
-        return radius;
+        return Mathf.Min(radius,volume);
     }
 
     public float getCurrentIntensity() {
-        return 1-(radius/volume) ;
+        return 1-(radius/(volume+fade)) ;
     }
 }

@@ -93,7 +93,7 @@ Shader "Hidden/EdgeDetectColors" {
 		if (FragColor.x+FragColor.y+FragColor.z <= 0.1) {
 			return 0;
 		}
-		if (FragColor.z >= 0.99) {
+		if (FragColor.z >= 0.2) {
 			return _EdgeColor*FragColor.x;
 		}
 
