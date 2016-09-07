@@ -90,10 +90,10 @@ Shader "Hidden/EdgeDetectColors" {
 
 		float3 FragColor = tex2D(_MainTex, i.uv[0].xy);
 
-		if (FragColor.x+FragColor.y+FragColor.z <= 0.1) {
+		/*if (FragColor.x+FragColor.y+FragColor.z <= 0.05) {
 			return 0;
-		}
-		if (FragColor.z >= 0.2) {
+		}*/
+		if (FragColor.z > 0) {
 			return _EdgeColor*FragColor.x;
 		}
 
@@ -101,7 +101,7 @@ Shader "Hidden/EdgeDetectColors" {
 			return  lerp(tex2D(_MainTex, i.uv[0].xy), 0, _BgFade);
 		}
 		else {
-			return _EdgeColor*FragColor.x;
+			return (_EdgeColor*FragColor.x);
 		}
 
 	}

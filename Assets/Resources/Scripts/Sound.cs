@@ -6,7 +6,7 @@ public class Sound {
     private readonly GameObject sourceObject;
     private float radius = 0;
     private float volume;
-    private static readonly float fade = 60;
+    private static readonly float fade = 80;
 
     public Sound(GameObject sourceObject, float volume) {
         this.sourceObject = sourceObject;

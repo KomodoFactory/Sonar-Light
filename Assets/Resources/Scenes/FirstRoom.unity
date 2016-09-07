@@ -3757,6 +3757,10 @@ Prefab:
       propertyPath: edgeDetectMaterial
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 11480550, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
   m_IsPrefabParent: 0
@@ -5836,6 +5840,10 @@ Prefab:
       propertyPath: m_Name
       value: mug2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 11477760, guid: 3a7c1f192b5c0c644800a26860a20aaa, type: 2}
+      propertyPath: velocityThreshhold
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a7c1f192b5c0c644800a26860a20aaa, type: 2}
   m_IsPrefabParent: 0
@@ -6594,10 +6602,6 @@ Prefab:
     - target: {fileID: 100728, guid: 3a7c1f192b5c0c644800a26860a20aaa, type: 2}
       propertyPath: m_Name
       value: mug2 (10)
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477760, guid: 3a7c1f192b5c0c644800a26860a20aaa, type: 2}
-      propertyPath: velocityMultiplier
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a7c1f192b5c0c644800a26860a20aaa, type: 2}

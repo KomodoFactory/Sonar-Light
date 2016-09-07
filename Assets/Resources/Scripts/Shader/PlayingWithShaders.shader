@@ -50,10 +50,10 @@ Shader "Custom/PlayingWithShaders"
 			float dist = length(sourceToFragment);
 
 			if (dist >= _Distances[j]-delta && dist <= _Distances[j]+delta) {
-				color = color + half4(0,0,1/dist,1);
+				color = color + half4(0,0,1/pow(dist,2),1);
 			}
 			if (dist < _Distances[j]) {
-				color = color + half4(_Intensities[j]/dist,0,0,1);
+				color = color + half4(_Intensities[j]/ pow(dist, 2),0,0,1);
 			}
 
 
