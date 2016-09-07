@@ -4049,9 +4049,17 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 183172, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
+      propertyPath: m_Name
+      value: keydoor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &895153956 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 183172, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
+  m_PrefabInternal: {fileID: 895153955}
 --- !u!1001 &898619810
 Prefab:
   m_ObjectHideFlags: 0
@@ -5409,6 +5417,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11426584, guid: c56c28d9d117da04da4d17ddfd87c7e0, type: 2}
+      propertyPath: opensDoor
+      value: 
+      objectReference: {fileID: 895153956}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c56c28d9d117da04da4d17ddfd87c7e0, type: 2}
   m_IsPrefabParent: 0
@@ -8446,7 +8458,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22401744, guid: 8408a9bc4eacb314fba191c75d9e3aac, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8408a9bc4eacb314fba191c75d9e3aac, type: 2}
