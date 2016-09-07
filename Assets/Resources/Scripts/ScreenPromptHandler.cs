@@ -45,7 +45,7 @@ public class ScreenPromptHandler : MonoBehaviour {
     // Use this for initialization
     void Start () {
         canvas =  GameObject.FindObjectOfType<Canvas>();
-        //Debug.Log("Canvas?" + canvas);
+        Debug.Log("Canvas?" + canvas);
         textField = GameObject.Find("PromptText").GetComponent<Text>();
         //Debug.Log("Null?" + textField);
     }
