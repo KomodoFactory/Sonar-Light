@@ -2,15 +2,25 @@
 public class Sound {
 
     public static readonly float propagationSpeed = 20;
+    public static readonly float minimumVolume = 2;
     private readonly Vector3 sourcePosition;
     private readonly GameObject sourceObject;
     private float radius = 0;
     private float volume;
     private static readonly float fade = 80;
+    private float intensityMultiplyer = 1;
 
     public Sound(GameObject sourceObject, float volume) {
         this.sourceObject = sourceObject;
         this.sourcePosition = sourceObject.transform.position;
+        if(volume < minimumVolume)
+        {
+            volume = minimumVolume;
+        }
+        if(volume < minimumVolume * 3)
+        {
+            intensityMultiplyer = volume / (minimumVolume * 3);
+        }
         this.volume = volume;
          }
     
@@ -41,6 +51,6 @@ public class Sound {
     }
 
     public float getCurrentIntensity() {
-        return 1-(radius/(volume+fade)) ;
+        return 1-(radius/(volume+fade));
     }
 }
