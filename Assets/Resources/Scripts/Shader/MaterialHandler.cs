@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections.ObjectModel;
 
 public class MaterialHandler : MonoBehaviour {
 
@@ -29,20 +28,16 @@ public class MaterialHandler : MonoBehaviour {
 
     public void setShaderData(Sound[] sounds) {
 
-        float[] distances = new float[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        float[] intensities = new float[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        Vector4[] soundSources = new Vector4[10];
-
-        for(int i = 0;i< soundSources.Length; i++)
-        {
-            soundSources[i] = new Vector4(0,0,0,0);
-        }
+        float[] distances = new float[SoundRegistry.queueSize];
+        float[] intensities = new float[SoundRegistry.queueSize];
+        Vector4[] soundSources = new Vector4[SoundRegistry.queueSize];
 
         for (int i = 0; i < sounds.Length; i++) {
             distances[i] = sounds[i].getCurrentRadius();
             intensities[i] = sounds[i].getCurrentIntensity();
             soundSources[i] = sounds[i].getSourcePosition();
         }
+
         shaderMaterial.SetFloatArray("_Distances", distances);
         shaderMaterial.SetFloatArray("_Intensities",intensities);
         shaderMaterial.SetVectorArray("_SoundSources", soundSources);
