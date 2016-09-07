@@ -42,6 +42,7 @@ public class CharacterInventory : MonoBehaviour {
 
     public void addKey(Key key)
     {
+        //Debug.Log("Add Key has been called!");
         if (key != null)
         {
             keyList.Add(key);
@@ -53,7 +54,7 @@ public class CharacterInventory : MonoBehaviour {
         if (keyList.Count > 0)
         {
             sb = new System.Text.StringBuilder();
-            sb.Append("Current Keys:");
+            sb.Append("Current Keys:\n");
             foreach (Key key in keyList)
             {
                 sb.AppendLine(key.KeyName);

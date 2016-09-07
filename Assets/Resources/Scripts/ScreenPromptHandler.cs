@@ -103,7 +103,7 @@ public class ScreenPromptHandler : MonoBehaviour {
 
     public void DisplayPrompt(string msg, float dur)
     {
-        //Debug.Log("Hi me?");
+        //Debug.Log("Display Prompt called!");
         if (msg != null && msg != "" && dur > 0)
         {
             ScreenPrompt sp = new ScreenPrompt(msg, dur);
