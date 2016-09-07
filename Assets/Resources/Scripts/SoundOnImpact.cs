@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(Collider))]
 public class SoundOnImpact : MonoBehaviour {
 
-    public float velocityMultiplier = 5;
+    public float velocityMultiplier = 2;
     public float velocityThreshhold = 1;
     private GameObject thrown;
     private Rigidbody thrownRB;
