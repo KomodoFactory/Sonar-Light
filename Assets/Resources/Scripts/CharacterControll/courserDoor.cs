@@ -2,16 +2,13 @@
 using System.Collections;
 using System;
 
-public class pickUpKey : CourserListener
+public class courserDoor : CourserListener
 {
     private static readonly string axisInteract = AxisComponent.Interact;
     private static readonly string[] interestedAxis = {axisInteract};
 
-    CharacterInventory inventory;
-
     public void initialize()
     {
-        inventory = CharacterInventory.Instance;
     }
 
     public void update()
@@ -34,10 +31,9 @@ public class pickUpKey : CourserListener
 
     public void interactWithFocusedObject(GameObject focusedObject, float distanceToObject)
     {
-        if (focusedObject.GetComponent<KeyInfo>() != null)
+        if (focusedObject != null && focusedObject.GetComponent<openingDoors>() != null)
         {
-            inventory.addKey(focusedObject.GetComponent<KeyInfo>().getKeyObject());
-            UnityEngine.Object.Destroy(focusedObject);
+            focusedObject.GetComponent<openingDoors>().interact();
         }
     }
 }

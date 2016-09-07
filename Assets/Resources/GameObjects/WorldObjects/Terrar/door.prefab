@@ -11,6 +11,7 @@ GameObject:
   - 33: {fileID: 3307774}
   - 23: {fileID: 2338684}
   - 65: {fileID: 6521316}
+  - 114: {fileID: 114000012879207624}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -24,9 +25,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183172}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.83, y: 0, z: 12.81}
-  m_LocalScale: {x: 2.625779, y: 2.5544124, z: 2.589149}
+  m_LocalRotation: {x: -0, y: -0.00000035762787, z: -0, w: -1}
+  m_LocalPosition: {x: -6.8513994, y: 0.026542187, z: -0.36103487}
+  m_LocalScale: {x: 2.5891485, y: 2.5544124, z: 2.6257784}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -39,17 +41,20 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 18bdcbf207dc43142a7873c804affaaa, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -86,3 +91,18 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 183172}
   m_IsPrefabParent: 1
+--- !u!114 &114000012879207624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58d01ac05436fbe44b196bef697a4cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opensAtAll: 1
+  needsAKey: 0
+  opensOutward: 1
+  rotationSpeed: 90

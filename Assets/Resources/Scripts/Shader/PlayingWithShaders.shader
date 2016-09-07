@@ -1,4 +1,6 @@
-﻿Shader "Custom/PlayingWithShaders"
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
+Shader "Custom/PlayingWithShaders"
 {
 	Properties{
 		_MainTex("", 2D) = "white" {} //this texture will have the rendered image before post-processing
@@ -28,7 +30,7 @@
 	v2f vert(appdata_base v) {
 		v2f o;
 		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
-		o.worldPos = mul(_Object2World, v.vertex);
+		o.worldPos = mul(unity_ObjectToWorld, v.vertex);
 		return o;
 	}
 
@@ -36,6 +38,8 @@
 
 
 	half4 frag(v2f i) : COLOR{
+
+		return 1;
 
 		float delta = 0.1;
 		half4 color = 0;

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class PickupObjects : CourserListener
+public class courserObjects : CourserListener
 {
 
     private static readonly string axisPickup = AxisComponent.Pickup;
@@ -16,11 +16,6 @@ public class PickupObjects : CourserListener
     private Rigidbody targetObjectRigidbody;
     private GameObject player;
     private Transform cameraTransform;
-
-    public PickupObjects()
-    {
-
-    }
 
     public void initialize()
     {
