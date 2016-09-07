@@ -45,9 +45,7 @@ public class ScreenPromptHandler : MonoBehaviour {
     // Use this for initialization
     void Start () {
         canvas =  GameObject.FindObjectOfType<Canvas>();
-        Debug.Log("Canvas?" + canvas);
         textField = GameObject.Find("PromptText").GetComponent<Text>();
-        //Debug.Log("Null?" + textField);
     }
 	
 	// Update is called once per frame
@@ -58,8 +56,6 @@ public class ScreenPromptHandler : MonoBehaviour {
             deleteExpiredPrompts();
             buildText();
             textField.text = sb.ToString();
-            //Debug.Log("SB: " + sb.ToString());
-            //Debug.Log("Textfeld: " + textField.text);
         }
 	}
     void updateTimers()
@@ -95,7 +91,6 @@ public class ScreenPromptHandler : MonoBehaviour {
         {
             foreach (ScreenPrompt prompt in list.ToList())
             {
-                //sb.AppendLine(prompt.message + " " + list.Count + " " + prompt.duration);
                 sb.AppendLine(prompt.message);
             }
         }

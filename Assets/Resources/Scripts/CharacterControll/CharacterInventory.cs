@@ -43,6 +43,7 @@ public class CharacterInventory : MonoBehaviour {
     public void addKey(Key key)
     {
         //Debug.Log("Add Key has been called!");
+
         if (key != null)
         {
             keyList.Add(key);
