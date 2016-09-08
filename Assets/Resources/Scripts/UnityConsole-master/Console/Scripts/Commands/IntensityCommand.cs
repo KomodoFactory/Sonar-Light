@@ -6,7 +6,7 @@ namespace Wenzil.Console.Commands {
 
         public static readonly string name = "Intensity";
         public static readonly string description = "Changes the minimal Intensity of outlines";
-        public static readonly string usage = "Intensity <value[0-10]>";
+        public static readonly string usage = "Intensity <value[1-10]>";
 
         public static string Execute(params string[] args)
         {
