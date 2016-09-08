@@ -2318,17 +2318,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 458240, guid: 6cdb7d70b7394c84685737d9be22bf69, type: 2}
   m_PrefabInternal: {fileID: 330305112}
---- !u!1 &466476404 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 161508, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
-  m_PrefabInternal: {fileID: 818443040}
---- !u!81 &466476414
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 466476404}
-  m_Enabled: 1
 --- !u!1 &474117196
 GameObject:
   m_ObjectHideFlags: 0
@@ -3254,7 +3243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   opensAtAll: 1
   needsAKey: 0
-  opensOutward: 0
+  opensOutward: 1
   startsOpen: 0
   rotationSpeed: 90
 --- !u!1 &600897069
@@ -3985,6 +3974,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 5.4166965
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011289956368, guid: 4e123f24647d7f74aa43b3c7a3d48cc0,
+        type: 2}
+      propertyPath: needsAKey
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e123f24647d7f74aa43b3c7a3d48cc0, type: 2}
   m_IsPrefabParent: 0
@@ -4088,10 +4082,6 @@ Prefab:
     - target: {fileID: 11480550, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
       propertyPath: edgeDetectMaterial
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11480550, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
@@ -4411,21 +4401,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 499048, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.47799435
-      objectReference: {fileID: 0}
-    - target: {fileID: 499048, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.47158158
-      objectReference: {fileID: 0}
-    - target: {fileID: 499048, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.4847568
-      objectReference: {fileID: 0}
-    - target: {fileID: 183172, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
-      propertyPath: m_Name
-      value: door
+    - target: {fileID: 114000012879207624, guid: 2a06183f35e5f5540921aa9444a4c384,
+        type: 2}
+      propertyPath: opensOutward
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a06183f35e5f5540921aa9444a4c384, type: 2}
@@ -5058,7 +5037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   opensAtAll: 1
   needsAKey: 0
-  opensOutward: 0
+  opensOutward: 1
   startsOpen: 0
   rotationSpeed: 90
 --- !u!4 &1126997459 stripped

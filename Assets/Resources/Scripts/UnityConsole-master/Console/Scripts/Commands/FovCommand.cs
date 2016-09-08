@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Wenzil.Console.Commands {
     public static class FovCommand {
