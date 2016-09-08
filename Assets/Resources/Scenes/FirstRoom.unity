@@ -3741,6 +3741,21 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 477910, guid: a0f90f1c7b54de84d8413e469c7ec839, type: 2}
   m_PrefabInternal: {fileID: 2063788462}
+--- !u!1 &711462732 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 161508, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
+  m_PrefabInternal: {fileID: 818443040}
+--- !u!114 &711462743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 711462732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9813d2768fe5b04da45117a8a70f546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &724962084
 Prefab:
   m_ObjectHideFlags: 0
@@ -4082,6 +4097,10 @@ Prefab:
     - target: {fileID: 11480550, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
       propertyPath: edgeDetectMaterial
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051056, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
@@ -9412,6 +9431,21 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97592f0ba31aca840b6d107de8c14e06, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2017857735 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 161804, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
+  m_PrefabInternal: {fileID: 818443040}
+--- !u!114 &2017857736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2017857735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9813d2768fe5b04da45117a8a70f546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2018112960 stripped
 Transform:
   m_PrefabParentObject: {fileID: 494422, guid: 97592f0ba31aca840b6d107de8c14e06, type: 2}

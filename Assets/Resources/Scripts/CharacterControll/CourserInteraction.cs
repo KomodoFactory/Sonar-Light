@@ -10,13 +10,11 @@ public class CourserInteraction : MonoBehaviour
     private GameObject raycastObject;
     public float interactionDistance = 6;
     private float lastRaycastDistance = 0;
-    private Transform cameraTransform;
+    private Vector3 cameraForward;
 
     void Start () {
         collectingListeners();
 
-        cameraTransform = Camera.main.transform;
-        
         foreach(ListenerComponent com in listeners)
         {
             foreach (string axis in com.getAxis())
@@ -64,9 +62,7 @@ public class CourserInteraction : MonoBehaviour
     private GameObject getObjectInRange()
     {
         RaycastHit hit = new RaycastHit();
-        Debug.Log("Intr_Position: " + cameraTransform.position);
-        Debug.Log("Intr_Transform: " + cameraTransform.forward);
-        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit))
+        if (Physics.Raycast(CameraForwardProvider.mainCameraPosition, CameraForwardProvider.mainCameraForward, out hit))
         {
             lastRaycastDistance= hit.distance;
             if (lastRaycastDistance <= interactionDistance)
