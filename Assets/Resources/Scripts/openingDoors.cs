@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class openingDoors : MonoBehaviour
+public class OpeningDoors : MonoBehaviour
 {
     public readonly string keyMissingMessage = "It seems it needs a Key.";
     public readonly string notOpeningMessage = "It seams to be busted.";

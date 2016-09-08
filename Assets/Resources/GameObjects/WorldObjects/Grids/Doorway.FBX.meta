@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 020b17d668eb1ee4b9aad0cd25f08314
-timeCreated: 1472461911
+guid: f2a2a1c403f6beb41bfbf9b98ddca776
+timeCreated: 1472032972
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,15 +9,15 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Bridge
+    4300000: Doorway.001
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
