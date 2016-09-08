@@ -10,6 +10,9 @@ GameObject:
   - 4: {fileID: 494422}
   - 33: {fileID: 3316346}
   - 23: {fileID: 2372736}
+  - 65: {fileID: 65000012983180780}
+  - 65: {fileID: 65000011325686374}
+  - 65: {fileID: 65000013043230798}
   m_Layer: 0
   m_Name: lamp
   m_TagString: Untagged
@@ -24,8 +27,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176652}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 16.15, y: 5.5, z: -5.12}
+  m_LocalPosition: {x: 52.15449, y: 7.838315, z: 12.58313}
   m_LocalScale: {x: 1.0006601, y: 0.5, z: 0.44953194}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -38,17 +42,20 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 18bdcbf207dc43142a7873c804affaaa, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -73,3 +80,39 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 176652}
   m_IsPrefabParent: 1
+--- !u!65 &65000011325686374
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176652}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05321472, y: 2.0784535, z: 0.13743609}
+  m_Center: {x: 2.2274218, y: -0.046655655, z: -0.056074508}
+--- !u!65 &65000012983180780
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176652}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8938043, y: 0.16454458, z: 0.8470633}
+  m_Center: {x: 1.0806245, y: -1.0036097, z: -0.053198043}
+--- !u!65 &65000013043230798
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176652}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05321472, y: 2.0784535, z: 0.13743609}
+  m_Center: {x: 0, y: -0.046655655, z: -0.056074508}
