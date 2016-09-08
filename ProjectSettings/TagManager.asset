@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Console
+  - Throwable
+  - Fire
+  - Collectable
   layers:
   - Default
   - TransparentFX

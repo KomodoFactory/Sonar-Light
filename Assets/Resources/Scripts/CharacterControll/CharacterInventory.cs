@@ -8,13 +8,13 @@ using System.Linq;
 [RequireComponent(typeof(Text))]
 public class CharacterInventory : MonoBehaviour {
     private static CharacterInventory instance;
-    private CharacterInventory()
-    {
-        keyList = new List<object>();
-    }
-    List<object> keyList;
-    Text keyText;
-    System.Text.StringBuilder sb;
+    private static readonly string lineBreak = System.Environment.NewLine;
+    private List<object> keyList;
+    private int coinAmount;
+    private Text keyText;
+    private Text coinText;
+    private System.Text.StringBuilder keyStringBuilder;
+    private System.Text.StringBuilder coinStringBuilder;
 
     public static CharacterInventory Instance
     {
@@ -27,40 +27,47 @@ public class CharacterInventory : MonoBehaviour {
             return instance;
         }
     }
-    // Use this for initialization
-    void Start () {
-        keyText = GameObject.Find("KeyText").GetComponent<Text>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (keyText != null)
-        {
-            displayKeys();
-        }
-    }
 
-    public void addKey(Key key)
+    private CharacterInventory()
     {
-        //Debug.Log("Add Key has been called!");
-
-        if (key != null)
+        keyList = new List<object>();
+        coinAmount = 0;
+    }
+    
+    void Start ()
+    {
+        keyText = GameObject.Find("KeyText").GetComponent<Text>();
+        coinText = GameObject.Find("CoinText").GetComponent<Text>();
+        keyStringBuilder = new System.Text.StringBuilder();
+        coinStringBuilder = new System.Text.StringBuilder();
+    }
+	
+	void Update () {
+        if (keyText != null || coinText != null)
         {
-            keyList.Add(key);
+            displayInventory();
         }
     }
 
-    void displayKeys()
+    void displayInventory()
     {
         if (keyList.Count > 0)
         {
-            sb = new System.Text.StringBuilder();
-            sb.Append("Current Keys:\n");
+            keyStringBuilder.Append("Current Keys:" + lineBreak);
             foreach (Key key in keyList)
             {
-                sb.AppendLine(key.KeyName);
+                keyStringBuilder.AppendLine(key.KeyName + lineBreak);
             }
-            keyText.text = sb.ToString();
+            keyText.text = keyStringBuilder.ToString();
+            keyStringBuilder.Remove(0, keyStringBuilder.Length);
+        }
+
+        if (coinAmount > 0)
+        {
+            coinStringBuilder.Append("Coins found:" + lineBreak);
+            coinStringBuilder.AppendLine(coinAmount + lineBreak);
+            coinText.text = coinStringBuilder.ToString();
+            coinStringBuilder.Remove(0, coinStringBuilder.Length);
         }
     }
 
@@ -76,4 +83,18 @@ public class CharacterInventory : MonoBehaviour {
         }
         return false;
     }
+
+    public void addKey(Key key)
+    {
+        if (key != null)
+        {
+            keyList.Add(key);
+        }
+    }
+
+    public void addCoin()
+    {
+        coinAmount++;
+    }
+
 }
