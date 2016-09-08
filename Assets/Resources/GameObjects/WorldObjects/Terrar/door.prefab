@@ -25,9 +25,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183172}
-  m_LocalRotation: {x: -0, y: -0.00000035762787, z: -0, w: -1}
-  m_LocalPosition: {x: -6.8513994, y: 0.026542187, z: -0.36103487}
-  m_LocalScale: {x: 2.5891485, y: 2.5544124, z: 2.6257784}
+  m_LocalRotation: {x: 2.131628e-14, y: 1, z: -0.00000008146035, w: -0.00000023841855}
+  m_LocalPosition: {x: -0.80281454, y: 0.004900045, z: -0.04042393}
+  m_LocalScale: {x: 0.47799435, y: 0.47158158, z: 0.4847568}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -104,5 +104,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   opensAtAll: 1
   needsAKey: 0
-  opensOutward: 1
+  opensOutward: 0
+  startsOpen: 0
   rotationSpeed: 90
