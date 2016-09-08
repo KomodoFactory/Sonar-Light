@@ -60,12 +60,12 @@ namespace UnityStandardAssets.Utility
             transform.localRotation = m_OriginalRotation;
 
             // read input from mouse or mobile controls
-            float inputH;
-            float inputV;
+            float inputH = 0;
+            float inputV = 0;
             if (relative)
             {
                 inputHController = CrossPlatformInputManager.GetAxis(controllerRightX);
-                inputHController = Mathf.Pow(inputHController, 2)*Mathf.Sign(inputHController);
+                inputHController = Mathf.Pow(inputHController, 2) * Mathf.Sign(inputHController);
                 inputVController = CrossPlatformInputManager.GetAxis(controllerRightY);
                 inputVController = Mathf.Pow(inputVController, 2) * Mathf.Sign(inputVController);
 
@@ -109,6 +109,7 @@ namespace UnityStandardAssets.Utility
 			}
 #else
                 // with mouse input, we have direct control with no springback required.
+
                 m_TargetAngles.y += inputH * rotationSpeed;
                 m_TargetAngles.x += inputV * rotationSpeed;
 #endif
@@ -133,6 +134,11 @@ namespace UnityStandardAssets.Utility
             // update the actual gameobject's rotation
             transform.localRotation = m_OriginalRotation * Quaternion.Euler(-m_FollowAngles.x, 0, 0);
             etho.transform.localRotation = m_OriginalRotation * Quaternion.Euler(0, m_FollowAngles.y, 0);
+        }
+
+        private bool checkIfOcculusIsConnected()
+        {
+            return true;
         }
     }
 }

@@ -64,6 +64,8 @@ public class CourserInteraction : MonoBehaviour
     private GameObject getObjectInRange()
     {
         RaycastHit hit = new RaycastHit();
+        Debug.Log("Intr_Position: " + cameraTransform.position);
+        Debug.Log("Intr_Transform: " + cameraTransform.forward);
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit))
         {
             lastRaycastDistance= hit.distance;
