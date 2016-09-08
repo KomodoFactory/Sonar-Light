@@ -7,6 +7,7 @@ public class SoundOnImpact : MonoBehaviour {
 
     public float velocityMultiplier = 2;
     public float velocityThreshhold = 1;
+    public AudioClip audioclip;
     private GameObject thrown;
     private Rigidbody thrownRB;
     private float velMag;
@@ -34,7 +35,7 @@ public class SoundOnImpact : MonoBehaviour {
             {
                 if (soundCooldownValue < 0)
                 {
-                    SoundRegistry.getInstance().addSound(new Sound(thrown, velMag * velocityMultiplier));
+                    SoundRegistry.getInstance().addSound(new Sound(thrown, velMag * velocityMultiplier,audioclip));
                     soundCooldownValue = soundCooldown;
                 }
             }

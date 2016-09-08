@@ -22,6 +22,7 @@ public class SoundRegistry : MonoBehaviour {
     public void addSound(Sound sound) {
         if (sounds.Count < queueSize) {
             sounds.Add(sound);
+            AudioSource.PlayClipAtPoint(sound.getAudioClip(), sound.getSourcePosition());
         }
     }
 

@@ -3,6 +3,7 @@ public class Sound {
 
     public static readonly float propagationSpeed = 20;
     public static readonly float minimumVolume = 2;
+    private AudioClip audioclip;
     private readonly Vector3 sourcePosition;
     private readonly GameObject sourceObject;
     private float radius = 0;
@@ -10,7 +11,7 @@ public class Sound {
     private static readonly float fade = 80;
     private float intensityMultiplyer = 1;
 
-    public Sound(GameObject sourceObject, float volume) {
+    public Sound(GameObject sourceObject, float volume, AudioClip audioclip) {
         this.sourceObject = sourceObject;
         this.sourcePosition = sourceObject.transform.position;
         if(volume < minimumVolume)
@@ -22,6 +23,11 @@ public class Sound {
             intensityMultiplyer = volume / (minimumVolume * 20);
         }
         this.volume = volume;
+        if(audioclip == null)
+        {
+            audioclip = SoundComponent.getDefaultAudio();
+        }
+        this.audioclip = audioclip;
          }
     
     public Vector3 getSourcePosition() {
@@ -52,5 +58,10 @@ public class Sound {
 
     public float getCurrentIntensity() {
         return (1-(radius/(volume+fade)) )* intensityMultiplyer;
+    }
+
+    public AudioClip getAudioClip()
+    {
+        return audioclip;
     }
 }
