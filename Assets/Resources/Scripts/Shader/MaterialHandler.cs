@@ -5,6 +5,7 @@ public class MaterialHandler : MonoBehaviour {
     public Material nonShaderMaterial;
     public Material shaderMaterial;
     private static MaterialHandler instance;
+    private static float minimalIntensity;
 
     private MaterialHandler() { }
 
@@ -34,7 +35,8 @@ public class MaterialHandler : MonoBehaviour {
 
         for (int i = 0; i < sounds.Length; i++) {
             distances[i] = sounds[i].getCurrentRadius();
-            intensities[i] = sounds[i].getCurrentIntensity();
+            intensities[i] = Mathf.Max(sounds[i].getCurrentIntensity(),minimalIntensity);
+            Debug.Log(intensities[i]);
             soundSources[i] = sounds[i].getSourcePosition();
         }
 
@@ -42,5 +44,14 @@ public class MaterialHandler : MonoBehaviour {
         shaderMaterial.SetFloatArray("_Intensities",intensities);
         shaderMaterial.SetVectorArray("_SoundSources", soundSources);
 
+    }
+
+    public static float getMinimalIntensity()
+    {
+        return minimalIntensity;
+    }
+    public static void setMinimalIntensity(float intensity)
+    {
+        minimalIntensity = intensity;
     }
 }

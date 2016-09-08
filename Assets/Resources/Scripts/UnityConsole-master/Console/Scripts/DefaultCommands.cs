@@ -13,6 +13,7 @@ namespace Wenzil.Console {
             ConsoleCommandsDatabase.RegisterCommand(ResetLevelCommand.name, ResetLevelCommand.description, ResetLevelCommand.usage, ResetLevelCommand.Execute);
             ConsoleCommandsDatabase.RegisterCommand(SpawnObjectCommand.name, SpawnObjectCommand.description, SpawnObjectCommand.usage, SpawnObjectCommand.Execute);
             ConsoleCommandsDatabase.RegisterCommand(FovCommand.name, FovCommand.description, FovCommand.usage, FovCommand.Execute);
+            ConsoleCommandsDatabase.RegisterCommand(IntensityCommand.name, IntensityCommand.description, IntensityCommand.usage, IntensityCommand.Execute);
         }
     }
 }
