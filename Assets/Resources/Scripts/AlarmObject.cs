@@ -3,6 +3,7 @@ using System.Collections;
 
 public class AlarmObject : MonoBehaviour {
 
+    public AudioClip audioclip;
     public float alarmDelay;
     public float alarmIntesity;
     float alarmCountDown;
@@ -17,7 +18,7 @@ public class AlarmObject : MonoBehaviour {
         alarmCountDown -= Time.deltaTime;
         if(alarmCountDown <= 0)
         {
-            SoundRegistry.getInstance().addSound(new Sound(this.gameObject, alarmIntesity));
+            SoundRegistry.getInstance().addSound(new Sound(this.gameObject, alarmIntesity, audioclip));
             alarmCountDown = alarmDelay;
         }
 	}

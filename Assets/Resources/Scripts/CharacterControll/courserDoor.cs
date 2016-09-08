@@ -31,9 +31,9 @@ public class courserDoor : CourserListener
 
     public void interactWithFocusedObject(GameObject focusedObject, float distanceToObject)
     {
-        if (focusedObject != null && focusedObject.GetComponent<openingDoors>() != null)
+        if (focusedObject != null && focusedObject.GetComponent<OpeningDoors>() != null)
         {
-            focusedObject.GetComponent<openingDoors>().interact();
+            focusedObject.GetComponent<OpeningDoors>().interact();
         }
     }
 }
