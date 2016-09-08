@@ -16,8 +16,6 @@ GameObject:
   - 114: {fileID: 11418040}
   - 114: {fileID: 11477322}
   - 114: {fileID: 11413174}
-  - 81: {fileID: 81000010230767096}
-  - 114: {fileID: 114000012907101074}
   m_Layer: 0
   m_Name: Etho
   m_TagString: Player
@@ -38,6 +36,7 @@ GameObject:
   - 114: {fileID: 11480550}
   - 114: {fileID: 11404474}
   - 114: {fileID: 114000012598670758}
+  - 81: {fileID: 81000013922697746}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -312,12 +311,12 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 161508}
   m_IsPrefabParent: 1
---- !u!81 &81000010230767096
+--- !u!81 &81000013922697746
 AudioListener:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161508}
+  m_GameObject: {fileID: 161804}
   m_Enabled: 1
 --- !u!114 &114000012598670758
 MonoBehaviour:
@@ -325,17 +324,6 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9813d2768fe5b04da45117a8a70f546, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114000012907101074
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161508}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9813d2768fe5b04da45117a8a70f546, type: 3}

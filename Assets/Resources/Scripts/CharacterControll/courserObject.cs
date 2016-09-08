@@ -15,12 +15,10 @@ public class courserObjects : CourserListener
     private bool hasObjectInHand = false;
     private Rigidbody targetObjectRigidbody;
     private GameObject player;
-    private Transform cameraTransform;
 
     public void initialize()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        cameraTransform = Camera.main.transform;
     }
 
     public void update()
@@ -72,7 +70,7 @@ public class courserObjects : CourserListener
     {
         Vector3 currentPosition = targetObjectRigidbody.worldCenterOfMass;
         Vector3 currentCenter = targetObjectRigidbody.worldCenterOfMass - targetObjectRigidbody.position;
-        Vector3 destination = cameraTransform.position + cameraTransform.forward * distanceToObject -currentCenter;
+        Vector3 destination = CameraForwardProvider.mainCameraPosition + CameraForwardProvider.mainCameraForward * distanceToObject -currentCenter;
         float distance = Vector3.Distance(currentPosition, destination);
         //TODO:  targetObjectRigidbody.velocity = characterRigidbody.velocity; 
         targetObjectRigidbody.position = Vector3.MoveTowards(currentPosition - currentCenter, destination, Time.deltaTime * distance * 5);
@@ -90,7 +88,7 @@ public class courserObjects : CourserListener
     private void throwObject()
     {
         releaseObject();
-        targetObjectRigidbody.AddForce(cameraTransform.forward * throwForce);
+        targetObjectRigidbody.AddForce(CameraForwardProvider.mainCameraForward * throwForce);
     }
 
     private void dropObject()
