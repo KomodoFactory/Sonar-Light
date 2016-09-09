@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocityMultiplier: 2
   velocityThreshhold: 0.2
+  audioclip: {fileID: 8300000, guid: 4794a049ddc282d4883bddb36a92d939, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
