@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Console
   - Throwable
-  - Fire
   - Collectable
   layers:
   - Default
