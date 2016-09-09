@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
+using UnityEngine.VR;
 
 public class MaterialHandler : MonoBehaviour {
 
     public Material nonShaderMaterial;
     public Material shaderMaterial;
     private static MaterialHandler instance;
-    private static float minimalIntensity = 1;
+    private static float intensityMultiplier = 1;
 
     private MaterialHandler() { }
 
     public static MaterialHandler getInstance() {
         if (instance == null) {
             instance = GameObject.FindGameObjectWithTag("Console").GetComponent<MaterialHandler>();
+            if (!isOcculusPresent()) {
+                intensityMultiplier = 10;
+            }
         }
         return instance;
     }
@@ -35,7 +39,7 @@ public class MaterialHandler : MonoBehaviour {
 
         for (int i = 0; i < sounds.Length; i++) {
             distances[i] = sounds[i].getCurrentRadius();
-            intensities[i] = sounds[i].getCurrentIntensity() * minimalIntensity;
+            intensities[i] = sounds[i].getCurrentIntensity() * intensityMultiplier;
             soundSources[i] = sounds[i].getSourcePosition();
         }
 
@@ -47,10 +51,14 @@ public class MaterialHandler : MonoBehaviour {
 
     public static float getMinimalIntensity()
     {
-        return minimalIntensity;
+        return intensityMultiplier;
     }
     public static void setMinimalIntensity(float intensity)
     {
-        minimalIntensity = intensity;
+        intensityMultiplier = intensity;
+    }
+
+    private static bool isOcculusPresent() {
+        return VRDevice.isPresent;
     }
 }

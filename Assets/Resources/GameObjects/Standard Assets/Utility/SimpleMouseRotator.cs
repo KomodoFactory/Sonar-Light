@@ -136,9 +136,5 @@ namespace UnityStandardAssets.Utility
             etho.transform.localRotation = m_OriginalRotation * Quaternion.Euler(0, m_FollowAngles.y, 0);
         }
 
-        private bool checkIfOcculusIsConnected()
-        {
-            return true;
-        }
     }
 }
