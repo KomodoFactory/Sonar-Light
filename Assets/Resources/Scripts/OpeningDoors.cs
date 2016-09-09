@@ -131,7 +131,7 @@ public class OpeningDoors : MonoBehaviour
 
     public void openEyeDoor()
     {
-        if (usesEyeSwitch)
+        if (usesEyeSwitch && !opened)
         {
             activate();
         }
