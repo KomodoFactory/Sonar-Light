@@ -11,6 +11,7 @@ public class CursorInteraction : MonoBehaviour
     public float interactionDistance = 6;
     private float lastRaycastDistance = 0;
     private Vector3 cameraForward;
+    private static bool listAllocated = false;
 
     void Start () {
         collectingListeners();
@@ -80,15 +81,17 @@ public class CursorInteraction : MonoBehaviour
 
     private void collectingListeners()
     {
-        Type type = typeof(CourserListener);
-        IEnumerable<Type> types = AppDomain.CurrentDomain.GetAssemblies()
-            .SelectMany(s => s.GetTypes())
-            .Where(p => type.IsAssignableFrom(p) && !p.IsInterface && !p.IsAbstract);
+        if (!listAllocated) {
+            Type type = typeof(CourserListener);
+            IEnumerable<Type> types = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(s => s.GetTypes())
+                .Where(p => type.IsAssignableFrom(p) && !p.IsInterface && !p.IsAbstract);
 
-        foreach(Type typ in types)
-        {
-            CourserListener cours = ((CourserListener)Activator.CreateInstance(typ));
-            listeners.Add(new ListenerComponent(cours, cours.getInterestedAxes()));
+            foreach (Type typ in types) {
+                CourserListener cours = ((CourserListener)Activator.CreateInstance(typ));
+                listeners.Add(new ListenerComponent(cours, cours.getInterestedAxes()));
+            }
+            listAllocated = true;
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 
 public class SoundRegistry : MonoBehaviour {
 
-    public static readonly int queueSize = 10;
+    public static readonly int queueSize = 30;
     private static SoundRegistry instance;
     private List<Sound> sounds;
 
