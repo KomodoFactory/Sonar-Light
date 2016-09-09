@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocityMultiplier: 5
   velocityThreshhold: 1
+  audioclip: {fileID: 0}
 --- !u!114 &11435278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,8 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1be6a207920f440bf2cd7a418779b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioclip: {fileID: 0}
   alarmDelay: 1
-  alarmIntesity: 10
+  alarmIntesity: 40
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

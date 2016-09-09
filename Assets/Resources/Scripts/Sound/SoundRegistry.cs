@@ -4,7 +4,7 @@ using System.Linq;
 
 public class SoundRegistry : MonoBehaviour {
 
-    public static readonly int queueSize = 30;
+    public static readonly int queueSize = 50;
     private static SoundRegistry instance;
     private List<Sound> sounds;
 
@@ -27,6 +27,7 @@ public class SoundRegistry : MonoBehaviour {
     }
 
     void Update() {
+        Debug.Log(sounds.Count);
         foreach (Sound sound in sounds.ToList()) {
             if (sound.update()) {
                 sounds.Remove(sound);
