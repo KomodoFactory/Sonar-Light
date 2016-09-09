@@ -7,6 +7,7 @@ namespace Wenzil.Console.Commands {
         public static readonly string name = "SpawnObject";
         public static readonly string description = "Spawns an Object";
         public static readonly string usage = "SpawnObject <ObjectName> [<amount>]";
+        private static Object[] objects;
 
         public static string Execute(params string[] args) {
 

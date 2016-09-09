@@ -1467,24 +1467,6 @@ MeshCollider:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 8ff4796f25741c34b85eb902ba3474fb, type: 3}
   m_PrefabInternal: {fileID: 556926763}
---- !u!1 &220592962 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 139926, guid: 82c097fd5939fc646af0c06f8e9ca5fe, type: 2}
-  m_PrefabInternal: {fileID: 1203368859}
---- !u!114 &220592963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 220592962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a24a909ae61de7f4a9aa32100f882123, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocityMultiplier: 5
-  velocityThreshhold: 1
-  audioclip: {fileID: 8300000, guid: 4794a049ddc282d4883bddb36a92d939, type: 3}
 --- !u!1001 &232614768
 Prefab:
   m_ObjectHideFlags: 0
@@ -4137,6 +4119,10 @@ Prefab:
     - target: {fileID: 11480550, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
       propertyPath: edgeDetectMaterial
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418040, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
+      propertyPath: collisionForce
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
