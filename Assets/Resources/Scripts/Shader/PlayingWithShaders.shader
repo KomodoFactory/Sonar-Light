@@ -23,9 +23,9 @@ Shader "Custom/PlayingWithShaders"
 	};
 
 
-	uniform float _Distances[10];
-	uniform float _Intensities[10];
-	uniform float4 _SoundSources[10];
+	uniform float _Distances[30];
+	uniform float _Intensities[30];
+	uniform float4 _SoundSources[30];
 
 	//Our Vertex Shader
 	v2f vert(appdata_base v) {

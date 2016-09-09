@@ -6,22 +6,15 @@ using UnityEngine.SceneManagement;
 public class WarpPortal : MonoBehaviour {
 
     public SceneField scene;
-
-    void onTriggerEnter(Collider other) {
-
-        Debug.Log(other);
+    void OnTriggerEnter(Collider other) {
 
         if (other.gameObject.tag.Equals("Player")) {
 
-            if (scene != null) {
-                SceneManager.LoadScene(scene, LoadSceneMode.Single);
-            }else {
-                Debug.LogError("No Scene to Load!");
-            }
+            SceneManager.LoadScene(scene, LoadSceneMode.Single);
 
         }
 
 
     }
-        
+
 }
