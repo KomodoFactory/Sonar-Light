@@ -23,9 +23,9 @@ Shader "Custom/PlayingWithShaders"
 	};
 
 
-	uniform float _Distances[30];
-	uniform float _Intensities[30];
-	uniform float4 _SoundSources[30];
+	uniform float _Distances[50];
+	uniform float _Intensities[50];
+	uniform float4 _SoundSources[50];
 
 	//Our Vertex Shader
 	v2f vert(appdata_base v) {
@@ -43,7 +43,7 @@ Shader "Custom/PlayingWithShaders"
 
 		float delta = 0.02;
 		half4 color = 0;
-		for (int j = 0; j < 10; j++) {
+		for (int j = 0; j < 50; j++) {
 
 			float3 sourceToFragment = i.worldPos - _SoundSources[j];
 
