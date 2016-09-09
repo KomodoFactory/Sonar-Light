@@ -6,6 +6,7 @@ public class OpeningDoors : MonoBehaviour
 {
     public readonly string keyMissingMessage = "It seems it needs a Key.";
     public readonly string notOpeningMessage = "It seams to be busted.";
+    public readonly string eyeSwitchMessage = "It requires a switch.";
     public readonly float messageDuration = 5;
     public readonly float audioVolume = 15;
 
@@ -17,6 +18,7 @@ public class OpeningDoors : MonoBehaviour
     CharacterInventory inventory;
     public bool opensAtAll = true;
     public bool needsAKey = false;
+    public bool usesEyeSwitch = false;
     public bool opensOutward = true;
     public bool startsOpen = false;
     public float rotationSpeed = 90;
@@ -82,7 +84,11 @@ public class OpeningDoors : MonoBehaviour
     {
         if (opensAtAll)
         {
-            if (!needsAKey)
+            if (usesEyeSwitch && !opened)
+            {
+                ScreenPromptHandler.Instance.DisplayPrompt(eyeSwitchMessage, messageDuration);
+            }
+            else if(!needsAKey)
             {
                 activate();
             }
@@ -123,4 +129,11 @@ public class OpeningDoors : MonoBehaviour
         return -1;
     }
 
+    public void openEyeDoor()
+    {
+        if (usesEyeSwitch)
+        {
+            activate();
+        }
+    }
 }

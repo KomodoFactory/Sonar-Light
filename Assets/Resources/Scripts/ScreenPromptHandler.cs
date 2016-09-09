@@ -46,6 +46,7 @@ public class ScreenPromptHandler : MonoBehaviour {
     void Start () {
         canvas =  GameObject.FindObjectOfType<Canvas>();
         textField = GameObject.Find("PromptText").GetComponent<Text>();
+        sb = new System.Text.StringBuilder();
     }
 	
 	// Update is called once per frame
@@ -86,7 +87,7 @@ public class ScreenPromptHandler : MonoBehaviour {
     void buildText()
     {
         textField.text = "";
-        sb = new System.Text.StringBuilder();
+        sb.Remove(0, sb.Length);
         if (list.Count > 0)
         {
             foreach (ScreenPrompt prompt in list.ToList())
