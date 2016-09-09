@@ -9,12 +9,8 @@ public class WarpPortal : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
 
         if (other.gameObject.tag.Equals("Player")) {
-
             SceneManager.LoadScene(scene, LoadSceneMode.Single);
-
         }
-
-
     }
 
 }
