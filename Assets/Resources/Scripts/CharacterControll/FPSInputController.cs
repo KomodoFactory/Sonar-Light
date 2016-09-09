@@ -10,7 +10,7 @@ public class FPSInputController : MonoBehaviour {
     private string horizontalAxis = AxisComponent.Horizontal;
     private string verticalAxis = AxisComponent.Vertical;
     private string jumpAxis = AxisComponent.Jump;
-    private AudioClip audioclip;
+    private string[] audioclips = { "Footstep0" , "Footstep1" , "Footstep2" , "Footstep3" , "Footstep4" , "Footstep5"};
 
     private CharacterMotor motor;
     private float directionLength;
@@ -20,7 +20,6 @@ public class FPSInputController : MonoBehaviour {
 
     void Awake() {
         motor = GetComponent<CharacterMotor>();
-        audioclip = SoundComponent.audioByName("footsteps");
     }
 
     void Update() {
@@ -29,7 +28,7 @@ public class FPSInputController : MonoBehaviour {
 
         if (directionVector != Vector3.zero) {
             if (lastFootstepSound > footstepFrequency) {
-                SoundRegistry.getInstance().addSound(new Sound(gameObject, footstepVolume,audioclip));
+                SoundRegistry.getInstance().addSound(new Sound(gameObject, footstepVolume,chooseFootstep()));
                 lastFootstepSound = 0;
             }
 
@@ -50,6 +49,12 @@ public class FPSInputController : MonoBehaviour {
     private void modifyLengthForSensitivControlles() {
         directionLength = Mathf.Min(1.0f, directionLength);
         directionLength = directionLength * directionLength;
+    }
+
+    private AudioClip chooseFootstep()
+    {
+        int x = Random.Range(0, audioclips.Length);
+        return SoundComponent.audioByName(audioclips[x]);
     }
 
 }
