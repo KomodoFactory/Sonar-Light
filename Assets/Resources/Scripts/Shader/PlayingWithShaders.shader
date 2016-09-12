@@ -26,6 +26,7 @@ Shader "Custom/PlayingWithShaders"
 	uniform float _Distances[50];
 	uniform float _Intensities[50];
 	uniform float4 _SoundSources[50];
+	uniform bool _ShowWave[50];
 
 	//Our Vertex Shader
 	v2f vert(appdata_base v) {
@@ -41,7 +42,7 @@ Shader "Custom/PlayingWithShaders"
 	half4 frag(v2f i) : COLOR{
 
 
-		float delta = 0.02;
+		float delta = 1.02;
 		half4 color = 0;
 		for (int j = 0; j < 50; j++) {
 

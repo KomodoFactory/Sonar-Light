@@ -47,6 +47,7 @@ public class MaterialHandler : MonoBehaviour {
         shaderMaterial.SetFloatArray("_Intensities",intensities);
         shaderMaterial.SetVectorArray("_SoundSources", soundSources);
 
+        Debug.Log("Please fix the material Handler");
     }
 
     public static float getMinimalIntensity()

@@ -60,6 +60,10 @@ public class Sound {
         return (1-(radius/(volume+fade)) )* intensityMultiplyer;
     }
 
+    public float waveRadius() {
+        return 0;
+    }
+
     public AudioClip getAudioClip()
     {
         return audioclip;
