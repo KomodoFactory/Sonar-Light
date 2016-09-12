@@ -313,6 +313,7 @@ public class CharacterMotor : MonoBehaviour
             jumping.jumping = false;
             SubtractNewPlatformVelocity();
 
+            SoundRegistry.getInstance().addSound(new Sound(this.gameObject,100,SoundComponent.audioByName("Footstep0")));
             SendMessage("OnLand", SendMessageOptions.DontRequireReceiver);
         }
 
