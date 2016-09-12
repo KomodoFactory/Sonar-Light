@@ -27,7 +27,6 @@ public class SoundRegistry : MonoBehaviour {
     }
 
     void Update() {
-        Debug.Log(sounds.Count);
         foreach (Sound sound in sounds.ToList()) {
             if (sound.update()) {
                 sounds.Remove(sound);
