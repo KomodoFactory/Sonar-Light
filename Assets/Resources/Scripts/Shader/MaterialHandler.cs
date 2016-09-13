@@ -36,26 +36,25 @@ public class MaterialHandler : MonoBehaviour {
         float[] distances = new float[SoundRegistry.queueSize];
         float[] intensities = new float[SoundRegistry.queueSize];
         Vector4[] soundSources = new Vector4[SoundRegistry.queueSize];
+        float[] waveRadii = new float[SoundRegistry.queueSize];
 
         for (int i = 0; i < sounds.Length; i++) {
             distances[i] = sounds[i].getCurrentRadius();
             intensities[i] = sounds[i].getCurrentIntensity() * intensityMultiplier;
             soundSources[i] = sounds[i].getSourcePosition();
+            waveRadii[i] = sounds[i].getWaveRadius();
         }
 
         shaderMaterial.SetFloatArray("_Distances", distances);
-        shaderMaterial.SetFloatArray("_Intensities",intensities);
+        shaderMaterial.SetFloatArray("_Intensities", intensities);
         shaderMaterial.SetVectorArray("_SoundSources", soundSources);
-
-        Debug.Log("Please fix the material Handler");
+        shaderMaterial.SetFloatArray("_WaveRadius", waveRadii);
     }
 
-    public static float getMinimalIntensity()
-    {
+    public static float getMinimalIntensity() {
         return intensityMultiplier;
     }
-    public static void setMinimalIntensity(float intensity)
-    {
+    public static void setMinimalIntensity(float intensity) {
         intensityMultiplier = intensity;
     }
 

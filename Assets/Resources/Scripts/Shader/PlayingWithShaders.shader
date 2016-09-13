@@ -26,7 +26,7 @@ Shader "Custom/PlayingWithShaders"
 	uniform float _Distances[50];
 	uniform float _Intensities[50];
 	uniform float4 _SoundSources[50];
-	uniform bool _ShowWave[50];
+	uniform float _WaveRadius[50];
 
 	//Our Vertex Shader
 	v2f vert(appdata_base v) {
@@ -41,20 +41,19 @@ Shader "Custom/PlayingWithShaders"
 
 	half4 frag(v2f i) : COLOR{
 
-
-		float delta = 1.02;
 		half4 color = 0;
 		for (int j = 0; j < 50; j++) {
+			float delta = _WaveRadius[j] / 100;
 
 			float3 sourceToFragment = i.worldPos - _SoundSources[j];
 
 			float dist = length(sourceToFragment);
 
-			if (dist >= _Distances[j]-delta && dist <= _Distances[j]+delta) {
-				color = color + half4(0,0,1/pow(dist,2),1);
+			if (dist >= _WaveRadius[j] - delta && dist <= _WaveRadius[j] + delta) {
+				color = color + half4(0,0, _Intensities[j] / pow(dist,2),1);
 			}
 			if (dist < _Distances[j]) {
-				color = color + half4(_Intensities[j]/ pow(dist, 2),0,0,1);
+				color = color + half4(_Intensities[j] / pow(dist, 2),0,0,1);
 			}
 
 

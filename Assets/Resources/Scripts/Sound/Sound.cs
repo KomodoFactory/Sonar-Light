@@ -6,7 +6,7 @@ public class Sound {
     private AudioClip audioclip;
     private readonly Vector3 sourcePosition;
     private readonly GameObject sourceObject;
-    private float radius = 0;
+    private float waveRadius = 0;
     private float volume;
     private static readonly float fade = 80;
     private float intensityMultiplyer = 1;
@@ -48,20 +48,20 @@ public class Sound {
         if(factor < 0.5f) {
             factor = 0.5f;
         }
-        radius += factor;
-        return radius > (volume+fade);
+        waveRadius += factor;
+        return waveRadius > (volume+fade);
     }
 
     public float getCurrentRadius() {
-        return Mathf.Min(radius,volume);
+        return Mathf.Min(waveRadius,volume);
     }
 
     public float getCurrentIntensity() {
-        return (1-(radius/(volume+fade)) )* intensityMultiplyer;
+        return (1-(waveRadius/(volume+fade)) )* intensityMultiplyer;
     }
 
-    public float waveRadius() {
-        return 0;
+    public float getWaveRadius() {
+        return waveRadius;
     }
 
     public AudioClip getAudioClip()

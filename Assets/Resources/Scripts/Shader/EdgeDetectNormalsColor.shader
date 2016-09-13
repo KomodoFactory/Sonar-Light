@@ -90,11 +90,8 @@ Shader "Hidden/EdgeDetectColors" {
 
 		float3 FragColor = tex2D(_MainTex, i.uv[0].xy);
 
-		/*if (FragColor.x+FragColor.y+FragColor.z <= 0.05) {
-			return 0;
-		}*/
 		if (FragColor.z > 0) {
-			return _EdgeColor*FragColor.x;
+			return _EdgeColor*FragColor.z;
 		}
 
 		if (edgeCheckResult > 0) {
