@@ -98,11 +98,13 @@ public class CursorObjects : CourserListener
 
     private void releaseObject()
     {
+        CharacterMotor motor = player.GetComponent<CharacterMotor>();
         hasObjectInHand = false;
         targetObjectRigidbody.useGravity = true;
         targetObjectRigidbody.angularDrag = 0;
         targetObjectRigidbody.drag = 0.05f;
         Physics.IgnoreCollision(player.GetComponent<CapsuleCollider>(), targetObjectRigidbody.GetComponentInParent<Collider>(), false);
+        targetObjectRigidbody.velocity = motor.movement.velocity*motor.movement.maxForwardSpeed;
     }
 
     public GameObject getHeldObject()
