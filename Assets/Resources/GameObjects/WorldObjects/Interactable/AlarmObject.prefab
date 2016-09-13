@@ -9,15 +9,15 @@ GameObject:
   m_Component:
   - 4: {fileID: 430214}
   - 33: {fileID: 3336502}
-  - 65: {fileID: 6527676}
   - 23: {fileID: 2309762}
-  - 114: {fileID: 11435278}
   - 54: {fileID: 5433150}
+  - 65: {fileID: 6527676}
   - 65: {fileID: 6560452}
+  - 114: {fileID: 11435278}
   - 114: {fileID: 11423782}
   m_Layer: 0
   m_Name: AlarmObject
-  m_TagString: Throwable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,9 +28,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129630}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.36, y: 0.15, z: 12.19}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 16.459, y: 2.1902778, z: 19.332}
+  m_LocalScale: {x: 100.00307, y: 50, z: 25}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -48,13 +48,13 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 18bdcbf207dc43142a7873c804affaaa, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
+  m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_SelectedWireframeHidden: 0
@@ -70,7 +70,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129630}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300002, guid: 81976a3018b36e341a121554c31ef3ed, type: 3}
 --- !u!54 &5433150
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -96,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.003748385, y: 0.004051145, z: 0.021366786}
+  m_Center: {x: 0.000049227157, y: -0.0001396561, z: 0.0005394458}
 --- !u!65 &6560452
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -108,8 +108,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 1.1, z: 1.1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.0040838756, y: 0.0042222813, z: 0.021896552}
+  m_Center: {x: 0, y: -0.00011112213, z: 0.00036904326}
 --- !u!114 &11423782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24a909ae61de7f4a9aa32100f882123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityMultiplier: 5
+  velocityMultiplier: 2
   velocityThreshhold: 1
   audioclip: {fileID: 8300000, guid: 4794a049ddc282d4883bddb36a92d939, type: 3}
 --- !u!114 &11435278
