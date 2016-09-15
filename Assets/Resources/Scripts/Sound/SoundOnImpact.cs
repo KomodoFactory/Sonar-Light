@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
 public class SoundOnImpact : MonoBehaviour {
 
@@ -9,7 +8,6 @@ public class SoundOnImpact : MonoBehaviour {
     public float velocityThreshhold = 1;
     public AudioClip audioclip;
     private GameObject thrown;
-    private Rigidbody thrownRB;
     private float velMag;
     private static readonly float soundCooldown = 0.2f;
     private float soundCooldownValue = 0;
@@ -17,7 +15,6 @@ public class SoundOnImpact : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         thrown = this.gameObject;
-        thrownRB = thrown.GetComponent<Rigidbody>();
     }
 	
 	// Update is called once per frame
@@ -25,9 +22,9 @@ public class SoundOnImpact : MonoBehaviour {
         soundCooldownValue -= Time.deltaTime;
 	}
 
-    void OnTriggerEnter(Collider col)
+    void OnCollisionEnter(Collision col)
     {
-        velMag = thrownRB.velocity.magnitude;
+        velMag = col.relativeVelocity.magnitude;
         //Debug.Log(velMag);
         if (!(col.gameObject.tag.Contains("Player")))
         {

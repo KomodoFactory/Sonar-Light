@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: e071bcf154402fb4e8c34e2020f7f29e
-timeCreated: 1473932423
+guid: b10e8d9582eca01439fc9b16f3765e76
+timeCreated: 1473939182
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Stiel.001
-    400000: //RootNode
-    400002: Stiel.001
-    2300000: Stiel.001
-    2300002: //RootNode
-    3300000: Stiel.001
-    3300002: //RootNode
-    4300000: Stiel.001
+    100000: Stiel.000
+    100002: //RootNode
+    100004: trashbingrid
+    400000: Stiel.000
+    400002: //RootNode
+    400004: trashbingrid
+    2300000: Stiel.000
+    2300002: trashbingrid
+    2300004: //RootNode
+    3300000: Stiel.000
+    3300002: trashbingrid
+    3300004: //RootNode
+    4300000: Stiel.000
+    4300002: trashbingrid
+    4300004: Cube
   materials:
     importMaterials: 0
     materialName: 0
@@ -54,9 +60,9 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 1
-    normalImportMode: 1
-    tangentImportMode: 2
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
