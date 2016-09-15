@@ -14,7 +14,7 @@ public class MaterialHandler : MonoBehaviour {
         if (instance == null) {
             instance = GameObject.FindGameObjectWithTag("Console").GetComponent<MaterialHandler>();
             if (!isOcculusPresent()) {
-                intensityMultiplier = 80;
+                intensityMultiplier = 10;
             }
         }
         return instance;
