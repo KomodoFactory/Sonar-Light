@@ -32,7 +32,7 @@ public class EyeSwitchListener : CourserListener
             eyeSwitch = focusedObject.GetComponent<EyeSwitch>();
             if (eyeSwitch != null)
             {
-                if (distanceToObject <= 2)
+                if (distanceToObject <= 4)
                 {
                     eyeSwitch.activateSwitch();
                 }

@@ -11,6 +11,7 @@ public class EyeSwitch  : MonoBehaviour{
     {
         if(eyeDoor != null)
         {
+            ScreenPromptHandler.Instance.DisplayPrompt("The Switch has been activated!", 5);
             eyeDoor.GetComponent<OpeningDoors>().openEyeDoor();
         }
     }
