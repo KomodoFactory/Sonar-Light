@@ -23,6 +23,7 @@ GameObject:
   - 23: {fileID: 23000010110565902}
   - 54: {fileID: 54000012353305370}
   - 64: {fileID: 64000012393508894}
+  - 65: {fileID: 65000012642058588}
   - 114: {fileID: 114000013532311756}
   m_Layer: 0
   m_Name: Plant
@@ -37,9 +38,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013890841984}
-  m_LocalRotation: {x: 0.00000008195639, y: -0, z: 0.18159705, w: 0.9833731}
-  m_LocalPosition: {x: -9.188363, y: 3.1297061, z: -6.7639284}
-  m_LocalScale: {x: 0.34409022, y: 0.27234396, z: 0.28834984}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -6.298327, y: 1.9632082, z: 13.825558}
+  m_LocalScale: {x: 1.9754579, y: 1.5635556, z: 1.6786877}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,6 +108,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: e071bcf154402fb4e8c34e2020f7f29e, type: 3}
+--- !u!65 &65000012642058588
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013890841984}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1415316, y: 0.15451354, z: 0.25529027}
+  m_Center: {x: -0.005541313, y: 0.0000000037252903, z: 0.1276451}
 --- !u!114 &114000013532311756
 MonoBehaviour:
   m_ObjectHideFlags: 1
