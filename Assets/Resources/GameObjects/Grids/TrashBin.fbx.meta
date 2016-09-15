@@ -13,12 +13,15 @@ ModelImporter:
     400004: trashbingrid
     2300000: Stiel.000
     2300002: trashbingrid
+    2300004: //RootNode
     3300000: Stiel.000
     3300002: trashbingrid
+    3300004: //RootNode
     4300000: Stiel.000
     4300002: trashbingrid
+    4300004: Cube
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -41,7 +44,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.6
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
