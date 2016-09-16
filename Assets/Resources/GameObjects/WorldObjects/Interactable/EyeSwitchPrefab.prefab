@@ -116,5 +116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eyeDoor: {fileID: 0}
-  soundEffect: {fileID: 8300000, guid: e5a60993eeffe4d45bba8e86b161d5fa, type: 3}
+  soundEffect: {fileID: 8300000, guid: 74cfe9bd9454a634f9c8ae232878fc39, type: 3}
   soundIntensity: 10
+  activationCoolDown: 1
