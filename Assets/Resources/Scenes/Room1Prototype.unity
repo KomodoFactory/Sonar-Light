@@ -499,7 +499,7 @@ Transform:
   - {fileID: 943521338}
   - {fileID: 545560231}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &294557398
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +725,7 @@ Transform:
   - {fileID: 1323822092}
   - {fileID: 1695885097}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!4 &397543226 stripped
 Transform:
   m_PrefabParentObject: {fileID: 439416, guid: bf0558be1b26b174690207d972925060, type: 2}
@@ -920,7 +920,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
 --- !u!1001 &602567469
 Prefab:
   m_ObjectHideFlags: 0
@@ -964,12 +964,12 @@ Prefab:
         type: 2}
       propertyPath: scene.m_SceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: eaf55f948420cf94bb11c7d5bd393ef9,
+      objectReference: {fileID: 102900000, guid: 634c41117f48a1940933d58845b6f252,
         type: 3}
     - target: {fileID: 114000013816061658, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7,
         type: 2}
       propertyPath: scene.m_SceneName
-      value: Room2Prototype
+      value: FirstRoom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7, type: 2}
@@ -1270,7 +1270,7 @@ Transform:
   - {fileID: 222211660}
   - {fileID: 2090972181}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1001 &907891946
 Prefab:
   m_ObjectHideFlags: 0
@@ -2487,7 +2487,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!1001 &1881391512
 Prefab:
   m_ObjectHideFlags: 0
@@ -2800,6 +2800,16 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22443926, guid: 8408a9bc4eacb314fba191c75d9e3aac, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011483053852, guid: 8408a9bc4eacb314fba191c75d9e3aac,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011483053852, guid: 8408a9bc4eacb314fba191c75d9e3aac,
+        type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
