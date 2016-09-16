@@ -119,7 +119,7 @@ Transform:
   - {fileID: 1530462186}
   - {fileID: 982407770}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!4 &17376821 stripped
 Transform:
   m_PrefabParentObject: {fileID: 458240, guid: 6cdb7d70b7394c84685737d9be22bf69, type: 2}
@@ -505,7 +505,7 @@ Transform:
   - {fileID: 129360464}
   - {fileID: 1356313960}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!1001 &80969621
 Prefab:
   m_ObjectHideFlags: 0
@@ -3141,7 +3141,7 @@ Transform:
   - {fileID: 403336643}
   - {fileID: 1044088177}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
 --- !u!4 &571392943 stripped
 Transform:
   m_PrefabParentObject: {fileID: 489230, guid: 4427bba6407ccf849894b0c7f4e075d2, type: 2}
@@ -4114,7 +4114,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 418996, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 11480550, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
       propertyPath: edgeDetectMaterial
@@ -4938,7 +4938,7 @@ Transform:
   - {fileID: 1667815646}
   - {fileID: 457836638}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1001 &1020536724
 Prefab:
   m_ObjectHideFlags: 0
@@ -5991,7 +5991,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400570, guid: 82c097fd5939fc646af0c06f8e9ca5fe, type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 82c097fd5939fc646af0c06f8e9ca5fe, type: 2}
@@ -6347,7 +6347,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 443842, guid: 9659551672cb3ef41a4da2637f541c2d, type: 2}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 146128, guid: 9659551672cb3ef41a4da2637f541c2d, type: 2}
       propertyPath: m_Name
@@ -9739,7 +9739,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22428686, guid: 8408a9bc4eacb314fba191c75d9e3aac, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 22428686, guid: 8408a9bc4eacb314fba191c75d9e3aac, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -9791,7 +9791,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22401744, guid: 8408a9bc4eacb314fba191c75d9e3aac, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22401744, guid: 8408a9bc4eacb314fba191c75d9e3aac, type: 2}
       propertyPath: m_AnchoredPosition.y
