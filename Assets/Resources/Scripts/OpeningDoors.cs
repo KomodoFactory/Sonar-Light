@@ -72,7 +72,6 @@ public class OpeningDoors : MonoBehaviour
             SoundRegistry.getInstance().addSound(new Sound(this.gameObject, audioVolume, currentaudio));
             this.enabled = true;
             endposition = this.gameObject.transform.rotation.eulerAngles + new Vector3(0, 90, 0) * rotationDirection;
-            Debug.Log(endposition);
         }
     }
 
@@ -82,7 +81,6 @@ public class OpeningDoors : MonoBehaviour
         opened = !opened;
         rotationDirection = rotationDirection *-1;
         this.gameObject.transform.rotation = Quaternion.Euler(endposition);
-        Debug.Log(this.gameObject.transform.rotation);
     }
 
     public void interact()
