@@ -25,7 +25,6 @@ public class SoundOnImpact : MonoBehaviour {
     void OnCollisionEnter(Collision col)
     {
         velMag = col.relativeVelocity.magnitude;
-        //Debug.Log(velMag);
         if (!(col.gameObject.tag.Contains("Player")))
         {
             if (velMag > velocityThreshhold && velMag > 0)
@@ -37,6 +36,13 @@ public class SoundOnImpact : MonoBehaviour {
                 }
             }
         }
+        /*SoundOnImpact[] childScripts = this.gameObject.GetComponentsInChildren<SoundOnImpact>();
+        if (childScripts.Length < 0) {
+            for(int i = 0;i< childScripts.Length; i++) {
+                childScripts[i].OnCollisionEnter(col);
+            }
+        }*/
+
     }
 
 }
