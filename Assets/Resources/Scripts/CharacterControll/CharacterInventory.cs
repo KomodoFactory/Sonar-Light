@@ -14,7 +14,7 @@ public class CharacterInventory : MonoBehaviour {
     private Text keyText;
     private Text coinText;
     private System.Text.StringBuilder keyStringBuilder;
-    private System.Text.StringBuilder coinStringBuilder;
+    //private System.Text.StringBuilder coinStringBuilder;
 
     public static CharacterInventory Instance
     {
@@ -37,13 +37,13 @@ public class CharacterInventory : MonoBehaviour {
     void Start ()
     {
         keyText = GameObject.Find("KeyText").GetComponent<Text>();
-        coinText = GameObject.Find("CoinText").GetComponent<Text>();
+        //coinText = GameObject.Find("CoinText").GetComponent<Text>();
         keyStringBuilder = new System.Text.StringBuilder();
-        coinStringBuilder = new System.Text.StringBuilder();
+        //coinStringBuilder = new System.Text.StringBuilder();
     }
 	
 	void Update () {
-        if (keyText != null || coinText != null)
+        if (keyText != null /*&& coinText != null*/)
         {
             displayInventory();
         }
@@ -51,24 +51,23 @@ public class CharacterInventory : MonoBehaviour {
 
     void displayInventory()
     {
+        keyStringBuilder.Remove(0, keyStringBuilder.Length);
+        if (coinAmount > 0)
+        {
+            keyStringBuilder.Append("Coins found: " + coinAmount + lineBreak);
+        }
+
         if (keyList.Count > 0)
         {
+            keyStringBuilder.Append(" " + lineBreak);
             keyStringBuilder.Append("Current Keys:" + lineBreak);
             foreach (Key key in keyList)
             {
                 keyStringBuilder.AppendLine(key.KeyName + lineBreak);
             }
-            keyText.text = keyStringBuilder.ToString();
-            keyStringBuilder.Remove(0, keyStringBuilder.Length);
         }
-
-        if (coinAmount > 0)
-        {
-            coinStringBuilder.Append("Coins found:" + lineBreak);
-            coinStringBuilder.AppendLine(coinAmount + lineBreak);
-            coinText.text = coinStringBuilder.ToString();
-            coinStringBuilder.Remove(0, coinStringBuilder.Length);
-        }
+        keyText.text = keyStringBuilder.ToString();
+        Debug.Log(keyText.text);
     }
 
     public bool checkIfDoorCanBeOpened(GameObject door)
@@ -94,7 +93,6 @@ public class CharacterInventory : MonoBehaviour {
 
     public void addCoin()
     {
-        Debug.Log("Coin!");
         coinAmount++;
     }
 
