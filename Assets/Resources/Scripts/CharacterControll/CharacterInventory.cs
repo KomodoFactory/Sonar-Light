@@ -94,6 +94,7 @@ public class CharacterInventory : MonoBehaviour {
 
     public void addCoin()
     {
+        Debug.Log("Coin!");
         coinAmount++;
     }
 

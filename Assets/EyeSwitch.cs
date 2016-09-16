@@ -13,7 +13,9 @@ public class EyeSwitch  : MonoBehaviour{
     {
         if(eyeDoor != null)
         {
+            SoundRegistry.getInstance().addSound(new Sound(this.gameObject, soundIntensity, soundEffect));
             eyeDoor.GetComponent<OpeningDoors>().openEyeDoor();
+            activationCountDown = activationCoolDown;
         }
     }
 
@@ -24,8 +26,6 @@ public class EyeSwitch  : MonoBehaviour{
             if (activationCountDown <= 0)
             {
                 activateSwitch();
-                SoundRegistry.getInstance().addSound(new Sound(this.gameObject, soundIntensity, soundEffect));
-                activationCountDown = activationCoolDown;
             }
         }
     }
