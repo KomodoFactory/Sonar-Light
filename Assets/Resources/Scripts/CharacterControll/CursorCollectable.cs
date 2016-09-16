@@ -39,11 +39,13 @@ public class CursorCollectable : CourserListener
             if (focusedObject.GetComponent<KeyInfo>() != null)
             {
                 inventory.addKey(focusedObject.GetComponent<KeyInfo>().getKeyObject());
+                SoundRegistry.getInstance().addSound(new Sound(focusedObject, 15, SoundComponent.audioByName("pickup")));
                 UnityEngine.Object.Destroy(focusedObject);
             }
             if (focusedObject.CompareTag("Collectable"))
             {
                 inventory.addCoin();
+                SoundRegistry.getInstance().addSound(new Sound(focusedObject, 15, SoundComponent.audioByName("pickup")));
                 UnityEngine.Object.Destroy(focusedObject);
             }
         }
