@@ -67,7 +67,6 @@ public class CharacterInventory : MonoBehaviour {
             }
         }
         keyText.text = keyStringBuilder.ToString();
-        Debug.Log(keyText.text);
     }
 
     public bool checkIfDoorCanBeOpened(GameObject door)
