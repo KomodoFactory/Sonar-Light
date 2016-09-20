@@ -49,20 +49,6 @@ public class CursorObjects : CourserListener {
             this.distanceToObject = Math.Max(this.distanceToObject, minimumHoveringDistance);
             pickupObject();
         }
-        else {
-            bool hasParent = true;
-            while (hasParent) {
-                if (focusedObject.transform.parent != null) {
-                    focusedObject = focusedObject.transform.parent.gameObject;
-                    if (focusedObject.CompareTag("Throwable")) {
-                        interactWithFocusedObject(focusedObject, distanceToObject);
-                    }
-                }
-                else {
-                    hasParent = false;
-                }
-            }
-        }
     }
 
     public string[] getInterestedAxes() {

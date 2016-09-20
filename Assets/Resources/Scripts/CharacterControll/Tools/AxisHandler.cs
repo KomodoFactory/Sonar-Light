@@ -3,9 +3,9 @@ using System.Collections;
 
 public class AxisHandler{
 
-    public string axisTooCheck = "JostickButton0";
-    float lastState = 0;
-    float newState = 0;
+    private string axisTooCheck = "JostickButton0";
+    private float lastState = 0;
+    private float newState = 0;
 
     public AxisHandler(string axisTooCheck)
     {
