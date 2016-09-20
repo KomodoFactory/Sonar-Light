@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public interface CourserListener {
+public interface CurserListener {
 
     void initialize();
     void update();

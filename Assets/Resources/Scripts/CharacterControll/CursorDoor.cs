@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class CursorDoor : CourserListener
+public class CursorDoor : CurserListener
 {
     private static readonly string axisInteract = AxisComponent.Interact;
     private static readonly string[] interestedAxis = {axisInteract};

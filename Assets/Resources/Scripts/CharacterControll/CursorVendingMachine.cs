@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class CursorVendingMachine : CourserListener
+public class CursorVendingMachine : CurserListener
 {
     private static readonly string axisInteract = AxisComponent.Interact;
     private static readonly string[] interestedAxis = {axisInteract};

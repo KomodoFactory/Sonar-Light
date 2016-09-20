@@ -3,16 +3,16 @@ using System.Collections;
 
 public class ListenerComponent
 {
-    private CourserListener listener;
+    private CurserListener listener;
     private string[] axis;
 
-    public ListenerComponent(CourserListener listener, string[] axis)
+    public ListenerComponent(CurserListener listener, string[] axis)
     {
         this.listener = listener;
         this.axis = axis;
     }
 
-    public CourserListener getListener()
+    public CurserListener getListener()
     {
         return listener;  
     }

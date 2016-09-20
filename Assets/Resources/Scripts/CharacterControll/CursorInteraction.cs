@@ -74,7 +74,7 @@ public class CursorInteraction : MonoBehaviour
         return null;
     }
 
-    public static void registerCourserListener(CourserListener listener, params string[] axis)
+    public static void registerCourserListener(CurserListener listener, params string[] axis)
     {
         listeners.Add(new ListenerComponent(listener, axis));
     }
@@ -82,13 +82,13 @@ public class CursorInteraction : MonoBehaviour
     private void collectingListeners()
     {
         if (!listAllocated) {
-            Type type = typeof(CourserListener);
+            Type type = typeof(CurserListener);
             IEnumerable<Type> types = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(s => s.GetTypes())
                 .Where(p => type.IsAssignableFrom(p) && !p.IsInterface && !p.IsAbstract);
 
             foreach (Type typ in types) {
-                CourserListener cours = ((CourserListener)Activator.CreateInstance(typ));
+                CurserListener cours = ((CurserListener)Activator.CreateInstance(typ));
                 listeners.Add(new ListenerComponent(cours, cours.getInterestedAxes()));
             }
             listAllocated = true;
