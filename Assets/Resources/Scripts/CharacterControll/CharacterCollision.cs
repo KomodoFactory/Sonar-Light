@@ -4,10 +4,10 @@ using System.Collections;
 public class CharacterCollision : MonoBehaviour {
 
     public float collisionForce = 100;
-    GameObject etho;
-    Transform playerTransform;
-    Vector3 playerPos;
-    Vector3 colDir;
+    private GameObject etho;
+    private Transform playerTransform;
+    private Vector3 playerPos;
+    private Vector3 colDir;
     
     void Start() {
         etho = GameObject.FindGameObjectWithTag("Player");
