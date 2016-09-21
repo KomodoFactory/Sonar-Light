@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class EyeSwitchListener : CurserListener
+public class CursorEyeSwitch : CursorListener
 {
     private EyeSwitch eyeSwitch;
      

@@ -2,12 +2,12 @@
 using System.Collections;
 using System;
 
-public class CursorCollectable : CurserListener
+public class CursorCollectable : CursorListener
 {
     private static readonly string axisInteract = AxisComponent.Interact;
     private static readonly string[] interestedAxis = {axisInteract};
 
-    CharacterInventory inventory;
+    private CharacterInventory inventory;
 
     public void initialize()
     {

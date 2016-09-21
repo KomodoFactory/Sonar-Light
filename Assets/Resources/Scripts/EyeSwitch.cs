@@ -11,7 +11,7 @@ public class EyeSwitch  : MonoBehaviour{
     
     public void activateSwitch()
     {
-        if(eyeDoor != null)
+        if(eyeDoor != null  && activationCountDown <= 0)
         {
             SoundRegistry.getInstance().addSound(new Sound(this.gameObject, soundIntensity, soundEffect));
             eyeDoor.GetComponent<OpeningDoors>().openEyeDoor();
@@ -23,10 +23,7 @@ public class EyeSwitch  : MonoBehaviour{
     {
         if (col.gameObject.tag == "Throwable")
         {
-            if (activationCountDown <= 0)
-            {
                 activateSwitch();
-            }
         }
     }
 

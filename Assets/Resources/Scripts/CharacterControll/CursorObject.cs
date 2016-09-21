@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class CursorObjects : CurserListener {
+public class CursorObjects : CursorListener {
 
     private static readonly string axisPickup = AxisComponent.Pickup;
     private static readonly string axisThrow = AxisComponent.Throw;
