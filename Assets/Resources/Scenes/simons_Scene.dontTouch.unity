@@ -11849,7 +11849,7 @@ Prefab:
     - target: {fileID: 224000012829409984, guid: 8408a9bc4eacb314fba191c75d9e3aac,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 25.661968
+      value: 25.916061
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8408a9bc4eacb314fba191c75d9e3aac, type: 2}
@@ -14445,18 +14445,6 @@ Prefab:
     - target: {fileID: 418996, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
       propertyPath: m_RootOrder
       value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 11480550, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
-      propertyPath: edgeDetectMaterial
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11456362, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
-      propertyPath: jumping.extraHeight
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11456362, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
-      propertyPath: jumping.baseHeight
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}

@@ -16,7 +16,7 @@ namespace Wenzil.Console.Commands {
                 minIntensity = float.Parse(args[0]);
                 if (minIntensity >= 1 && minIntensity <= 50)
                 {
-                    MaterialHandler.setMinimalIntensity(minIntensity);
+                    MaterialHandler.setIntensityMultiplier(minIntensity);
                     return "The Intensity multiplier is now: " + minIntensity;
                 }
             }

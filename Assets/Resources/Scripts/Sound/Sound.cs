@@ -2,7 +2,7 @@
 public class Sound {
 
     public static readonly float propagationSpeed = 20;
-    public static readonly float minimumVolume = 2;
+    private static readonly float minimumVolume = 2;
     private AudioClip audioclip;
     private readonly Vector3 sourcePosition;
     private readonly GameObject sourceObject;

@@ -13,7 +13,7 @@ public class MaterialHandler : MonoBehaviour {
     public static MaterialHandler getInstance() {
         if (instance == null) {
             instance = GameObject.FindGameObjectWithTag("Console").GetComponent<MaterialHandler>();
-            if (!isOcculusPresent()) {
+            if (!isOculusPresent()) {
                 intensityMultiplier = 10;
             }
         }
@@ -51,14 +51,14 @@ public class MaterialHandler : MonoBehaviour {
         shaderMaterial.SetFloatArray("_WaveRadius", waveRadii);
     }
 
-    public static float getMinimalIntensity() {
+    public static float getIntensityMultiplier() {
         return intensityMultiplier;
     }
-    public static void setMinimalIntensity(float intensity) {
+    public static void setIntensityMultiplier(float intensity) {
         intensityMultiplier = intensity;
     }
 
-    private static bool isOcculusPresent() {
+    private static bool isOculusPresent() {
         return VRDevice.isPresent;
     }
 }
