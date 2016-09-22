@@ -4,10 +4,10 @@ using System;
 
 public class OpeningDoors : MonoBehaviour
 {
-    public readonly string keyMissingMessage = "It seems it needs a Key.";
-    public readonly string notOpeningMessage = "It seams to be busted.";
-    public readonly string eyeSwitchMessage = "It requires a switch.";
-    public readonly float messageDuration = 5;
+    private readonly string keyMissingMessage = "It seems it needs a Key.";
+    private readonly string notOpeningMessage = "It seams to be busted.";
+    private readonly string eyeSwitchMessage = "It requires a switch.";
+    private readonly float messageDuration = 5;
 
     public bool opensAtAll = true;
     public bool needsAKey = false;
@@ -20,7 +20,7 @@ public class OpeningDoors : MonoBehaviour
     private AudioClip audioclosing;
     private AudioClip audioopening;
 
-    CharacterInventory inventory;
+    private CharacterInventory inventory;
 
     private int rotationDirection;
     private float currentRotation = 0;
@@ -114,6 +114,14 @@ public class OpeningDoors : MonoBehaviour
         }
     }
 
+    public void openEyeDoor()
+    {
+        if (usesEyeSwitch && !opened)
+        {
+            activate();
+        }
+    }
+
     private bool CheckKey()
     {
         if (inventory.checkIfDoorCanBeOpened(this.gameObject))
@@ -130,13 +138,5 @@ public class OpeningDoors : MonoBehaviour
             return 1;
         }
         return -1;
-    }
-
-    public void openEyeDoor()
-    {
-        if (usesEyeSwitch && !opened)
-        {
-            activate();
-        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.VR;
 
-public class ResetOcculus : MonoBehaviour
+public class ResetOculus : MonoBehaviour
 {
     void Update()
     {
