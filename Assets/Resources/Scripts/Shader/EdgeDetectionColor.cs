@@ -63,6 +63,7 @@ namespace UnityStandardAssets.ImageEffects {
             //Colorparameter
             edgeDetectMaterial.SetFloat("_BgFade", 1);
             edgeDetectMaterial.SetVector("_EdgeColor", edgesColor);
+            edgeDetectMaterial.SetVector("_BackgroundColor", backgroundColor);
 
             Graphics.Blit(source, destination, edgeDetectMaterial, mode);
         }

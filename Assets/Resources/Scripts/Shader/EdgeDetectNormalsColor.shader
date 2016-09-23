@@ -31,6 +31,7 @@ Shader "Hidden/EdgeDetectColors" {
 	//Colorparameter
 	uniform half _BgFade;
 	uniform half4 _EdgeColor;
+	uniform half4 _BackgroundColor;
 
 	inline half CheckSame(half2 centerNormal, float centerDepth, half4 theSample)
 	{
@@ -95,7 +96,7 @@ Shader "Hidden/EdgeDetectColors" {
 		}
 
 		if (edgeCheckResult > 0) {
-			return  lerp(tex2D(_MainTex, i.uv[0].xy), 0, _BgFade);
+			return  lerp(0, _BackgroundColor, FragColor.x);
 		}
 		else {
 			return (_EdgeColor*FragColor.x);

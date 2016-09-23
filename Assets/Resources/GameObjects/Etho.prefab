@@ -50,8 +50,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161508}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.04, y: 2.19, z: -12.71}
+  m_LocalRotation: {x: -0, y: 0.6852687, z: -0, w: 0.7282904}
+  m_LocalPosition: {x: -9.37, y: 1.81, z: -43.71}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -116,12 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadd54e4832aeef4b9359f44cbe335cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationRange: {x: 180, y: 361}
   rotationSpeed: 7
-  dampingTime: 0.2
-  autoZeroVerticalOnMobile: 1
-  autoZeroHorizontalOnMobile: 0
-  relative: 1
 --- !u!114 &11413174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -246,17 +241,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e14c28958a708f4fb585d6da0de40f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 0
   sensitivityDepth: 0.5
   sensitivityNormals: 7
-  lumThreshold: 0.2
-  edgeExp: 1
-  sampleDist: 0.5
-  edgesOnlyBgColor: {r: 0, g: 0, b: 0, a: 1}
+  backgroundColor: {r: 0, g: 0, b: 0.078431375, a: 1}
   edgesColor: {r: 0, g: 0, b: 1, a: 1}
-  edgeDetectShader: {fileID: 4800000, guid: 0cb64d7dbc54e224591886a1ad93c183, type: 3}
-  edgeDetectMaterial: {fileID: 0}
-  firstHeldObject: {fileID: 0}
 --- !u!114 &11482944
 MonoBehaviour:
   m_ObjectHideFlags: 1
