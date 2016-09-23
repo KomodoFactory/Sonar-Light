@@ -5,9 +5,9 @@ namespace Wenzil.Console.Commands
 
     public static class ShaderCommand
     {
-        public static readonly string name = "NONBLIND";
+        public static readonly string name = "SIGHTBEYONDSIGHT";
         public static readonly string description = "Render the scene normaly";
-        public static readonly string usage = "NONBLIND";
+        public static readonly string usage = "SIGHTBEYONDSIGHT";
         private static Renderer renderer;
         private static MaterialHandler matHandler = MaterialHandler.getInstance();
         private static bool shaderOnOff;
