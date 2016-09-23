@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 public class SoundRegistry : MonoBehaviour {
 
@@ -35,4 +36,20 @@ public class SoundRegistry : MonoBehaviour {
         MaterialHandler.getInstance().setShaderData(sounds.ToArray());
     }
 
+}
+
+class SoundComparator : Comparer<Sound> {
+    public override int Compare(Sound x, Sound y) {
+
+        float xIntensity = x.getCurrentIntensity();
+        float yIntensity = y.getCurrentIntensity();
+
+        if (xIntensity > yIntensity) {
+            return 1;
+        }else if(xIntensity == yIntensity){
+            return 0;
+        }else {
+            return -1;
+        }
+    }
 }

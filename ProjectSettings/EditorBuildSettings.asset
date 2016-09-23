@@ -35,3 +35,9 @@ EditorBuildSettings:
     path: Assets/Resources/Scenes/Room1Prototype.unity
   - enabled: 1
     path: Assets/Resources/Scenes/FirstRoom.unity
+  - enabled: 1
+    path: Assets/Resources/Scenes/Room2Prototype.unity
+  - enabled: 1
+    path: Assets/Resources/Scenes/Room3Prototype.unity
+  - enabled: 1
+    path: Assets/Resources/Scenes/simons_Scene.dontTouch.unity

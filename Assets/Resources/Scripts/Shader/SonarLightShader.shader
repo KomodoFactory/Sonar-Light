@@ -4,8 +4,6 @@ Shader "Custom/PlayingWithShaders"
 {
 	Properties{
 		_MainTex("", 2D) = "white" {} //this texture will have the rendered image before post-processing
-	_RingWidth("ring width", Float) = 0.01
-		_RingPassTimeLength("ring pass time", Float) = 2.0
 	}
 
 		SubShader{
@@ -18,7 +16,6 @@ Shader "Custom/PlayingWithShaders"
 
 	struct v2f {
 		float4 pos : SV_POSITION;
-		//float4 scrPos[2]:TEXCOORD1;
 		float3 worldPos:TEXCOORD1;
 	};
 
