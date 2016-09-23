@@ -3229,6 +3229,11 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224000012829409984, guid: 8408a9bc4eacb314fba191c75d9e3aac,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8408a9bc4eacb314fba191c75d9e3aac, type: 2}
   m_IsPrefabParent: 0
@@ -3402,6 +3407,11 @@ Prefab:
     - target: {fileID: 4000013101345218, guid: 4e123f24647d7f74aa43b3c7a3d48cc0, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011289956368, guid: 4e123f24647d7f74aa43b3c7a3d48cc0,
+        type: 2}
+      propertyPath: opensOutward
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e123f24647d7f74aa43b3c7a3d48cc0, type: 2}
