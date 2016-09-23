@@ -11,7 +11,7 @@ namespace UnityStandardAssets.ImageEffects {
         SerializedProperty sensitivityNormals;
 
 
-        SerializedProperty edgesOnlyBgColor;
+        SerializedProperty backgroundColor;
 
         SerializedProperty sampleDist;
 
@@ -25,7 +25,7 @@ namespace UnityStandardAssets.ImageEffects {
             sensitivityNormals = serObj.FindProperty("sensitivityNormals");
 
 
-            edgesOnlyBgColor = serObj.FindProperty("edgesOnlyBgColor");
+            backgroundColor = serObj.FindProperty("backgroundColor");
             edgesColor = serObj.FindProperty("edgesColor");
             sampleDist = serObj.FindProperty("sampleDist");
         }
@@ -39,12 +39,11 @@ namespace UnityStandardAssets.ImageEffects {
 
             EditorGUILayout.PropertyField(sensitivityDepth, new GUIContent(" Depth Sensitivity"));
             EditorGUILayout.PropertyField(sensitivityNormals, new GUIContent(" Normals Sensitivity"));
-            EditorGUILayout.PropertyField(sampleDist, new GUIContent(" Sample Distance"));
 
             EditorGUILayout.Separator();
 
             GUILayout.Label("Background Options");
-            EditorGUILayout.PropertyField(edgesOnlyBgColor, new GUIContent("Bg Color"));
+            EditorGUILayout.PropertyField(backgroundColor, new GUIContent("Bg Color"));
             EditorGUILayout.PropertyField(edgesColor, new GUIContent(" Edge Color"));
 
             serObj.ApplyModifiedProperties();

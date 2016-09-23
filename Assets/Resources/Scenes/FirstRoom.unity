@@ -4825,7 +4825,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11418040, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}
       propertyPath: collisionForce
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 212e4e70781e59143a3c904de0aa4d59, type: 2}

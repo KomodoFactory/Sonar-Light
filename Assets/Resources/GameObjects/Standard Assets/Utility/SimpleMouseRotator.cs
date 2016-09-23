@@ -22,12 +22,12 @@ namespace UnityStandardAssets.Utility
         private static readonly string controllerRightY = AxisComponent.controllerRightY;
 
 
-        public Vector2 rotationRange = new Vector3(180, 361);
+        private Vector2 rotationRange = new Vector3(180, 361);
         public float rotationSpeed = 10;
         public float dampingTime = 0.2f;
-        public bool autoZeroVerticalOnMobile = true;
-        public bool autoZeroHorizontalOnMobile = false;
-        public bool relative = true;
+        private bool autoZeroVerticalOnMobile = true;
+        private bool autoZeroHorizontalOnMobile = false;
+        private bool relative = true;
 
 
         private Vector3 m_TargetAngles;

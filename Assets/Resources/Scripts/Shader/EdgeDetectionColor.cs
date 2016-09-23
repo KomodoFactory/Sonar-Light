@@ -7,20 +7,18 @@ namespace UnityStandardAssets.ImageEffects {
     [AddComponentMenu("Image Effects/Edge Detection/Edge Detection Color")]
     public class EdgeDetectionColor : PostEffectsBase {
 
-        public int mode = 0;
+        
         public float sensitivityDepth = 0.5f;
         public float sensitivityNormals = 7.0f;
-        public float lumThreshold = 0.2f;
-        public float edgeExp = 1.0f;
-        public float sampleDist = 0.5f;
-        public Color edgesOnlyBgColor = Color.black;
+        public Color backgroundColor = Color.black;
         public Color edgesColor = Color.blue;
 
-        public Shader edgeDetectShader;
-        public Material edgeDetectMaterial = null;
+        private Shader edgeDetectShader;
+        private Material edgeDetectMaterial = null;
 
 
-        public GameObject firstHeldObject;
+        private float sampleDist = 0.5f;
+        private int mode = 0;
 
 
         public override bool CheckResources() {
