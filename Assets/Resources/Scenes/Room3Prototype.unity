@@ -14028,7 +14028,7 @@ Prefab:
     - target: {fileID: 224000012829409984, guid: 8408a9bc4eacb314fba191c75d9e3aac,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 25.470972
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8408a9bc4eacb314fba191c75d9e3aac, type: 2}
@@ -19037,7 +19037,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000013627668210, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -45.43
+      value: -38.65
       objectReference: {fileID: 0}
     - target: {fileID: 4000013627668210, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7, type: 2}
       propertyPath: m_LocalPosition.y
@@ -19077,6 +19077,26 @@ Prefab:
         type: 2}
       propertyPath: scene.m_SceneName
       value: simons_Scene.dontTouch
+      objectReference: {fileID: 0}
+    - target: {fileID: 65000013026835086, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 12.781012
+      objectReference: {fileID: 0}
+    - target: {fileID: 65000013026835086, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7,
+        type: 2}
+      propertyPath: m_Center.z
+      value: -0.88680553
+      objectReference: {fileID: 0}
+    - target: {fileID: 65000013026835086, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.071144
+      objectReference: {fileID: 0}
+    - target: {fileID: 65000013026835086, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 1.9187088
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7, type: 2}

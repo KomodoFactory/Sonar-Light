@@ -1259,6 +1259,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011289956368, guid: 4e123f24647d7f74aa43b3c7a3d48cc0,
+        type: 2}
+      propertyPath: opensAtAll
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e123f24647d7f74aa43b3c7a3d48cc0, type: 2}
   m_IsPrefabParent: 0
@@ -4337,7 +4342,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013627668210, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -43.95
+      value: -31.76
       objectReference: {fileID: 0}
     - target: {fileID: 4000013627668210, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4369,6 +4374,26 @@ Prefab:
         type: 2}
       propertyPath: scene.m_SceneName
       value: Room3Prototype
+      objectReference: {fileID: 0}
+    - target: {fileID: 65000013026835086, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.458023
+      objectReference: {fileID: 0}
+    - target: {fileID: 65000013026835086, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 1.5599822
+      objectReference: {fileID: 0}
+    - target: {fileID: 65000013026835086, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 14.604006
+      objectReference: {fileID: 0}
+    - target: {fileID: 65000013026835086, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7,
+        type: 2}
+      propertyPath: m_Center.x
+      value: 0.8764162
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f5e12901dd54bc4d9cf60fbcfd06ca7, type: 2}
