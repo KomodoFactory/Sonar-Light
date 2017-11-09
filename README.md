@@ -1,2 +1,2 @@
 # SonarLight
-Sonar Light ist ein interaktives Erlebnis mit den Ziel einen blinden Protagonisten durch eine zerfallende Welt zu geleiten.
+Sonar Light is an interactive experience with the goal to visualize and fantasise the view of a blind person. They will walk the path of a desolate world, as they slowly learn of the past and future.
