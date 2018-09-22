@@ -31,7 +31,10 @@ public class SoundOnImpact : MonoBehaviour {
             {
                 if (soundCooldownValue < 0)
                 {
+                    
                     SoundRegistry.getInstance().addSound(new Sound(thrown, velMag * velocityMultiplier,audioclip));
+                    
+                   
                     soundCooldownValue = soundCooldown;
                 }
             }

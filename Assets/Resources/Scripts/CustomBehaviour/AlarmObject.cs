@@ -3,10 +3,12 @@ using System.Collections;
 
 public class AlarmObject : MonoBehaviour {
 
-    public AudioClip audioclip;
+    public AudioClip audioclip1;
+    public AudioClip audioclip2;
     public float alarmDelay;
     public float alarmIntesity;
     float alarmCountDown;
+    private bool firstSound = true;
 
     // Use this for initialization
 	void Start () {
@@ -18,7 +20,15 @@ public class AlarmObject : MonoBehaviour {
         alarmCountDown -= Time.deltaTime;
         if(alarmCountDown <= 0)
         {
-            SoundRegistry.getInstance().addSound(new Sound(this.gameObject, alarmIntesity, audioclip));
+            if (firstSound)
+            {
+                SoundRegistry.getInstance().addSound(new Sound(this.gameObject, alarmIntesity, audioclip1));
+            }
+            else
+            {
+                SoundRegistry.getInstance().addSound(new Sound(this.gameObject, alarmIntesity, audioclip2));
+            }
+            firstSound = !firstSound;
             alarmCountDown = alarmDelay;
         }
 	}

@@ -7,7 +7,7 @@ public class ResetOculus : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F7))
         {
-            UnityEngine.VR.InputTracking.Recenter();
+            UnityEngine.XR.InputTracking.Recenter();
         }
     }
 }

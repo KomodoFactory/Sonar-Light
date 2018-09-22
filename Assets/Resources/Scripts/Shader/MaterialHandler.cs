@@ -59,6 +59,6 @@ public class MaterialHandler : MonoBehaviour {
     }
 
     private static bool isOculusPresent() {
-        return VRDevice.isPresent;
+        return UnityEngine.XR.XRDevice.isPresent;
     }
 }

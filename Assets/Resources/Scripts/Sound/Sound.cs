@@ -8,7 +8,7 @@ public class Sound {
     private readonly GameObject sourceObject;
     private float waveRadius = 0;
     private float volume;
-    private static readonly float fade = 80;
+    private static readonly float fade = 40;
     private float intensityMultiplyer = 1;
 
     public Sound(GameObject sourceObject, float volume, AudioClip audioclip) {
